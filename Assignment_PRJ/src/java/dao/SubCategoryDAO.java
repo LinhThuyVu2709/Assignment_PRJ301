@@ -37,5 +37,4 @@ public class SubCategoryDAO {
         }
         return list;
     }
-    
 }

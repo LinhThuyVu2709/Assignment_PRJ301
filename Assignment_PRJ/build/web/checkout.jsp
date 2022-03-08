@@ -51,21 +51,21 @@
             </div>
             <nav class="humberger__menu__nav mobile-menu">
                 <ul>
-                    <li class="active"><a href="homepage.jsp">Home</a></li>
-                    <li><a href="./bakewares.jsp">Bakeware</a>
+                    <li class="active"><a href="Home">Home</a></li>
+                    <li><a href="Bakeware">Bakeware</a>
                         <ul class="header__menu__dropdown">
-                            <li><a href="silicone-bakeware.jsp">Silicone Bakeware</a></li>
-                            <li><a href="nonstick-stinbakeware.jsp">Nonstick & Stin Bakeware</a></li>
-                            <li><a href="paper-bakeware.jsp">Paper Bakeware</a></li>
-                            <li><a href="baking-tools.jsp">Baking Tools</a></li>
+                            <li><a href="SiliconeBakeware">Silicone Bakeware</a></li>
+                            <li><a href="NonstickBakeware">Nonstick & Stin Bakeware</a></li>
+                            <li><a href="PaperBakeware">Paper Bakeware</a></li>
+                            <li><a href="BakingTool">Baking Tools</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Ingredients</a>
+                    <li><a href="Ingredient">Ingredients</a>
                         <ul class="header__menu__dropdown">
-                            <li><a href="color-dust.jsp">Color Dusts & Flavours</a></li>
-                            <li><a href="baking-ingredients.jsp">Baking Ingredients</a></li>
-                            <li><a href="chocolate-ingredients.jsp">Chocolate Ingredients</a></li>
-                            <li><a href="fondants.jsp">Fondants & Gumpaste</a></li>
+                            <li><a href="ColorDust">Color Dusts & Flavours</a></li>
+                            <li><a href="BakingIngredient">Baking Ingredients</a></li>
+                            <li><a href="ChocolateIngredient">Chocolate Ingredients</a></li>
+                            <li><a href="Fondant">Fondants & Gumpaste</a></li>
                         </ul>
                     </li>
                     <li><a href="recipe.jsp">Recipes</a></li>
@@ -120,29 +120,29 @@
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="header__logo">
-                            <a href="homepage.jsp"><img src="img/logo.png" alt=""></a>
+                            <a href="Home"><img src="img/logo.png" alt=""></a>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <nav class="header__menu">
                             <ul>
-                                <li><a href="homepage.jsp">Home</a></li>
+                                <li><a href="Home">Home</a></li>
 
-                                <li><a href="bakewares.jsp">Bakeware</a>
+                                <li><a href="Bakeware">Bakeware</a>
                                     <ul class="header__menu__dropdown">
-                                        <li><a href="silicone-bakeware.jsp">Silicone Bakeware</a></li>
-                                        <li><a href="nonstick-stinbakeware.jsp">Nonstick & Stin Bakeware</a></li>
-                                        <li><a href="paper-bakeware.jsp">Paper Bakeware</a></li>
-                                        <li><a href="baking-tools.jsp">Baking Tools</a></li>
+                                        <li><a href="SiliconeBakeware">Silicone Bakeware</a></li>
+                                        <li><a href="NonstickBakeware">Nonstick & Stin Bakeware</a></li>
+                                        <li><a href="PaperBakeware">Paper Bakeware</a></li>
+                                        <li><a href="BakingTool">Baking Tools</a></li>
                                     </ul>
 
                                 </li>
-                                <li><a href="ingredients.jsp">Ingredients</a>
+                                <li><a href="Ingredient">Ingredients</a>
                                     <ul class="header__menu__dropdown">
-                                        <li><a href="color-dust.jsp">Color Dusts & Flavours</a></li>
-                                        <li><a href="baking-ingredients.jsp">Baking Ingredients</a></li>
-                                        <li><a href="chocolate-ingredients.jsp">Chocolate Ingredients</a></li>
-                                        <li><a href="fondants.jsp">Fondants & Gumpaste</a></li>
+                                        <li><a href="ColorDust">Color Dusts & Flavours</a></li>
+                                        <li><a href="BakingIngredient">Baking Ingredients</a></li>
+                                        <li><a href="ChocolateIngredient">Chocolate Ingredients</a></li>
+                                        <li><a href="Fondant">Fondants & Gumpaste</a></li>
 
                                     </ul>
                                 </li>
@@ -179,14 +179,14 @@
                                 <span>All departments</span>
                             </div>
                             <ul>
-                                <li><a href="silicone-bakeware.jsp">Silicone Bakeware</a></li>
-                                <li><a href="nonstick-stinbakeware.jsp">Nonstick & Stin Bakeware</a></li>
-                                <li><a href="paper-bakeware.jsp">Paper Bakewares</a></li>
-                                <li><a href="baking-tools.jsp">Baking Tools</a></li>
-                                <li><a href="color-dust.jsp">Color Dusts & Flavours</a></li>
-                                <li><a href="baking-ingredients.jsp">Baking Ingredients</a></li>
-                                <li><a href="chocolate-ingredients.jsp">Chocolate Ingredients</a></li>
-                                <li><a href="fondants.jsp">Fondants & Gumpaste</a></li>
+                                <li><a href="SiliconeBakeware">Silicone Bakeware</a></li>
+                                <li><a href="NonstickBakeware">Nonstick & Stin Bakeware</a></li>
+                                <li><a href="PaperBakeware">Paper Bakewares</a></li>
+                                <li><a href="BakingTool">Baking Tools</a></li>
+                                <li><a href="ColorDust">Color Dusts & Flavours</a></li>
+                                <li><a href="BakingIngredient">Baking Ingredients</a></li>
+                                <li><a href="ChocolateIngredient">Chocolate Ingredients</a></li>
+                                <li><a href="Fondant">Fondants & Gumpaste</a></li>
                             </ul>
                         </div>
                     </div>
@@ -226,7 +226,7 @@
                         <div class="breadcrumb__text">
                             <h2>Checkout</h2>
                             <div class="breadcrumb__option">
-                                <a href="homepage.jsp">Home</a>
+                                <a href="Home">Home</a>
                                 <span>Checkout</span>
                             </div>
                         </div>
@@ -369,7 +369,7 @@
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="footer__about">
                             <div class="footer__about__logo">
-                                <a href="homepage.jsp"><img src="img/logo.png" alt=""></a>
+                                <a href="Home"><img src="img/logo.png" alt=""></a>
                             </div>
                             <ul>
                                 <li>Address: 123 Thach That, Ha Noi</li>
@@ -382,8 +382,8 @@
                         <div class="footer__widget">
                             <h6>About us</h6>
                             <ul>
-                                <li><a href="bakewares.jsp">Bakewares</li>
-                                <li><a href="ingredients.jsp">Ingredients</a></li>
+                                <li><a href="Bakeware">Bakewares</li>
+                                <li><a href="Ingredient">Ingredients</a></li>
                                 <li><a href="shoping-cart.jsp">Shopping cart</a></li>
                             </ul>
                             <ul>

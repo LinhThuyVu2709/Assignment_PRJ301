@@ -4,9 +4,97 @@
         <servlet-name>HomeController</servlet-name>
         <servlet-class>controller.HomeController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BakewareController</servlet-name>
+        <servlet-class>controller.BakewareController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>IngredientController</servlet-name>
+        <servlet-class>controller.IngredientController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FilterSubCategoryController</servlet-name>
+        <servlet-class>controller.FilterSubCategoryController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SiliconBakewareController</servlet-name>
+        <servlet-class>controller.SiliconBakewareController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>NonstickBakewareController</servlet-name>
+        <servlet-class>controller.NonstickBakewareController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PaperBakewareController</servlet-name>
+        <servlet-class>controller.PaperBakewareController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BakingToolController</servlet-name>
+        <servlet-class>controller.BakingToolController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ColorDustController</servlet-name>
+        <servlet-class>controller.ColorDustController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BakingIngredientController</servlet-name>
+        <servlet-class>controller.BakingIngredientController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ChocolateIngredientController</servlet-name>
+        <servlet-class>controller.ChocolateIngredientController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FondantController</servlet-name>
+        <servlet-class>controller.FondantController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/Home</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BakewareController</servlet-name>
+        <url-pattern>/Bakeware</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>IngredientController</servlet-name>
+        <url-pattern>/Ingredient</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FilterSubCategoryController</servlet-name>
+        <url-pattern>/filter-subcategory</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SiliconBakewareController</servlet-name>
+        <url-pattern>/SiliconBakeware</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NonstickBakewareController</servlet-name>
+        <url-pattern>/NonstickBakeware</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PaperBakewareController</servlet-name>
+        <url-pattern>/PaperBakeware</url-pattern
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BakingToolController</servlet-name>
+        <url-pattern>/BakingTool</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ColorDustController</servlet-name>
+        <url-pattern>/ColorDust</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BakingIngredientController</servlet-name>
+        <url-pattern>/BakingIngredient</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChocolateIngredientController</servlet-name>
+        <url-pattern>/ChocolateIngredient</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FondantController</servlet-name>
+        <url-pattern>/Fondant</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

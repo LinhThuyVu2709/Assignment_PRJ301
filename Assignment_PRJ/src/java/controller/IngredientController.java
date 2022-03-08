@@ -21,7 +21,7 @@ import model.SubCategory;
  *
  * @author LinhVT
  */
-public class HomeController extends HttpServlet {
+public class IngredientController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,19 +32,15 @@ public class HomeController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
-        
         List<SubCategory> listSubCategory = new SubCategoryDAO().getAllSubCategory();
-        List<Product> listProduct = new ProductDAO().getAllProduct();
-        List<Product> listBakewareProduct = new ProductDAO().getBakewareProduct();
         List<Product> listIngredientProduct = new ProductDAO().getIngredientProduct();
         
-        request.setAttribute("listProduct", listProduct);
-        request.setAttribute("listBakewareProduct", listBakewareProduct);
         request.setAttribute("listIngredientProduct", listIngredientProduct);
         request.setAttribute("listSubCategory", listSubCategory);
-        request.getRequestDispatcher("homepage.jsp").forward(request, response);
+        request.getRequestDispatcher("ingredients.jsp").forward(request, response);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
