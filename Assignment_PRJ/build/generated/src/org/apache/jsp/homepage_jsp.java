@@ -11,10 +11,20 @@ public final class homepage_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   private static java.util.List<String> _jspx_dependants;
 
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items_end_begin;
+
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
   public java.util.List<String> getDependants() {
     return _jspx_dependants;
+  }
+
+  public void _jspInit() {
+    _jspx_tagPool_c_forEach_var_items_end_begin = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+  }
+
+  public void _jspDestroy() {
+    _jspx_tagPool_c_forEach_var_items_end_begin.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -41,6 +51,7 @@ public final class homepage_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("\n");
       out.write("\n");
       out.write("\n");
       out.write("\n");
@@ -316,196 +327,22 @@ public final class homepage_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <div class=\"featured__controls\">\n");
       out.write("                            <ul>\n");
       out.write("                                <li class=\"active\" data-filter=\"*\">All</li>\n");
-      out.write("                                <li data-filter=\".oranges\">Oranges</li>\n");
-      out.write("                                <li data-filter=\".fresh-meat\">Fresh Meat</li>\n");
-      out.write("                                <li data-filter=\".vegetables\">Vegetables</li>\n");
-      out.write("                                <li data-filter=\".fastfood\">Fastfood</li>\n");
+      out.write("                                <li data-filter=\".bakeware\">Bakeware</li>\n");
+      out.write("                                <li data-filter=\".ingredient\">Ingredients</li>\n");
       out.write("                            </ul>\n");
       out.write("                        </div>\n");
       out.write("                    </div>\n");
       out.write("                </div>\n");
       out.write("                <div class=\"row featured__filter\">\n");
-      out.write("                    <div class=\"col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat\">\n");
-      out.write("                        <div class=\"featured__item\">\n");
-      out.write("                            <div class=\"featured__item__pic set-bg\" data-setbg=\"img/featured/feature-1.jpg\">\n");
-      out.write("                                <ul class=\"featured__item__pic__hover\">\n");
-      out.write("                                    <li><a href=\"#\"><i class=\"fa fa-heart\"></i></a></li>\n");
-      out.write("                                    <li><a href=\"#\"><i class=\"fa fa-retweet\"></i></a></li>\n");
-      out.write("                                    <li><a href=\"#\"><i class=\"fa fa-shopping-cart\"></i></a></li>\n");
-      out.write("                                </ul>\n");
-      out.write("                            </div>\n");
-      out.write("                            <div class=\"featured__item__text\">\n");
-      out.write("                                <h6><a href=\"#\">Crab Pool Security</a></h6>\n");
-      out.write("                                <h5>$30.00</h5>\n");
-      out.write("                            </div>\n");
-      out.write("                        </div>\n");
-      out.write("                    </div>\n");
-      out.write("                    <div class=\"col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood\">\n");
-      out.write("                        <div class=\"featured__item\">\n");
-      out.write("                            <div class=\"featured__item__pic set-bg\" data-setbg=\"img/featured/feature-2.jpg\">\n");
-      out.write("                                <ul class=\"featured__item__pic__hover\">\n");
-      out.write("                                    <li><a href=\"#\"><i class=\"fa fa-heart\"></i></a></li>\n");
-      out.write("                                    <li><a href=\"#\"><i class=\"fa fa-retweet\"></i></a></li>\n");
-      out.write("                                    <li><a href=\"#\"><i class=\"fa fa-shopping-cart\"></i></a></li>\n");
-      out.write("                                </ul>\n");
-      out.write("                            </div>\n");
-      out.write("                            <div class=\"featured__item__text\">\n");
-      out.write("                                <h6><a href=\"#\">Crab Pool Security</a></h6>\n");
-      out.write("                                <h5>$30.00</h5>\n");
-      out.write("                            </div>\n");
-      out.write("                        </div>\n");
-      out.write("                    </div>\n");
-      out.write("                    <div class=\"col-lg-3 col-md-4 col-sm-6 mix vegetables fresh-meat\">\n");
-      out.write("                        <div class=\"featured__item\">\n");
-      out.write("                            <div class=\"featured__item__pic set-bg\" data-setbg=\"img/featured/feature-3.jpg\">\n");
-      out.write("                                <ul class=\"featured__item__pic__hover\">\n");
-      out.write("                                    <li><a href=\"#\"><i class=\"fa fa-heart\"></i></a></li>\n");
-      out.write("                                    <li><a href=\"#\"><i class=\"fa fa-retweet\"></i></a></li>\n");
-      out.write("                                    <li><a href=\"#\"><i class=\"fa fa-shopping-cart\"></i></a></li>\n");
-      out.write("                                </ul>\n");
-      out.write("                            </div>\n");
-      out.write("                            <div class=\"featured__item__text\">\n");
-      out.write("                                <h6><a href=\"#\">Crab Pool Security</a></h6>\n");
-      out.write("                                <h5>$30.00</h5>\n");
-      out.write("                            </div>\n");
-      out.write("                        </div>\n");
-      out.write("                    </div>\n");
-      out.write("                    <div class=\"col-lg-3 col-md-4 col-sm-6 mix fastfood oranges\">\n");
-      out.write("                        <div class=\"featured__item\">\n");
-      out.write("                            <div class=\"featured__item__pic set-bg\" data-setbg=\"img/featured/feature-4.jpg\">\n");
-      out.write("                                <ul class=\"featured__item__pic__hover\">\n");
-      out.write("                                    <li><a href=\"#\"><i class=\"fa fa-heart\"></i></a></li>\n");
-      out.write("                                    <li><a href=\"#\"><i class=\"fa fa-retweet\"></i></a></li>\n");
-      out.write("                                    <li><a href=\"#\"><i class=\"fa fa-shopping-cart\"></i></a></li>\n");
-      out.write("                                </ul>\n");
-      out.write("                            </div>\n");
-      out.write("                            <div class=\"featured__item__text\">\n");
-      out.write("                                <h6><a href=\"#\">Crab Pool Security</a></h6>\n");
-      out.write("                                <h5>$30.00</h5>\n");
-      out.write("                            </div>\n");
-      out.write("                        </div>\n");
-      out.write("                    </div>\n");
-      out.write("                    <div class=\"col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables\">\n");
-      out.write("                        <div class=\"featured__item\">\n");
-      out.write("                            <div class=\"featured__item__pic set-bg\" data-setbg=\"img/featured/feature-5.jpg\">\n");
-      out.write("                                <ul class=\"featured__item__pic__hover\">\n");
-      out.write("                                    <li><a href=\"#\"><i class=\"fa fa-heart\"></i></a></li>\n");
-      out.write("                                    <li><a href=\"#\"><i class=\"fa fa-retweet\"></i></a></li>\n");
-      out.write("                                    <li><a href=\"#\"><i class=\"fa fa-shopping-cart\"></i></a></li>\n");
-      out.write("                                </ul>\n");
-      out.write("                            </div>\n");
-      out.write("                            <div class=\"featured__item__text\">\n");
-      out.write("                                <h6><a href=\"#\">Crab Pool Security</a></h6>\n");
-      out.write("                                <h5>$30.00</h5>\n");
-      out.write("                            </div>\n");
-      out.write("                        </div>\n");
-      out.write("                    </div>\n");
-      out.write("                    <div class=\"col-lg-3 col-md-4 col-sm-6 mix oranges fastfood\">\n");
-      out.write("                        <div class=\"featured__item\">\n");
-      out.write("                            <div class=\"featured__item__pic set-bg\" data-setbg=\"img/featured/feature-6.jpg\">\n");
-      out.write("                                <ul class=\"featured__item__pic__hover\">\n");
-      out.write("                                    <li><a href=\"#\"><i class=\"fa fa-heart\"></i></a></li>\n");
-      out.write("                                    <li><a href=\"#\"><i class=\"fa fa-retweet\"></i></a></li>\n");
-      out.write("                                    <li><a href=\"#\"><i class=\"fa fa-shopping-cart\"></i></a></li>\n");
-      out.write("                                </ul>\n");
-      out.write("                            </div>\n");
-      out.write("                            <div class=\"featured__item__text\">\n");
-      out.write("                                <h6><a href=\"#\">Crab Pool Security</a></h6>\n");
-      out.write("                                <h5>$30.00</h5>\n");
-      out.write("                            </div>\n");
-      out.write("                        </div>\n");
-      out.write("                    </div>\n");
-      out.write("                    <div class=\"col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables\">\n");
-      out.write("                        <div class=\"featured__item\">\n");
-      out.write("                            <div class=\"featured__item__pic set-bg\" data-setbg=\"img/featured/feature-7.jpg\">\n");
-      out.write("                                <ul class=\"featured__item__pic__hover\">\n");
-      out.write("                                    <li><a href=\"#\"><i class=\"fa fa-heart\"></i></a></li>\n");
-      out.write("                                    <li><a href=\"#\"><i class=\"fa fa-retweet\"></i></a></li>\n");
-      out.write("                                    <li><a href=\"#\"><i class=\"fa fa-shopping-cart\"></i></a></li>\n");
-      out.write("                                </ul>\n");
-      out.write("                            </div>\n");
-      out.write("                            <div class=\"featured__item__text\">\n");
-      out.write("                                <h6><a href=\"#\">Crab Pool Security</a></h6>\n");
-      out.write("                                <h5>$30.00</h5>\n");
-      out.write("                            </div>\n");
-      out.write("                        </div>\n");
-      out.write("                    </div>\n");
-      out.write("                    <div class=\"col-lg-3 col-md-4 col-sm-6 mix fastfood vegetables\">\n");
-      out.write("                        <div class=\"featured__item\">\n");
-      out.write("                            <div class=\"featured__item__pic set-bg\" data-setbg=\"img/featured/feature-8.jpg\">\n");
-      out.write("                                <ul class=\"featured__item__pic__hover\">\n");
-      out.write("                                    <li><a href=\"#\"><i class=\"fa fa-heart\"></i></a></li>\n");
-      out.write("                                    <li><a href=\"#\"><i class=\"fa fa-retweet\"></i></a></li>\n");
-      out.write("                                    <li><a href=\"#\"><i class=\"fa fa-shopping-cart\"></i></a></li>\n");
-      out.write("                                </ul>\n");
-      out.write("                            </div>\n");
-      out.write("                            <div class=\"featured__item__text\">\n");
-      out.write("                                <h6><a href=\"#\">Crab Pool Security</a></h6>\n");
-      out.write("                                <h5>$30.00</h5>\n");
-      out.write("                            </div>\n");
-      out.write("                        </div>\n");
-      out.write("                    </div>\n");
-      out.write("                </div>\n");
-      out.write("            </div>\n");
-      out.write("        </section>\n");
-      out.write("        <!-- Featured Section End -->\n");
+      out.write("                    ");
+      if (_jspx_meth_c_forEach_0(_jspx_page_context))
+        return;
       out.write("\n");
-      out.write("        <!-- Blog Section Begin -->\n");
-      out.write("        <section class=\"from-blog spad\">\n");
-      out.write("            <div class=\"container\">\n");
-      out.write("                <div class=\"row\">\n");
-      out.write("                    <div class=\"col-lg-12\">\n");
-      out.write("                        <div class=\"section-title from-blog__title\">\n");
-      out.write("                            <h2>From The Blog</h2>\n");
-      out.write("                        </div>\n");
-      out.write("                    </div>\n");
-      out.write("                </div>\n");
-      out.write("                <div class=\"row\">\n");
-      out.write("                    <div class=\"col-lg-4 col-md-4 col-sm-6\">\n");
-      out.write("                        <div class=\"blog__item\">\n");
-      out.write("                            <div class=\"blog__item__pic\">\n");
-      out.write("                                <img src=\"img/blog/blog-1.jpg\" alt=\"\">\n");
-      out.write("                            </div>\n");
-      out.write("                            <div class=\"blog__item__text\">\n");
-      out.write("                                <ul>\n");
-      out.write("                                    <li><i class=\"fa fa-calendar-o\"></i> May 4,2019</li>\n");
-      out.write("                                    <li><i class=\"fa fa-comment-o\"></i> 5</li>\n");
-      out.write("                                </ul>\n");
-      out.write("                                <h5><a href=\"#\">Cooking tips make cooking simple</a></h5>\n");
-      out.write("                                <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>\n");
-      out.write("                            </div>\n");
-      out.write("                        </div>\n");
-      out.write("                    </div>\n");
-      out.write("                    <div class=\"col-lg-4 col-md-4 col-sm-6\">\n");
-      out.write("                        <div class=\"blog__item\">\n");
-      out.write("                            <div class=\"blog__item__pic\">\n");
-      out.write("                                <img src=\"img/blog/blog-2.jpg\" alt=\"\">\n");
-      out.write("                            </div>\n");
-      out.write("                            <div class=\"blog__item__text\">\n");
-      out.write("                                <ul>\n");
-      out.write("                                    <li><i class=\"fa fa-calendar-o\"></i> May 4,2019</li>\n");
-      out.write("                                    <li><i class=\"fa fa-comment-o\"></i> 5</li>\n");
-      out.write("                                </ul>\n");
-      out.write("                                <h5><a href=\"#\">6 ways to prepare breakfast for 30</a></h5>\n");
-      out.write("                                <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>\n");
-      out.write("                            </div>\n");
-      out.write("                        </div>\n");
-      out.write("                    </div>\n");
-      out.write("                    <div class=\"col-lg-4 col-md-4 col-sm-6\">\n");
-      out.write("                        <div class=\"blog__item\">\n");
-      out.write("                            <div class=\"blog__item__pic\">\n");
-      out.write("                                <img src=\"img/blog/blog-3.jpg\" alt=\"\">\n");
-      out.write("                            </div>\n");
-      out.write("                            <div class=\"blog__item__text\">\n");
-      out.write("                                <ul>\n");
-      out.write("                                    <li><i class=\"fa fa-calendar-o\"></i> May 4,2019</li>\n");
-      out.write("                                    <li><i class=\"fa fa-comment-o\"></i> 5</li>\n");
-      out.write("                                </ul>\n");
-      out.write("                                <h5><a href=\"#\">Visit the clean farm in the US</a></h5>\n");
-      out.write("                                <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>\n");
-      out.write("                            </div>\n");
-      out.write("                        </div>\n");
-      out.write("                    </div>\n");
+      out.write("                    \n");
+      out.write("                    ");
+      if (_jspx_meth_c_forEach_1(_jspx_page_context))
+        return;
+      out.write(" \n");
       out.write("                </div>\n");
       out.write("            </div>\n");
       out.write("        </section>\n");
@@ -587,5 +424,119 @@ public final class homepage_jsp extends org.apache.jasper.runtime.HttpJspBase
     } finally {
       _jspxFactory.releasePageContext(_jspx_page_context);
     }
+  }
+
+  private boolean _jspx_meth_c_forEach_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items_end_begin.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_0.setParent(null);
+    _jspx_th_c_forEach_0.setBegin(0);
+    _jspx_th_c_forEach_0.setEnd(7);
+    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${listIngredientProduct}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    _jspx_th_c_forEach_0.setVar("ingredient");
+    int[] _jspx_push_body_count_c_forEach_0 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_0 = _jspx_th_c_forEach_0.doStartTag();
+      if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\n");
+          out.write("                        <div class=\"col-lg-3 col-md-4 col-sm-6 mix ingredient\">\n");
+          out.write("                            <div class=\"featured__item\">\n");
+          out.write("                                <div class=\"featured__item__pic set-bg\" data-setbg=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ingredient.imageURL}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\">\n");
+          out.write("                                    <ul class=\"featured__item__pic__hover\">\n");
+          out.write("                                        <li><a href=\"shoping-cart.jsp\"><i class=\"fa fa-shopping-cart\"></i></a></li>\n");
+          out.write("                                    </ul>\n");
+          out.write("                                </div>\n");
+          out.write("                                <div class=\"featured__item__text\">\n");
+          out.write("                                    <h6><a href=\"#\">");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ingredient.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</a></h6>\n");
+          out.write("                                    <h5>$");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ingredient.price}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</h5>\n");
+          out.write("                                </div>\n");
+          out.write("                            </div>\n");
+          out.write("                        </div>\n");
+          out.write("                    ");
+          int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_0[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_0.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_0.doFinally();
+      _jspx_tagPool_c_forEach_var_items_end_begin.reuse(_jspx_th_c_forEach_0);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_c_forEach_1(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_1 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items_end_begin.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_1.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_1.setParent(null);
+    _jspx_th_c_forEach_1.setBegin(0);
+    _jspx_th_c_forEach_1.setEnd(7);
+    _jspx_th_c_forEach_1.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${listBakewareProduct}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    _jspx_th_c_forEach_1.setVar("bakeware");
+    int[] _jspx_push_body_count_c_forEach_1 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_1 = _jspx_th_c_forEach_1.doStartTag();
+      if (_jspx_eval_c_forEach_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\n");
+          out.write("                        <div class=\"col-lg-3 col-md-4 col-sm-6 mix bakeware\">\n");
+          out.write("                            <div class=\"featured__item\">\n");
+          out.write("                                <div class=\"featured__item__pic set-bg\" data-setbg=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${bakeware.imageURL}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\">\n");
+          out.write("                                    <ul class=\"featured__item__pic__hover\">\n");
+          out.write("                                        <li><a href=\"shoping-cart.jsp\"><i class=\"fa fa-shopping-cart\"></i></a></li>\n");
+          out.write("                                    </ul>\n");
+          out.write("                                </div>\n");
+          out.write("                                <div class=\"featured__item__text\">\n");
+          out.write("                                    <h6><a href=\"#\">");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${bakeware.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</a></h6>\n");
+          out.write("                                    <h5>$");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${bakeware.price}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</h5>\n");
+          out.write("                                </div>\n");
+          out.write("                            </div>\n");
+          out.write("                        </div>\n");
+          out.write("                    ");
+          int evalDoAfterBody = _jspx_th_c_forEach_1.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_1[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_1.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_1.doFinally();
+      _jspx_tagPool_c_forEach_var_items_end_begin.reuse(_jspx_th_c_forEach_1);
+    }
+    return false;
   }
 }

@@ -5,12 +5,17 @@
  */
 package controller;
 
+import dao.ProductDAO;
+import dao.SubCategoryDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Product;
+import model.SubCategory;
 
 /**
  *
@@ -30,6 +35,16 @@ public class HomeController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
+        List<SubCategory> listSubCategory = new SubCategoryDAO().getAllSubCategory();
+        List<Product> listProduct = new ProductDAO().getAllProduct();
+        List<Product> listBakewareProduct = new ProductDAO().getBakewareProduct();
+        List<Product> listIngredientProduct = new ProductDAO().getIngredientProduct();
+        
+        request.setAttribute("listProduct", listProduct);
+        request.setAttribute("listBakewareProduct", listBakewareProduct);
+        request.setAttribute("listIngredientProduct", listIngredientProduct);
+        request.setAttribute("listSubCategory", listSubCategory);
         request.getRequestDispatcher("homepage.jsp").forward(request, response);
     }
 
