@@ -54,7 +54,7 @@
                     <li><a href="Home">Home</a></li>
                     <li class="active"><a href="Bakeware">Bakeware</a>
                         <ul class="header__menu__dropdown">
-                            <li><a href="SiliconeBakeware">Silicone Bakeware</a></li>
+                            <li><a href="SiliconBakeware">Silicone Bakeware</a></li>
                             <li><a href="NonstickBakeware">Nonstick & Stin Bakeware</a></li>
                             <li><a href="PaperBakeware">Paper Bakeware</a></li>
                             <li><a href="BakingTool">Baking Tools</a></li>
@@ -129,7 +129,7 @@
                                 <li><a href="Home">Home</a></li>
                                 <li><a href="Bakeware">Bakeware</a>
                                     <ul class="header__menu__dropdown">
-                                        <li><a href="SiliconeBakeware">Silicone Bakeware</a></li>
+                                        <li><a href="SiliconBakeware">Silicone Bakeware</a></li>
                                         <li><a href="NonstickBakeware">Nonstick & Stin Bakeware</a></li>
                                         <li><a href="PaperBakeware">Paper Bakeware</a></li>
                                         <li><a href="BakingTool">Baking Tools</a></li>

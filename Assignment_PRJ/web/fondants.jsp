@@ -56,7 +56,7 @@
                     <li><a href="Home">Home</a></li>
                     <li class="active"><a href="Bakeware">Bakeware</a>
                         <ul class="header__menu__dropdown">
-                            <li><a href="SiliconeBakeware">Silicone Bakeware</a></li>
+                            <li><a href="SiliconBakeware">Silicone Bakeware</a></li>
                             <li><a href="nonstick-stinbakeware.jsp">Nonstick & Stin Bakeware</a></li>
                             <li><a href="paper-bakeware.jsp">Paper Bakeware</a></li>
                             <li><a href="baking-tools.jsp">Baking Tools</a></li>
@@ -130,7 +130,7 @@
                                 <li><a href="Home">Home</a></li>
                                 <li><a href="bakewares.jsp">Bakeware</a>
                                     <ul class="header__menu__dropdown">
-                                        <li><a href="SiliconeBakeware">Silicone Bakeware</a></li>
+                                        <li><a href="SiliconBakeware">Silicone Bakeware</a></li>
                                         <li><a href="nonstick-stinbakeware.jsp">Nonstick & Stin Bakeware</a></li>
                                         <li><a href="paper-bakeware.jsp">Paper Bakeware</a></li>
                                         <li><a href="baking-tools.jsp">Baking Tools</a></li>
@@ -177,7 +177,7 @@
                                 <span>All departments</span>
                             </div>
                             <ul>
-                                <li><a href="SiliconeBakeware">Silicone Bakeware</a></li>
+                                <li><a href="SiliconBakeware">Silicone Bakeware</a></li>
                                 <li><a href="nonstick-stinbakeware.jsp">Nonstick & Stin Bakeware</a></li>
                                 <li><a href="paper-bakeware.jsp">Paper Bakewares</a></li>
                                 <li><a href="baking-tools.jsp">Baking Tools</a></li>
@@ -243,7 +243,7 @@
                             <div class="sidebar__item">
                                 <h4>Department</h4>
                                 <ul>
-                                    <li><a href="SiliconeBakeware">Silicone Bakeware</a></li>
+                                    <li><a href="SiliconBakeware">Silicone Bakeware</a></li>
                                     <li><a href="nonstick-stinbakeware.jsp">Nonstick & Stin Bakeware</a></li>
                                     <li><a href="paper-bakeware.jsp">Paper Bakewares</a></li>
                                     <li><a href="baking-tools.jsp">Baking Tools</a></li>

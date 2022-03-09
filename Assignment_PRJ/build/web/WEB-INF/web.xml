@@ -74,7 +74,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>PaperBakewareController</servlet-name>
-        <url-pattern>/PaperBakeware</url-pattern
+        <url-pattern>/PaperBakeware</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>BakingToolController</servlet-name>
