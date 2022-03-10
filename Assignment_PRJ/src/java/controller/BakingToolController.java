@@ -34,11 +34,24 @@ public class BakingToolController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<SubCategory> listSubCategory = new SubCategoryDAO().getAllSubCategory();
-        List<Product> listBakingTool = new ProductDAO().getProductBySubID(4);
+       final int PAGE_SIZE = 6;
+        int page = 1;
+        
+        String pageStr = request.getParameter("page");
+        if (pageStr != null) {
+            page = Integer.parseInt(pageStr);
+        }
+        ProductDAO toolDAO = new ProductDAO();
+        List<Product> listBakingTool = toolDAO.getProductInPagingBySUBCategory_ID(4,page, PAGE_SIZE);
+        int totalToolBakeware = toolDAO.getTotalProductBySUBCategory_ID(4);
+        int totalPage = totalToolBakeware/PAGE_SIZE;
+        if (totalPage % PAGE_SIZE != 0) {
+            totalPage += 1;
+        }
+        request.setAttribute("page", page);
+        request.setAttribute("totalPage", totalPage);
         
         request.setAttribute("listBakingTool", listBakingTool);
-        request.setAttribute("listSubCategory", listSubCategory);
         request.getRequestDispatcher("baking-tools.jsp").forward(request, response);
     }
 

@@ -37,8 +37,8 @@ public class HomeController extends HttpServlet {
         
         List<SubCategory> listSubCategory = new SubCategoryDAO().getAllSubCategory();
         List<Product> listProduct = new ProductDAO().getAllProduct();
-        List<Product> listBakewareProduct = new ProductDAO().getBakewareProduct();
-        List<Product> listIngredientProduct = new ProductDAO().getIngredientProduct();
+        List<Product> listBakewareProduct = new ProductDAO().getProductByCategoryID(1);
+        List<Product> listIngredientProduct = new ProductDAO().getProductByCategoryID(2);
         
         request.setAttribute("listProduct", listProduct);
         request.setAttribute("listBakewareProduct", listBakewareProduct);

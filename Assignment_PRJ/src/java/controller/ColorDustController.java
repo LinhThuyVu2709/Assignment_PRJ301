@@ -34,11 +34,24 @@ public class ColorDustController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<SubCategory> listSubCategory = new SubCategoryDAO().getAllSubCategory();
-        List<Product> listColorDust = new ProductDAO().getProductBySubID(5);
+        final int PAGE_SIZE = 6;
+        int page = 1;
+        
+        String pageStr = request.getParameter("page");
+        if (pageStr != null) {
+            page = Integer.parseInt(pageStr);
+        }
+        ProductDAO colorDAO = new ProductDAO();
+        List<Product> listColorDust = colorDAO.getProductInPagingBySUBCategory_ID(5,page, PAGE_SIZE);
+        int totalColorDust = colorDAO.getTotalProductBySUBCategory_ID(5);
+        int totalPage = totalColorDust/PAGE_SIZE;
+        if (totalPage % PAGE_SIZE != 0) {
+            totalPage += 1;
+        }
+        request.setAttribute("page", page);
+        request.setAttribute("totalPage", totalPage);
         
         request.setAttribute("listColorDust", listColorDust);
-        request.setAttribute("listSubCategory", listSubCategory);
         request.getRequestDispatcher("color-dust.jsp").forward(request, response);
     }
 

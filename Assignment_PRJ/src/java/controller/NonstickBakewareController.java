@@ -34,11 +34,24 @@ public class NonstickBakewareController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<SubCategory> listSubCategory = new SubCategoryDAO().getAllSubCategory();
-        List<Product> listNonstickBakeware = new ProductDAO().getProductBySubID(2);
+        final int PAGE_SIZE = 6;
+        int page = 1;
+        
+        String pageStr = request.getParameter("page");
+        if (pageStr != null) {
+            page = Integer.parseInt(pageStr);
+        }
+        ProductDAO nonstickDAO = new ProductDAO();
+        List<Product> listNonstickBakeware = nonstickDAO.getProductInPagingBySUBCategory_ID(2,page, PAGE_SIZE);
+        int totalNonstickBakeware = nonstickDAO.getTotalProductBySUBCategory_ID(2);
+        int totalPage = totalNonstickBakeware/PAGE_SIZE;
+        if (totalPage % PAGE_SIZE != 0) {
+            totalPage += 1;
+        }
+        request.setAttribute("page", page);
+        request.setAttribute("totalPage", totalPage);
         
         request.setAttribute("listNonstickBakeware", listNonstickBakeware);
-        request.setAttribute("listSubCategory", listSubCategory);
         request.getRequestDispatcher("nonstick-stinbakeware.jsp").forward(request, response);
     }
 

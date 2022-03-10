@@ -34,11 +34,24 @@ public class PaperBakewareController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<SubCategory> listSubCategory = new SubCategoryDAO().getAllSubCategory();
-        List<Product> listPaperBakeware = new ProductDAO().getProductBySubID(3);
+        final int PAGE_SIZE = 6;
+        int page = 1;
+        
+        String pageStr = request.getParameter("page");
+        if (pageStr != null) {
+            page = Integer.parseInt(pageStr);
+        }
+        ProductDAO paperDAO = new ProductDAO();
+        List<Product> listPaperBakeware = paperDAO.getProductInPagingBySUBCategory_ID(3,page, PAGE_SIZE);
+        int totalPaperBakeware = paperDAO.getTotalProductBySUBCategory_ID(3);
+        int totalPage = totalPaperBakeware/PAGE_SIZE;
+        if (totalPage % PAGE_SIZE != 0) {
+            totalPage += 1;
+        }
+        request.setAttribute("page", page);
+        request.setAttribute("totalPage", totalPage);
         
         request.setAttribute("listPaperBakeware", listPaperBakeware);
-        request.setAttribute("listSubCategory", listSubCategory);
         request.getRequestDispatcher("paper-bakeware.jsp").forward(request, response);
     }
 

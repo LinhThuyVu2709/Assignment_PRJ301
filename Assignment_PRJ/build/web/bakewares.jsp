@@ -406,10 +406,27 @@
                             </c:forEach>
                         </div>
                         <div class="product__pagination">
-                            <a href="#">1</a>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <a href="#"><i class="fa fa-long-arrow-right"></i></a>
+                            <c:choose>
+                                <c:when test="${page>1}">
+                                    <a href="Bakeware?page=${page-1}"><i class="fa fa-long-arrow-left"></i></a>
+                                </c:when>
+                                <c:otherwise>
+                                    <a href="#"><i class="fa fa-long-arrow-left"></i></a>
+                                </c:otherwise>
+                            </c:choose>
+                            
+                            <c:forEach begin="1" end="${totalPage}" var="i">
+                            <a class="${i==page?"active" : ""}" href="Bakeware?page=${i}">${i}</a>
+                            </c:forEach>
+                            <c:choose>
+                                <c:when test="${page>=totalPage }">
+                                    <a href="#"><i class="fa fa-long-arrow-right"></i></a>
+                                </c:when>
+                                <c:otherwise>
+                                    <a href="Bakeware?page=${page+1}"><i class="fa fa-long-arrow-right"></i></a>
+                                </c:otherwise>
+                            </c:choose>
+                            
                         </div>
                     </div>
                 </div>

@@ -34,11 +34,24 @@ public class FondantController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<SubCategory> listSubCategory = new SubCategoryDAO().getAllSubCategory();
-        List<Product> listFondant = new ProductDAO().getProductBySubID(8);
+        final int PAGE_SIZE = 6;
+        int page = 1;
+        
+        String pageStr = request.getParameter("page");
+        if (pageStr != null) {
+            page = Integer.parseInt(pageStr);
+        }
+        ProductDAO fondantDAO = new ProductDAO();
+        List<Product> listFondant = fondantDAO.getProductInPagingBySUBCategory_ID(8,page, PAGE_SIZE);
+        int totalFondant = fondantDAO.getTotalProductBySUBCategory_ID(8);
+        int totalPage = totalFondant/PAGE_SIZE;
+        if (totalPage % PAGE_SIZE != 0) {
+            totalPage += 1;
+        }
+        request.setAttribute("page", page);
+        request.setAttribute("totalPage", totalPage);
         
         request.setAttribute("listFondant", listFondant);
-        request.setAttribute("listSubCategory", listSubCategory);
         request.getRequestDispatcher("fondants.jsp").forward(request, response);
     }
 

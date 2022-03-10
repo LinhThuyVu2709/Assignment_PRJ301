@@ -285,7 +285,7 @@
                     </div>
                 </div>
                 <div class="row featured__filter">
-                    <c:forEach begin="0" end="7" items="${listBakewareProduct}" var="bakeware">
+                    <c:forEach begin="0" end="3" items="${listBakewareProduct}" var="bakeware">
                         <div class="col-lg-3 col-md-4 col-sm-6 mix bakeware">
                             <div class="featured__item">
                                 <div class="featured__item__pic set-bg" data-setbg="${bakeware.imageURL}">
@@ -300,8 +300,8 @@
                             </div>
                         </div>
                     </c:forEach> 
-                    
-                    <c:forEach begin="0" end="7" items="${listIngredientProduct}" var="ingredient">
+
+                    <c:forEach begin="0" end="3" items="${listIngredientProduct}" var="ingredient">
                         <div class="col-lg-3 col-md-4 col-sm-6 mix ingredient">
                             <div class="featured__item">
                                 <div class="featured__item__pic set-bg" data-setbg="${ingredient.imageURL}">
@@ -316,7 +316,8 @@
                             </div>
                         </div>
                     </c:forEach>
-                    
+                   
+
                 </div>
             </div>
         </section>

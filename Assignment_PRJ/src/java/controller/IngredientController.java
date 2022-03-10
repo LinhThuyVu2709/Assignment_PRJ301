@@ -34,11 +34,23 @@ public class IngredientController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
-        List<SubCategory> listSubCategory = new SubCategoryDAO().getAllSubCategory();
-        List<Product> listIngredientProduct = new ProductDAO().getIngredientProduct();
+        final int PAGE_SIZE = 6;
+        int page = 1;
         
+        String pageStr = request.getParameter("page");
+        if (pageStr != null) {
+            page = Integer.parseInt(pageStr);
+        }
+        ProductDAO ingredientDAO = new ProductDAO();
+        List<Product> listIngredientProduct = ingredientDAO.getProductInPagingByCategory_ID(2,page, PAGE_SIZE);
+        int totalIngredient = ingredientDAO.getTotalProductByCategory_ID(2);
+        int totalPage = totalIngredient/PAGE_SIZE;
+        if (totalPage % PAGE_SIZE != 0) {
+            totalPage += 1;
+        }
+        request.setAttribute("page", page);
+        request.setAttribute("totalPage", totalPage);
         request.setAttribute("listIngredientProduct", listIngredientProduct);
-        request.setAttribute("listSubCategory", listSubCategory);
         request.getRequestDispatcher("ingredients.jsp").forward(request, response);
         
     }

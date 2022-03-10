@@ -34,11 +34,24 @@ public class SiliconBakewareController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<SubCategory> listSubCategory = new SubCategoryDAO().getAllSubCategory();
-        List<Product> listSiliconeBakeware = new ProductDAO().getProductBySubID(1);
+        final int PAGE_SIZE = 6;
+        int page = 1;
+        
+        String pageStr = request.getParameter("page");
+        if (pageStr != null) {
+            page = Integer.parseInt(pageStr);
+        }
+        ProductDAO siliconDAO = new ProductDAO();
+        List<Product> listSiliconeBakeware = siliconDAO.getProductInPagingBySUBCategory_ID(1,page, PAGE_SIZE);
+        int totalSiliconBakeware = siliconDAO.getTotalProductBySUBCategory_ID(1);
+        int totalPage = totalSiliconBakeware/PAGE_SIZE;
+        if (totalPage % PAGE_SIZE != 0) {
+            totalPage += 1;
+        }
+        request.setAttribute("page", page);
+        request.setAttribute("totalPage", totalPage);
         
         request.setAttribute("listSiliconeBakeware", listSiliconeBakeware);
-        request.setAttribute("listSubCategory", listSubCategory);
         request.getRequestDispatcher("silicone-bakeware.jsp").forward(request, response);
  
     }

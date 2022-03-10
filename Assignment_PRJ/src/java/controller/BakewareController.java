@@ -34,11 +34,23 @@ public class BakewareController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<SubCategory> listSubCategory = new SubCategoryDAO().getAllSubCategory();
-        List<Product> listBakewareProduct = new ProductDAO().getBakewareProduct();
+        final int PAGE_SIZE = 6;
+        int page = 1;
         
+        String pageStr = request.getParameter("page");
+        if (pageStr != null) {
+            page = Integer.parseInt(pageStr);
+        }
+        ProductDAO bakewareDAO = new ProductDAO();
+        List<Product> listBakewareProduct = bakewareDAO.getProductInPagingByCategory_ID(1,page, PAGE_SIZE);
+        int totalBakeware = bakewareDAO.getTotalProductByCategory_ID(1);
+        int totalPage = totalBakeware/PAGE_SIZE;
+        if (totalPage % PAGE_SIZE != 0) {
+            totalPage += 1;
+        }
+        request.setAttribute("page", page);
+        request.setAttribute("totalPage", totalPage);
         request.setAttribute("listBakewareProduct", listBakewareProduct);
-        request.setAttribute("listSubCategory", listSubCategory);
         request.getRequestDispatcher("bakewares.jsp").forward(request, response);
     }
 
