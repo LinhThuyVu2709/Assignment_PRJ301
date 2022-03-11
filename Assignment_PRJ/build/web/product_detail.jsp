@@ -15,7 +15,7 @@
         <meta name="keywords" content="Ogani, unica, creative, html">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Bakewares</title>
+        <title>Product Detail</title>
 
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
@@ -53,19 +53,21 @@
             </div>
             <nav class="humberger__menu__nav mobile-menu">
                 <ul>
-                    <li><a href="Home">Home</a></li>
-                    <li class="active"><a href="#">Bakeware</a>
+                    <li class="active"><a href="Home">Home</a></li>
+                    <li><a href="Bakeware">Bakeware</a>
                         <ul class="header__menu__dropdown">
-                            <c:forEach items="${sublistBakeware}" var="b"> 
-                                <li><a href="filter-bakeware?subB_id=${b.id}">${b.name}</a></li>
-                                </c:forEach>
+                            <li><a href="SiliconBakeware">Silicone Bakeware</a></li>
+                            <li><a href="NonstickBakeware">Nonstick & Stin Bakeware</a></li>
+                            <li><a href="PaperBakeware">Paper Bakeware</a></li>
+                            <li><a href="BakingTool">Baking Tools</a></li>
                         </ul>
                     </li>
                     <li><a href="Ingredient">Ingredients</a>
                         <ul class="header__menu__dropdown">
-                            <c:forEach items="${sublistIngredient}" var="i"> 
-                                <li><a href="filter-ingredient?subI_id=${i.id}">${i.name}</a></li>
-                                </c:forEach>
+                            <li><a href="ColorDust">Color Dusts & Flavours</a></li>
+                            <li><a href="BakingIngredient">Baking Ingredients</a></li>
+                            <li><a href="ChocolateIngredient">Chocolate Ingredients</a></li>
+                            <li><a href="Fondant">Fondants & Gumpaste</a></li>
                         </ul>
                     </li>
                     <li><a href="recipe.jsp">Recipes</a></li>
@@ -129,16 +131,19 @@
                                 <li><a href="Home">Home</a></li>
                                 <li class="active"><a href="#">Bakeware</a>
                                     <ul class="header__menu__dropdown">
-                                        <c:forEach items="${sublistBakeware}" var="b"> 
-                                            <li><a href="filter-bakeware?subB_id=${b.id}">${b.name}</a></li>
-                                            </c:forEach>
+                                        <li><a href="SiliconBakeware">Silicone Bakeware</a></li>
+                                        <li><a href="NonstickBakeware">Nonstick & Stin Bakeware</a></li>
+                                        <li><a href="PaperBakeware">Paper Bakeware</a></li>
+                                        <li><a href="BakingTool">Baking Tools</a></li>
+
                                     </ul>
                                 </li>
                                 <li><a href="Ingredient">Ingredients</a>
                                     <ul class="header__menu__dropdown">
-                                        <c:forEach items="${sublistIngredient}" var="i"> 
-                                            <li><a href="filter-ingredient?subI_id=${i.id}">${i.name}</a></li>
-                                            </c:forEach>
+                                        <li><a href="ColorDust">Color Dusts & Flavours</a></li>
+                                        <li><a href="BakingIngredient">Baking Ingredients</a></li>
+                                        <li><a href="ChocolateIngredient">Chocolate Ingredients</a></li>
+                                        <li><a href="Fondant">Fondants & Gumpaste</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="recipe.jsp">Recipes</a></li>
@@ -174,12 +179,14 @@
                                 <span>All departments</span>
                             </div>
                             <ul>
-                                <c:forEach items="${sublistBakeware}" var="b"> 
-                                    <li><a href="filter-bakeware?subB_id=${b.id}">${b.name}</a></li>
-                                    </c:forEach>
-                                    <c:forEach items="${sublistIngredient}" var="i"> 
-                                    <li><a href="filter-ingredient?subI_id=${i.id}">${i.name}</a></li>
-                                    </c:forEach>
+                                <li><a href="SiliconBakeware">Silicone Bakeware</a></li>
+                                <li><a href="NonstickBakeware">Nonstick & Stin Bakeware</a></li>
+                                <li><a href="PaperBakeware">Paper Bakewares</a></li>
+                                <li><a href="BakingTool">Baking Tools</a></li>
+                                <li><a href="ColorDust">Color Dusts & Flavours</a></li>
+                                <li><a href="BakingIngredient">Baking Ingredients</a></li>
+                                <li><a href="ChocolateIngredient">Chocolate Ingredients</a></li>
+                                <li><a href="Fondant">Fondants & Gumpaste</a></li>
                             </ul>
                         </div>
                     </div>
@@ -187,6 +194,10 @@
                         <div class="hero__search">
                             <div class="hero__search__form">
                                 <form action="#">
+                                    <div class="hero__search__categories">
+                                        All Categories
+                                        <span class="arrow_carrot-down"></span>
+                                    </div>
                                     <input type="text" placeholder="What do you need?">
                                     <button type="submit" class="site-btn">SEARCH</button>
                                 </form>
@@ -229,25 +240,33 @@
         <section class="product spad">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 col-md-5">
-                        <div class="sidebar">
-                            <div class="sidebar__item">
-                                <h4>Department</h4>
-                                <ul>
-                                    <c:forEach items="${sublistBakeware}" var="b"> 
-                                        <li><a href="filter-bakeware?subB_id=${b.id}">${b.name}</a></li>
-                                        </c:forEach>
-                                        <c:forEach items="${sublistIngredient}" var="i"> 
-                                        <li><a href="filter-ingredient?subI_id=${i.id}">${i.name}</a></li>
-                                        </c:forEach>
-                                </ul>
+                    <div class="col-lg-12 col-md-12">
+                        <section class="py-5">
+                            <div class="container px-4 px-lg-5 my-5">
+                                <div class="row gx-4 gx-lg-5 align-items-center">
+                                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." /></div>
+                                    <div class="col-md-6">
+                                        <div class="small mb-1">SKU: BST-498</div>
+                                        <h1 class="display-5 fw-bolder">Shop item template</h1>
+                                        <div class="fs-5 mb-5">
+                                            <span class="text-decoration-line-through">$45.00</span>
+                                            <span>$40.00</span>
+                                        </div>
+                                        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at dolorem quidem modi. Nam sequi consequatur obcaecati excepturi alias magni, accusamus eius blanditiis delectus ipsam minima ea iste laborum vero?</p>
+                                        <div class="d-flex">
+                                            <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
+                                            <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                                                <i class="bi-cart-fill me-1"></i>
+                                                Add to cart
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-9 col-md-7">
+                        </section>
                         <div class="product__discount">
                             <div class="section-title product__discount__title">
-                                <h2>Sale Off</h2>
+                                <h2>Related Products</h2>
                             </div>
                             <div class="row">
                                 <div class="product__discount__slider owl-carousel">
@@ -362,90 +381,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="filter__item">
-                            <div class="row">
-                                <div class="col-lg-4 col-md-5">
-                                </div>
-                                <div class="col-lg-4 col-md-4">
-                                    <div class="filter__found">
-                                        <h6><span>${listBakewareProduct.size()}</span> Products found</h6>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-3">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">                       
-                            <c:forEach items="${listBakewareProduct}" var="bakeware">
-                                <div class="col-lg-4 col-md-6 col-sm-6">
-                                    <div class="product__item">
-                                        <div class="product__item__pic set-bg" data-setbg="${bakeware.imageURL}">
-                                            <ul class="product__item__pic__hover">
-                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="product__item__text">
-                                            <h6><a href="detail?productId=${bakeware.id}">${bakeware.name}</a></h6>
-                                            <h5>$${bakeware.price}</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </c:forEach>
-                        </div>
-                        <div class="product__pagination">
-                            <c:choose>
-                                <c:when test="${bakeware_subID != null}">
-                                    <c:choose>
-                                        <c:when test="${page>1}">
-                                            <a href="filter-bakeware?subB_id=${bakeware_subID}&page=${page-1}"><i class="fa fa-long-arrow-left"></i></a>
-                                            </c:when>
-                                            <c:otherwise>
-                                            <a href="#"><i class="fa fa-long-arrow-left"></i></a>
-                                            </c:otherwise>
-                                        </c:choose>
-
-                                    <c:forEach begin="1" end="${totalPage}" var="i">
-                                        <a class="${i==page?"active" : ""}" href="filter-bakeware?subB_id=${bakeware_subID}&page=${i}">${i}</a>
-                                    </c:forEach>
-                                    <c:choose>
-                                        <c:when test="${page>=totalPage}">
-                                            <a href="#"><i class="fa fa-long-arrow-right"></i></a>
-                                            </c:when>
-                                            <c:otherwise>
-                                            <a href="filter-bakeware?subB_id=${bakeware_subID}&page=${page+1}"><i class="fa fa-long-arrow-right"></i></a>
-                                            </c:otherwise>
-                                        </c:choose>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <c:choose>
-                                            <c:when test="${page>1}">
-                                            <a href="Bakeware?page=${page-1}"><i class="fa fa-long-arrow-left"></i></a>
-                                            </c:when>
-                                            <c:otherwise>
-                                            <a href="#"><i class="fa fa-long-arrow-left"></i></a>
-                                            </c:otherwise>
-                                        </c:choose>
-
-                                    <c:forEach begin="1" end="${totalPage}" var="i">
-                                        <a class="${i==page?"active" : ""}" href="Bakeware?page=${i}">${i}</a>
-                                    </c:forEach>
-                                    <c:choose>
-                                        <c:when test="${page>=totalPage}">
-                                            <a href="#"><i class="fa fa-long-arrow-right"></i></a>
-                                            </c:when>
-                                            <c:otherwise>
-                                            <a href="Bakeware?page=${page+1}"><i class="fa fa-long-arrow-right"></i></a>
-                                            </c:otherwise>
-                                        </c:choose>
-                                    </c:otherwise>
-                                </c:choose>
-
-
-                        </div>
                     </div>
                 </div>
             </div>
         </section>
+        
         <!-- Product Section End -->
 
         <!-- Footer Section Begin -->

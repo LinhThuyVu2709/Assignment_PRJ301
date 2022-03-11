@@ -54,20 +54,18 @@
             <nav class="humberger__menu__nav mobile-menu">
                 <ul>
                     <li><a href="Home">Home</a></li>
-                    <li class="active"><a href="Bakeware">Bakeware</a>
+                    <li><a href="#">Bakeware</a>
                         <ul class="header__menu__dropdown">
-                            <li><a href="SiliconBakeware">Silicone Bakeware</a></li>
-                            <li><a href="NonstickBakeware">Nonstick & Stin Bakeware</a></li>
-                            <li><a href="PaperBakeware">Paper Bakeware</a></li>
-                            <li><a href="BakingTool">Baking Tools</a></li>
+                            <c:forEach items="${sublistBakeware}" var="b"> 
+                                <li><a href="filter-bakeware?subB_id=${b.id}">${b.name}</a></li>
+                                </c:forEach>
                         </ul>
                     </li>
-                    <li><a href="Ingredient">Ingredients</a>
+                    <li class="active"><a href="Ingredient">Ingredients</a>
                         <ul class="header__menu__dropdown">
-                            <li><a href="ColorDust">Color Dusts & Flavours</a></li>
-                            <li><a href="BakingIngredient">Baking Ingredients</a></li>
-                            <li><a href="ChocolateIngredient">Chocolate Ingredients</a></li>
-                            <li><a href="Fondant">Fondants & Gumpaste</a></li>
+                            <c:forEach items="${sublistIngredient}" var="i"> 
+                                <li><a href="filter-ingredient?subI_id=${i.id}">${i.name}</a></li>
+                                </c:forEach>
                         </ul>
                     </li>
                     <li><a href="recipe.jsp">Recipes</a></li>
@@ -128,20 +126,18 @@
                         <nav class="header__menu">
                             <ul>
                                 <li><a href="Home">Home</a></li>
-                                <li><a href="Bakeware">Bakeware</a>
+                                <li><a href="#">Bakeware</a>
                                     <ul class="header__menu__dropdown">
-                                        <li><a href="SiliconBakeware">Silicone Bakeware</a></li>
-                                        <li><a href="NonstickBakeware">Nonstick & Stin Bakeware</a></li>
-                                        <li><a href="PaperBakeware">Paper Bakeware</a></li>
-                                        <li><a href="BakingTool">Baking Tools</a></li>
+                                        <c:forEach items="${sublistBakeware}" var="b"> 
+                                            <li><a href="filter-bakeware?subB_id=${b.id}">${b.name}</a></li>
+                                            </c:forEach>
                                     </ul>
                                 </li>
-                                <li class="active"><a href="#">Ingredients</a>
+                                <li class="active"><a href="Ingredient">Ingredients</a>
                                     <ul class="header__menu__dropdown">
-                                        <li><a href="ColorDust">Color Dusts & Flavours</a></li>
-                                        <li><a href="BakingIngredient">Baking Ingredients</a></li>
-                                        <li><a href="ChocolateIngredient">Chocolate Ingredients</a></li>
-                                        <li><a href="Fondant">Fondants & Gumpaste</a></li>
+                                        <c:forEach items="${sublistIngredient}" var="i"> 
+                                            <li><a href="filter-ingredient?subI_id=${i.id}">${i.name}</a></li>
+                                            </c:forEach>
                                     </ul>
                                 </li>
                                 <li><a href="recipe.jsp">Recipes</a></li>
@@ -177,14 +173,12 @@
                                 <span>All departments</span>
                             </div>
                             <ul>
-                                <li><a href="SiliconBakeware">Silicone Bakeware</a></li>
-                                <li><a href="NonstickBakeware">Nonstick & Stin Bakeware</a></li>
-                                <li><a href="PaperBakeware">Paper Bakewares</a></li>
-                                <li><a href="BakingTool">Baking Tools</a></li>
-                                <li><a href="ColorDust">Color Dusts & Flavours</a></li>
-                                <li><a href="BakingIngredient">Baking Ingredients</a></li>
-                                <li><a href="ChocolateIngredient">Chocolate Ingredients</a></li>
-                                <li><a href="Fondant">Fondants & Gumpaste</a></li>
+                                <c:forEach items="${sublistBakeware}" var="b"> 
+                                    <li><a href="filter-bakeware?subB_id=${b.id}">${b.name}</a></li>
+                                    </c:forEach>
+                                    <c:forEach items="${sublistIngredient}" var="i"> 
+                                    <li><a href="filter-ingredient?subI_id=${i.id}">${i.name}</a></li>
+                                    </c:forEach>
                             </ul>
                         </div>
                     </div>
@@ -192,10 +186,6 @@
                         <div class="hero__search">
                             <div class="hero__search__form">
                                 <form action="#">
-                                    <div class="hero__search__categories">
-                                        All Categories
-                                        <span class="arrow_carrot-down"></span>
-                                    </div>
                                     <input type="text" placeholder="What do you need?">
                                     <button type="submit" class="site-btn">SEARCH</button>
                                 </form>
@@ -243,14 +233,12 @@
                             <div class="sidebar__item">
                                 <h4>Department</h4>
                                 <ul>
-                                    <li><a href="SiliconBakeware">Silicone Bakeware</a></li>
-                                    <li><a href="NonstickBakeware">Nonstick & Stin Bakeware</a></li>
-                                    <li><a href="PaperBakeware">Paper Bakewares</a></li>
-                                    <li><a href="BakingTool">Baking Tools</a></li>
-                                    <li><a href="ColorDust">Color Dusts & Flavours</a></li>
-                                    <li><a href="BakingIngredient">Baking Ingredients</a></li>
-                                    <li><a href="ChocolateIngredient">Chocolate Ingredients</a></li>
-                                    <li><a href="Fondant">Fondants & Gumpaste</a></li>
+                                    <c:forEach items="${sublistBakeware}" var="b"> 
+                                        <li><a href="filter-bakeware?subB_id=${b.id}">${b.name}</a></li>
+                                        </c:forEach>
+                                        <c:forEach items="${sublistIngredient}" var="i"> 
+                                        <li><a href="filter-ingredient?subI_id=${i.id}">${i.name}</a></li>
+                                        </c:forEach>
                                 </ul>
                             </div>
                         </div>
@@ -417,26 +405,53 @@
                         </div>
                         <div class="product__pagination">
                             <c:choose>
-                                <c:when test="${page>1}">
-                                    <a href="Ingredient?page=${page-1}"><i class="fa fa-long-arrow-left"></i></a>
-                                </c:when>
-                                <c:otherwise>
-                                    <a href="#"><i class="fa fa-long-arrow-left"></i></a>
-                                </c:otherwise>
-                            </c:choose>
-                            
-                            <c:forEach begin="1" end="${totalPage}" var="i">
-                            <a class="${i==page?"active" : ""}" href="Ingredient?page=${i}">${i}</a>
-                            </c:forEach>
-                            <c:choose>
-                                <c:when test="${page>=totalPage }">
-                                    <a href="#"><i class="fa fa-long-arrow-right"></i></a>
-                                </c:when>
-                                <c:otherwise>
-                                    <a href="Ingredient?page=${page+1}"><i class="fa fa-long-arrow-right"></i></a>
-                                </c:otherwise>
-                            </c:choose>
-                            
+                                <c:when test="${ingredient_subID != null}">
+                                    <c:choose>
+                                        <c:when test="${page>1}">
+                                            <a href="filter-ingredient?subI_id=${ingredient_subID}&page=${page-1}"><i class="fa fa-long-arrow-left"></i></a>
+                                            </c:when>
+                                            <c:otherwise>
+                                            <a href="#"><i class="fa fa-long-arrow-left"></i></a>
+                                            </c:otherwise>
+                                        </c:choose>
+
+                                    <c:forEach begin="1" end="${totalPage}" var="i">
+                                        <a class="${i==page?"active" : ""}" href="filter-ingredient?subI_id=${ingredient_subID}&page=${i}">${i}</a>
+                                    </c:forEach>
+                                    <c:choose>
+                                        <c:when test="${page>=totalPage}">
+                                            <a href="#"><i class="fa fa-long-arrow-right"></i></a>
+                                            </c:when>
+                                            <c:otherwise>
+                                            <a href="filter-ingredient?subI_id=${ingredient_subID}&page=${page+1}"><i class="fa fa-long-arrow-right"></i></a>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <c:choose>
+                                            <c:when test="${page>1}">
+                                            <a href="Ingredient?page=${page-1}"><i class="fa fa-long-arrow-left"></i></a>
+                                            </c:when>
+                                            <c:otherwise>
+                                            <a href="#"><i class="fa fa-long-arrow-left"></i></a>
+                                            </c:otherwise>
+                                        </c:choose>
+
+                                    <c:forEach begin="1" end="${totalPage}" var="i">
+                                        <a class="${i==page?"active" : ""}" href="Ingredient?page=${i}">${i}</a>
+                                    </c:forEach>
+                                    <c:choose>
+                                        <c:when test="${page>=totalPage}">
+                                            <a href="#"><i class="fa fa-long-arrow-right"></i></a>
+                                            </c:when>
+                                            <c:otherwise>
+                                            <a href="Ingredient?page=${page+1}"><i class="fa fa-long-arrow-right"></i></a>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </c:otherwise>
+                                </c:choose>
+
+
                         </div>
                     </div>
                 </div>

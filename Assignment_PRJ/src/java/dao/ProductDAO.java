@@ -207,6 +207,34 @@ public class ProductDAO {
 
     public static void main(String[] args) {
         ProductDAO dao = new ProductDAO();
-        System.out.println(dao.getTotalProductBySUBCategory_ID(1));
+        System.out.println(dao.getProductBySubID(2));
+    }
+
+    public List<Product> search(int categoryID, String keyword) {
+        List<Product> list_bakeware = new ArrayList<>();
+        try {
+            String sql = "select*from Products join Sub_Category\n"
+                    + "on Products.sub_id = Sub_Category.id\n"
+                    + "where cat_id = ? and Products.name like ?";
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, categoryID);
+            ps.setString(2, "%" + keyword + "%");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Product product = new Product(rs.getInt(1), //id
+                        rs.getString(2), //name
+                        rs.getInt(3), //quantity
+                        rs.getFloat(4), //price
+                        rs.getString(5), //description
+                        rs.getString(6), //imageURL
+                        rs.getString(7), //created_time
+                        rs.getInt(8)); //sub_id
+                list_bakeware.add(product);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list_bakeware;
     }
 }

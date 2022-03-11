@@ -5,9 +5,7 @@
  */
 package controller;
 
-import dao.CategoryDAO;
 import dao.ProductDAO;
-import dao.SubCategoryDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -15,15 +13,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Category;
 import model.Product;
-import model.SubCategory;
 
 /**
  *
  * @author LinhVT
  */
-public class BakewareController extends HttpServlet {
+public class SearchController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,29 +32,11 @@ public class BakewareController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        final int PAGE_SIZE = 6;
-        int page = 1;
-
-        String pageStr = request.getParameter("page");
-        if (pageStr != null) {
-            page = Integer.parseInt(pageStr);
-        }
-        List<SubCategory> sublistBakeware = new SubCategoryDAO().getSubCategoryByCatID(1);
-        List<SubCategory> sublistIngredient = new SubCategoryDAO().getSubCategoryByCatID(2);
+        String keyword = request.getParameter("keyword"); 
         
-        ProductDAO bakewareDAO = new ProductDAO();
-        List<Product> listBakewareProduct = bakewareDAO.getProductInPagingByCategory_ID(1, page, PAGE_SIZE);
-        int totalBakeware = bakewareDAO.getTotalProductByCategory_ID(1);
-        int totalPage = totalBakeware / PAGE_SIZE;
-        if (totalPage % PAGE_SIZE != 0) {
-            totalPage += 1;
-        }
-        request.setAttribute("sublistIngredient", sublistIngredient);
-        request.setAttribute("sublistBakeware", sublistBakeware);
-        request.setAttribute("page", page);
-        request.setAttribute("totalPage", totalPage);
+        List<Product> listBakewareProduct = new ProductDAO().search(1,keyword);
         request.setAttribute("listBakewareProduct", listBakewareProduct);
-        request.getRequestDispatcher("bakewares.jsp").forward(request, response);
+        request.getRequestDispatcher("bakewares.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

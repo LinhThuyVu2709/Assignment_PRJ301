@@ -48,6 +48,22 @@
         <servlet-name>FondantController</servlet-name>
         <servlet-class>controller.FondantController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SearchController</servlet-name>
+        <servlet-class>controller.SearchController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DetailController</servlet-name>
+        <servlet-class>controller.DetailController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FilterBakewareController</servlet-name>
+        <servlet-class>controller.FilterBakewareController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FilterIngredientController</servlet-name>
+        <servlet-class>controller.FilterIngredientController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/Home</url-pattern>
@@ -95,6 +111,22 @@
     <servlet-mapping>
         <servlet-name>FondantController</servlet-name>
         <url-pattern>/Fondant</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchController</servlet-name>
+        <url-pattern>/search</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DetailController</servlet-name>
+        <url-pattern>/detail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FilterBakewareController</servlet-name>
+        <url-pattern>/filter-bakeware</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FilterIngredientController</servlet-name>
+        <url-pattern>/filter-ingredient</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

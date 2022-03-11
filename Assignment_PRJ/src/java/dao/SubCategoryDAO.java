@@ -37,4 +37,22 @@ public class SubCategoryDAO {
         }
         return list;
     }
+    
+    public List<SubCategory> getSubCategoryByCatID(int categoryID) {
+        List<SubCategory> list = new ArrayList<>();
+        try {
+            String sql = "select*from Sub_Category where cat_id = ?";
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, categoryID);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                SubCategory sub_category = new SubCategory(rs.getInt(1),rs.getString(2),rs.getInt(3));
+                list.add(sub_category);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(SubCategoryDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
 }

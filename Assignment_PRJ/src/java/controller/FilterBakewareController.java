@@ -5,7 +5,6 @@
  */
 package controller;
 
-import dao.CategoryDAO;
 import dao.ProductDAO;
 import dao.SubCategoryDAO;
 import java.io.IOException;
@@ -15,7 +14,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Category;
 import model.Product;
 import model.SubCategory;
 
@@ -23,7 +21,7 @@ import model.SubCategory;
  *
  * @author LinhVT
  */
-public class BakewareController extends HttpServlet {
+public class FilterBakewareController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,6 +34,8 @@ public class BakewareController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        int bakeware_subID = Integer.parseInt(request.getParameter("subB_id"));
         final int PAGE_SIZE = 6;
         int page = 1;
 
@@ -43,21 +43,22 @@ public class BakewareController extends HttpServlet {
         if (pageStr != null) {
             page = Integer.parseInt(pageStr);
         }
-        List<SubCategory> sublistBakeware = new SubCategoryDAO().getSubCategoryByCatID(1);
-        List<SubCategory> sublistIngredient = new SubCategoryDAO().getSubCategoryByCatID(2);
-        
         ProductDAO bakewareDAO = new ProductDAO();
-        List<Product> listBakewareProduct = bakewareDAO.getProductInPagingByCategory_ID(1, page, PAGE_SIZE);
-        int totalBakeware = bakewareDAO.getTotalProductByCategory_ID(1);
+        int totalBakeware = bakewareDAO.getTotalProductBySUBCategory_ID(bakeware_subID);
         int totalPage = totalBakeware / PAGE_SIZE;
         if (totalPage % PAGE_SIZE != 0) {
             totalPage += 1;
         }
-        request.setAttribute("sublistIngredient", sublistIngredient);
-        request.setAttribute("sublistBakeware", sublistBakeware);
+        
+        List<Product> listBakewareProduct = bakewareDAO.getProductInPagingBySUBCategory_ID(bakeware_subID, page, PAGE_SIZE);
+        List<SubCategory> sublistBakeware = new SubCategoryDAO().getSubCategoryByCatID(1);
+        List<SubCategory> sublistIngredient = new SubCategoryDAO().getSubCategoryByCatID(2);
+        request.setAttribute("bakeware_subID", bakeware_subID);
         request.setAttribute("page", page);
         request.setAttribute("totalPage", totalPage);
         request.setAttribute("listBakewareProduct", listBakewareProduct);
+        request.setAttribute("sublistBakeware", sublistBakeware);
+        request.setAttribute("sublistIngredient", sublistIngredient);
         request.getRequestDispatcher("bakewares.jsp").forward(request, response);
     }
 
