@@ -21,7 +21,7 @@ import model.SubCategory;
  *
  * @author LinhVT
  */
-public class BakingIngredientController extends HttpServlet {
+public class SearchBakewareController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,25 +34,15 @@ public class BakingIngredientController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        final int PAGE_SIZE = 6;
-        int page = 1;
+        String keyword = request.getParameter("keyword"); 
         
-        String pageStr = request.getParameter("page");
-        if (pageStr != null) {
-            page = Integer.parseInt(pageStr);
-        }
-        ProductDAO bakingIngreDAO = new ProductDAO();
-        List<Product> listBakingIngredient = bakingIngreDAO.getProductInPagingBySUBCategory_ID(6,page, PAGE_SIZE);
-        int totalBakingIngre = bakingIngreDAO.getTotalProductBySUBCategory_ID(6);
-        int totalPage = totalBakingIngre/PAGE_SIZE;
-        if (totalPage % PAGE_SIZE != 0) {
-            totalPage += 1;
-        }
-        request.setAttribute("page", page);
-        request.setAttribute("totalPage", totalPage);
-        
-        request.setAttribute("listBakingIngredient", listBakingIngredient);
-        request.getRequestDispatcher("baking-ingredients.jsp").forward(request, response);
+        List<Product> listBakewareProduct = new ProductDAO().search(1,keyword);
+        List<SubCategory> sublistBakeware = new SubCategoryDAO().getSubCategoryByCatID(1);
+        List<SubCategory> sublistIngredient = new SubCategoryDAO().getSubCategoryByCatID(2);
+        request.setAttribute("listBakewareProduct", listBakewareProduct);
+        request.setAttribute("sublistBakeware", sublistBakeware);
+        request.setAttribute("sublistIngredient", sublistIngredient);
+        request.getRequestDispatcher("bakewares.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

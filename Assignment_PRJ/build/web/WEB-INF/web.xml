@@ -17,40 +17,8 @@
         <servlet-class>controller.FilterSubCategoryController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>SiliconBakewareController</servlet-name>
-        <servlet-class>controller.SiliconBakewareController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>NonstickBakewareController</servlet-name>
-        <servlet-class>controller.NonstickBakewareController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>PaperBakewareController</servlet-name>
-        <servlet-class>controller.PaperBakewareController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>BakingToolController</servlet-name>
-        <servlet-class>controller.BakingToolController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ColorDustController</servlet-name>
-        <servlet-class>controller.ColorDustController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>BakingIngredientController</servlet-name>
-        <servlet-class>controller.BakingIngredientController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ChocolateIngredientController</servlet-name>
-        <servlet-class>controller.ChocolateIngredientController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>FondantController</servlet-name>
-        <servlet-class>controller.FondantController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>SearchController</servlet-name>
-        <servlet-class>controller.SearchController</servlet-class>
+        <servlet-name>SearchBakewareController</servlet-name>
+        <servlet-class>controller.SearchBakewareController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>DetailController</servlet-name>
@@ -63,6 +31,10 @@
     <servlet>
         <servlet-name>FilterIngredientController</servlet-name>
         <servlet-class>controller.FilterIngredientController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchIngredientController</servlet-name>
+        <servlet-class>controller.SearchIngredientController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
@@ -81,40 +53,8 @@
         <url-pattern>/filter-subcategory</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>SiliconBakewareController</servlet-name>
-        <url-pattern>/SiliconBakeware</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>NonstickBakewareController</servlet-name>
-        <url-pattern>/NonstickBakeware</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>PaperBakewareController</servlet-name>
-        <url-pattern>/PaperBakeware</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>BakingToolController</servlet-name>
-        <url-pattern>/BakingTool</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ColorDustController</servlet-name>
-        <url-pattern>/ColorDust</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>BakingIngredientController</servlet-name>
-        <url-pattern>/BakingIngredient</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ChocolateIngredientController</servlet-name>
-        <url-pattern>/ChocolateIngredient</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>FondantController</servlet-name>
-        <url-pattern>/Fondant</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SearchController</servlet-name>
-        <url-pattern>/search</url-pattern>
+        <servlet-name>SearchBakewareController</servlet-name>
+        <url-pattern>/search-bakeware</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DetailController</servlet-name>
@@ -127,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>FilterIngredientController</servlet-name>
         <url-pattern>/filter-ingredient</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchIngredientController</servlet-name>
+        <url-pattern>/search-ingredient</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

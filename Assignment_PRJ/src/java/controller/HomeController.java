@@ -35,15 +35,17 @@ public class HomeController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        List<SubCategory> listSubCategory = new SubCategoryDAO().getAllSubCategory();
+        List<SubCategory> sublistBakeware = new SubCategoryDAO().getSubCategoryByCatID(1);
+        List<SubCategory> sublistIngredient = new SubCategoryDAO().getSubCategoryByCatID(2);
         List<Product> listProduct = new ProductDAO().getAllProduct();
         List<Product> listBakewareProduct = new ProductDAO().getProductByCategoryID(1);
         List<Product> listIngredientProduct = new ProductDAO().getProductByCategoryID(2);
         
+        request.setAttribute("sublistIngredient", sublistIngredient);
+        request.setAttribute("sublistBakeware", sublistBakeware);
         request.setAttribute("listProduct", listProduct);
         request.setAttribute("listBakewareProduct", listBakewareProduct);
         request.setAttribute("listIngredientProduct", listIngredientProduct);
-        request.setAttribute("listSubCategory", listSubCategory);
         request.getRequestDispatcher("homepage.jsp").forward(request, response);
     }
 

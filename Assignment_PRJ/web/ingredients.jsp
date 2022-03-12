@@ -126,7 +126,7 @@
                         <nav class="header__menu">
                             <ul>
                                 <li><a href="Home">Home</a></li>
-                                <li><a href="#">Bakeware</a>
+                                <li><a href="Bakeware">Bakeware</a>
                                     <ul class="header__menu__dropdown">
                                         <c:forEach items="${sublistBakeware}" var="b"> 
                                             <li><a href="filter-bakeware?subB_id=${b.id}">${b.name}</a></li>
@@ -185,8 +185,8 @@
                     <div class="col-lg-9">
                         <div class="hero__search">
                             <div class="hero__search__form">
-                                <form action="#">
-                                    <input type="text" placeholder="What do you need?">
+                                <form action="search-ingredient">
+                                    <input type="text" placeholder="What do you need?" name="keyword">
                                     <button type="submit" class="site-btn">SEARCH</button>
                                 </form>
                             </div>
@@ -245,6 +245,92 @@
                     </div>
 
                     <div class="col-lg-9 col-md-7">
+                        <div class="filter__item">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-5">
+                                </div>
+                                <div class="col-lg-4 col-md-4">
+                                    <div class="filter__found">
+                                        <h6><span>${listIngredientProduct.size()}</span> Products found</h6>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-3">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <c:forEach items="${listIngredientProduct}" var="ingredient">
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="product__item">
+                                        <div class="product__item__pic set-bg" data-setbg="${ingredient.imageURL}">
+                                            <ul class="product__item__pic__hover">
+                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product__item__text">
+                                            <h6><a href="#">${ingredient.name}</a></h6>
+                                            <h5>$${ingredient.price}</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:forEach>
+                        </div>
+                        <div class="product__pagination">
+                            <c:choose>
+                                <c:when test="${listIngredientProduct==null || listIngredientProduct.size()==0}">
+                                    <h4>Not found any product</h4>
+                                </c:when>
+                                <c:otherwise>
+                                    <c:choose>
+                                        <c:when test="${ingredient_subID != null}">
+                                            <c:choose>
+                                                <c:when test="${page>1}">
+                                                    <a href="filter-ingredient?subI_id=${ingredient_subID}&page=${page-1}"><i class="fa fa-long-arrow-left"></i></a>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                    <a href="#"><i class="fa fa-long-arrow-left"></i></a>
+                                                    </c:otherwise>
+                                                </c:choose>
+
+                                            <c:forEach begin="1" end="${totalPage}" var="i">
+                                                <a class="${i==page?"active" : ""}" href="filter-ingredient?subI_id=${ingredient_subID}&page=${i}">${i}</a>
+                                            </c:forEach>
+                                            <c:choose>
+                                                <c:when test="${page>=totalPage}">
+                                                    <a href="#"><i class="fa fa-long-arrow-right"></i></a>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                    <a href="filter-ingredient?subI_id=${ingredient_subID}&page=${page+1}"><i class="fa fa-long-arrow-right"></i></a>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <c:choose>
+                                                    <c:when test="${page>1}">
+                                                    <a href="Ingredient?page=${page-1}"><i class="fa fa-long-arrow-left"></i></a>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                    <a href="#"><i class="fa fa-long-arrow-left"></i></a>
+                                                    </c:otherwise>
+                                                </c:choose>
+
+                                            <c:forEach begin="1" end="${totalPage}" var="i">
+                                                <a class="${i==page?"active" : ""}" href="Ingredient?page=${i}">${i}</a>
+                                            </c:forEach>
+                                            <c:choose>
+                                                <c:when test="${page>=totalPage}">
+                                                    <a href="#"><i class="fa fa-long-arrow-right"></i></a>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                    <a href="Ingredient?page=${page+1}"><i class="fa fa-long-arrow-right"></i></a>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </c:otherwise>
+                                </c:choose>
+
+                        </div>
                         <div class="product__discount">
                             <div class="section-title product__discount__title">
                                 <h2>Sale Off</h2>
@@ -362,97 +448,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="filter__item">
-                            <div class="row">
-                                <div class="col-lg-4 col-md-5">
-                                    <div class="filter__sort">
-                                        <span>Sort By</span>
-                                        <select>
-                                            <option value="0">Default</option>
-                                            <option value="0">Default</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4">
-                                    <div class="filter__found">
-                                        <h6><span>${listIngredientProduct.size()}</span> Products found</h6>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-3">
-                                    <div class="filter__option">
-                                        <span class="icon_grid-2x2"></span>
-                                        <span class="icon_ul"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <c:forEach items="${listIngredientProduct}" var="ingredient">
-                                <div class="col-lg-4 col-md-6 col-sm-6">
-                                    <div class="product__item">
-                                        <div class="product__item__pic set-bg" data-setbg="${ingredient.imageURL}">
-                                            <ul class="product__item__pic__hover">
-                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="product__item__text">
-                                            <h6><a href="#">${ingredient.name}</a></h6>
-                                            <h5>$${ingredient.price}</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </c:forEach>
-                        </div>
-                        <div class="product__pagination">
-                            <c:choose>
-                                <c:when test="${ingredient_subID != null}">
-                                    <c:choose>
-                                        <c:when test="${page>1}">
-                                            <a href="filter-ingredient?subI_id=${ingredient_subID}&page=${page-1}"><i class="fa fa-long-arrow-left"></i></a>
-                                            </c:when>
-                                            <c:otherwise>
-                                            <a href="#"><i class="fa fa-long-arrow-left"></i></a>
-                                            </c:otherwise>
-                                        </c:choose>
 
-                                    <c:forEach begin="1" end="${totalPage}" var="i">
-                                        <a class="${i==page?"active" : ""}" href="filter-ingredient?subI_id=${ingredient_subID}&page=${i}">${i}</a>
-                                    </c:forEach>
-                                    <c:choose>
-                                        <c:when test="${page>=totalPage}">
-                                            <a href="#"><i class="fa fa-long-arrow-right"></i></a>
-                                            </c:when>
-                                            <c:otherwise>
-                                            <a href="filter-ingredient?subI_id=${ingredient_subID}&page=${page+1}"><i class="fa fa-long-arrow-right"></i></a>
-                                            </c:otherwise>
-                                        </c:choose>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <c:choose>
-                                            <c:when test="${page>1}">
-                                            <a href="Ingredient?page=${page-1}"><i class="fa fa-long-arrow-left"></i></a>
-                                            </c:when>
-                                            <c:otherwise>
-                                            <a href="#"><i class="fa fa-long-arrow-left"></i></a>
-                                            </c:otherwise>
-                                        </c:choose>
-
-                                    <c:forEach begin="1" end="${totalPage}" var="i">
-                                        <a class="${i==page?"active" : ""}" href="Ingredient?page=${i}">${i}</a>
-                                    </c:forEach>
-                                    <c:choose>
-                                        <c:when test="${page>=totalPage}">
-                                            <a href="#"><i class="fa fa-long-arrow-right"></i></a>
-                                            </c:when>
-                                            <c:otherwise>
-                                            <a href="Ingredient?page=${page+1}"><i class="fa fa-long-arrow-right"></i></a>
-                                            </c:otherwise>
-                                        </c:choose>
-                                    </c:otherwise>
-                                </c:choose>
-
-
-                        </div>
                     </div>
                 </div>
             </div>

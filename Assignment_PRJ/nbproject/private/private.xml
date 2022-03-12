@@ -5,7 +5,9 @@
         <group>
             <file>file:/C:/Users/LinhVT/Documents/Assignment_PRJ301/Assignment_PRJ/web/bakewares.jsp</file>
             <file>file:/C:/Users/LinhVT/Documents/Assignment_PRJ301/Assignment_PRJ/src/java/dao/ProductDAO.java</file>
+            <file>file:/C:/Users/LinhVT/Documents/Assignment_PRJ301/Assignment_PRJ/src/java/controller/HomeController.java</file>
             <file>file:/C:/Users/LinhVT/Documents/Assignment_PRJ301/Assignment_PRJ/src/java/controller/BakewareController.java</file>
+            <file>file:/C:/Users/LinhVT/Documents/Assignment_PRJ301/Assignment_PRJ/web/ingredients.jsp</file>
             <file>file:/C:/Users/LinhVT/Documents/Assignment_PRJ301/Assignment_PRJ/web/homepage.jsp</file>
         </group>
     </open-files>

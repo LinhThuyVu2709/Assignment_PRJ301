@@ -21,7 +21,7 @@ import model.SubCategory;
  *
  * @author LinhVT
  */
-public class PaperBakewareController extends HttpServlet {
+public class SearchIngredientController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,25 +34,15 @@ public class PaperBakewareController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        final int PAGE_SIZE = 6;
-        int page = 1;
+        String keyword = request.getParameter("keyword"); 
         
-        String pageStr = request.getParameter("page");
-        if (pageStr != null) {
-            page = Integer.parseInt(pageStr);
-        }
-        ProductDAO paperDAO = new ProductDAO();
-        List<Product> listPaperBakeware = paperDAO.getProductInPagingBySUBCategory_ID(3,page, PAGE_SIZE);
-        int totalPaperBakeware = paperDAO.getTotalProductBySUBCategory_ID(3);
-        int totalPage = totalPaperBakeware/PAGE_SIZE;
-        if (totalPage % PAGE_SIZE != 0) {
-            totalPage += 1;
-        }
-        request.setAttribute("page", page);
-        request.setAttribute("totalPage", totalPage);
-        
-        request.setAttribute("listPaperBakeware", listPaperBakeware);
-        request.getRequestDispatcher("paper-bakeware.jsp").forward(request, response);
+        List<Product> listIngredientProduct = new ProductDAO().search(2,keyword);
+        List<SubCategory> sublistBakeware = new SubCategoryDAO().getSubCategoryByCatID(1);
+        List<SubCategory> sublistIngredient = new SubCategoryDAO().getSubCategoryByCatID(2);
+        request.setAttribute("listIngredientProduct", listIngredientProduct);
+        request.setAttribute("sublistBakeware", sublistBakeware);
+        request.setAttribute("sublistIngredient", sublistIngredient);
+        request.getRequestDispatcher("ingredients.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

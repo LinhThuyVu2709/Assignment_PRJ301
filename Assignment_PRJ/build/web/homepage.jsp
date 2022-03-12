@@ -57,18 +57,16 @@
                     <li class="active"><a href="Home">Home</a></li>
                     <li><a href="Bakeware">Bakeware</a>
                         <ul class="header__menu__dropdown">
-                            <li><a href="SiliconBakeware">Silicone Bakeware</a></li>
-                            <li><a href="NonstickBakeware">Nonstick & Stin Bakeware</a></li>
-                            <li><a href="PaperBakeware">Paper Bakeware</a></li>
-                            <li><a href="BakingTool">Baking Tools</a></li>
+                            <c:forEach items="${sublistBakeware}" var="b"> 
+                                <li><a href="filter-bakeware?subB_id=${b.id}">${b.name}</a></li>
+                                </c:forEach>
                         </ul>
                     </li>
                     <li><a href="Ingredient">Ingredients</a>
                         <ul class="header__menu__dropdown">
-                            <li><a href="ColorDust">Color Dusts & Flavours</a></li>
-                            <li><a href="BakingIngredient">Baking Ingredients</a></li>
-                            <li><a href="ChocolateIngredient">Chocolate Ingredients</a></li>
-                            <li><a href="Fondant">Fondants & Gumpaste</a></li>
+                            <c:forEach items="${sublistIngredient}" var="i"> 
+                                <li><a href="filter-ingredient?subI_id=${i.id}">${i.name}</a></li>
+                                </c:forEach>
                         </ul>
                     </li>
                     <li><a href="recipe.jsp">Recipes</a></li>
@@ -130,23 +128,18 @@
                         <nav class="header__menu">
                             <ul>
                                 <li class="active"><a href="Home">Home</a></li>
-
                                 <li><a href="Bakeware">Bakeware</a>
                                     <ul class="header__menu__dropdown">
-                                        <li><a href="SiliconBakeware">Silicone Bakeware</a></li>
-                                        <li><a href="NonstickBakeware">Nonstick & Stin Bakeware</a></li>
-                                        <li><a href="PaperBakeware">Paper Bakeware</a></li>
-                                        <li><a href="BakingTool">Baking Tools</a></li>
+                                        <c:forEach items="${sublistBakeware}" var="b"> 
+                                            <li><a href="filter-bakeware?subB_id=${b.id}">${b.name}</a></li>
+                                            </c:forEach>
                                     </ul>
-
                                 </li>
                                 <li><a href="Ingredient">Ingredients</a>
                                     <ul class="header__menu__dropdown">
-                                        <li><a href="ColorDust">Color Dusts & Flavours</a></li>
-                                        <li><a href="BakingIngredient">Baking Ingredients</a></li>
-                                        <li><a href="ChocolateIngredient">Chocolate Ingredients</a></li>
-                                        <li><a href="Fondant">Fondants & Gumpaste</a></li>
-
+                                        <c:forEach items="${sublistIngredient}" var="i"> 
+                                            <li><a href="filter-ingredient?subI_id=${i.id}">${i.name}</a></li>
+                                            </c:forEach>
                                     </ul>
                                 </li>
                                 <li><a href="recipe.jsp">Recipes</a></li>
@@ -182,14 +175,12 @@
                                 <span>All departments</span>
                             </div>
                             <ul>
-                                <li><a href="SiliconBakeware">Silicone Bakeware</a></li>
-                                <li><a href="NonstickBakeware">Nonstick & Stin Bakeware</a></li>
-                                <li><a href="PaperBakeware">Paper Bakewares</a></li>
-                                <li><a href="BakingTool">Baking Tools</a></li>
-                                <li><a href="ColorDust">Color Dusts & Flavours</a></li>
-                                <li><a href="BakingIngredient">Baking Ingredients</a></li>
-                                <li><a href="ChocolateIngredient">Chocolate Ingredients</a></li>
-                                <li><a href="Fondant">Fondants & Gumpaste</a></li>
+                                <c:forEach items="${sublistBakeware}" var="b"> 
+                                    <li><a href="filter-bakeware?subB_id=${b.id}">${b.name}</a></li>
+                                    </c:forEach>
+                                    <c:forEach items="${sublistIngredient}" var="i"> 
+                                    <li><a href="filter-ingredient?subI_id=${i.id}">${i.name}</a></li>
+                                    </c:forEach>
                             </ul>
                         </div>
                     </div>
@@ -216,29 +207,29 @@
                         <div class="col-lg-3">
                             <div class="categories__item set-bg"
                                  data-setbg="img/categories/bakewares/silicone-bakeware.jpg">
-                                <h5><a href="SiliconBakeware">Silicone bakeware</a></h5>
+                                <h5><a href="filter-bakeware?subB_id=1">Silicone Bakeware</a></h5>
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="categories__item set-bg"
                                  data-setbg="img/categories/bakewares/nonstick-stin-bakeware.jpg">
-                                <h5><a href="NonstickBakeware">Nonestick & Stin Bakeware</a></h5>
+                                <h5><a href="filter-bakeware?subB_id=2">Nonestick & Stin Bakeware</a></h5>
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="categories__item set-bg" data-setbg="img/categories/bakewares/paper-bakeware.jpg">
-                                <h5><a href="PaperBakeware">Paper Bakeware</a></h5>
+                                <h5><a href="filter-bakeware?subB_id=3">Paper Bakeware</a></h5>
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="categories__item set-bg"
                                  data-setbg="img/categories/ingredients/baking-ingredients.jpg">
-                                <h5><a href="BakingIngredient">Baking Ingredients</a></h5>
+                                <h5><a href="filter-ingredient?subI_id=2">Baking Ingredients</a></h5>
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="categories__item set-bg" data-setbg="img/categories/ingredients/fondants.jpg">
-                                <h5><a href="Fondant">Fondants & Gumpaste</a></h5>
+                                <h5><a href="filter-ingredient?subI_id=4">Fondants & Gumpaste</a></h5>
                             </div>
                         </div>
                     </div>
@@ -296,7 +287,7 @@
                             </div>
                         </div>
                     </c:forEach>
-                   
+
 
                 </div>
             </div>

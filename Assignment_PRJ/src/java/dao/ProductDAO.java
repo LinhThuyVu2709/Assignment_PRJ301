@@ -207,7 +207,7 @@ public class ProductDAO {
 
     public static void main(String[] args) {
         ProductDAO dao = new ProductDAO();
-        System.out.println(dao.getProductBySubID(2));
+        System.out.println(dao.search(1, "heart"));
     }
 
     public List<Product> search(int categoryID, String keyword) {
