@@ -42,7 +42,7 @@
                 <ul>
                     <li><a href="Cart"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                 </ul>
-                <div class="header__cart__price">item: <span>$150.00</span></div>
+                <div class="header__cart__price">item: <span>$${sessionScope.totalMoney}</span></div>
             </div>
             <div class="humberger__menu__widget">
                 <div class="header__top__right__auth">
@@ -333,7 +333,7 @@
                             <ul>
                                 <li><a href="recipe.jsp">Recipes</a></li>
                                 <li><a href="contact.jsp">Contact us</a></li>
-                                <li><a href="checkout.jsp">Checkout</a></li>
+                                <li><a href="Checkout">Checkout</a></li>
                             </ul>
                         </div>
                     </div>

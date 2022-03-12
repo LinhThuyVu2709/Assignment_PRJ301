@@ -41,10 +41,9 @@
             </div>
             <div class="humberger__menu__cart">
                 <ul>
-                    <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                     <li><a href="shoping-cart.jsp"><i class="fa fa-shopping-bag"></i> <span>${sessionScope.carts.size()}</span></a></li>
                 </ul>
-                <div class="header__cart__price">item: <span>$160.00</span></div>
+                <div class="header__cart__price">item: <span>$${sessionScope.totalMoney}</span></div>
             </div>
             <div class="humberger__menu__widget">
                 <div class="header__top__right__auth">
@@ -149,10 +148,9 @@
                     <div class="col-lg-3">
                         <div class="header__cart">
                             <ul>
-                                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                                <li><a href="shoping-cart.jsp"><i class="fa fa-shopping-bag"></i> <span>${sessionScope.carts.size()}</span></a></li>
+                                <li><a href="Cart"><i class="fa fa-shopping-bag"></i> <span>${sessionScope.carts.size()}</span></a></li>
                             </ul>
-                            <div class="header__cart__price">item: <span>$150.00</span></div>
+                            <div class="header__cart__price">item: <span>$${sessionScope.totalMoney}</span></div>
                         </div>
                     </div>
                 </div>
@@ -274,8 +272,6 @@
                                                  data-setbg="img/product/discount/pd-1.jpg">
                                                 <div class="product__discount__percent">-20%</div>
                                                 <ul class="product__item__pic__hover">
-                                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
                                                     <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                                 </ul>
                                             </div>
@@ -292,8 +288,6 @@
                                                  data-setbg="img/product/discount/pd-2.jpg">
                                                 <div class="product__discount__percent">-20%</div>
                                                 <ul class="product__item__pic__hover">
-                                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
                                                     <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                                 </ul>
                                             </div>
@@ -310,8 +304,6 @@
                                                  data-setbg="img/product/discount/pd-3.jpg">
                                                 <div class="product__discount__percent">-20%</div>
                                                 <ul class="product__item__pic__hover">
-                                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
                                                     <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                                 </ul>
                                             </div>
@@ -328,8 +320,6 @@
                                                  data-setbg="img/product/discount/pd-4.jpg">
                                                 <div class="product__discount__percent">-20%</div>
                                                 <ul class="product__item__pic__hover">
-                                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
                                                     <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                                 </ul>
                                             </div>
@@ -346,8 +336,6 @@
                                                  data-setbg="img/product/discount/pd-5.jpg">
                                                 <div class="product__discount__percent">-20%</div>
                                                 <ul class="product__item__pic__hover">
-                                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
                                                     <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                                 </ul>
                                             </div>
@@ -364,8 +352,6 @@
                                                  data-setbg="img/product/discount/pd-6.jpg">
                                                 <div class="product__discount__percent">-20%</div>
                                                 <ul class="product__item__pic__hover">
-                                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
                                                     <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                                 </ul>
                                             </div>
@@ -408,12 +394,12 @@
                             <ul>
                                 <li><a href="Bakeware">Bakewares</li>
                                 <li><a href="Ingredient">Ingredients</a></li>
-                                <li><a href="shoping-cart.jsp">Shopping cart</a></li>
+                                <li><a href="Cart">Shopping cart</a></li>
                             </ul>
                             <ul>
                                 <li><a href="recipe.jsp">Recipes</a></li>
                                 <li><a href="contact.jsp">Contact us</a></li>
-                                <li><a href="checkout.jsp">Checkout</a></li>
+                                <li><a href="Checkout">Checkout</a></li>
                             </ul>
                         </div>
                     </div>

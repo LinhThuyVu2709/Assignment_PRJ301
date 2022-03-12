@@ -44,7 +44,7 @@
                 <ul>
                     <li><a href="Cart"><i class="fa fa-shopping-bag"></i> <span>${sessionScope.carts.size()}</span></a></li>
                 </ul>
-                <div class="header__cart__price">item: <span>$150.00</span></div>
+                <div class="header__cart__price">item: <span>$${sessionScope.totalMoney}</span></div>
             </div>
             <div class="humberger__menu__widget">
                 <div class="header__top__right__auth">
@@ -105,7 +105,7 @@
                                 <div class="header__top__right__social">
                                     <a href="https://www.facebook.com/thuylinh0902.27/"><i class="fa fa-facebook"></i></a>
                                     <a href="https://twitter.com/?lang=vi"><i class="fa fa-twitter"></i></a>
-                                    <a href="https://www.linkedin.com/in/vu-linh-150491220/"><i
+                                    <a href="https://www.linkedin.com/in/vu-linh-hea491220/"><i
                                             class="fa fa-linkedin"></i></a>
                                 </div>
                                 <div class="header__top__right__auth">
@@ -319,7 +319,7 @@
                             <ul>
                                 <li><a href="recipe.jsp">Recipes</a></li>
                                 <li><a href="contact.jsp">Contact us</a></li>
-                                <li><a href="checkout.jsp">Checkout</a></li>
+                                <li><a href="Checkout">Checkout</a></li>
                             </ul>
                         </div>
                     </div>

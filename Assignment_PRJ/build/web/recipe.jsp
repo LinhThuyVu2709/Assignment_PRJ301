@@ -39,10 +39,9 @@
             </div>
             <div class="humberger__menu__cart">
                 <ul>
-                    <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                    <li><a href="shoping-cart.jsp"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                    <li><a href="Cart"><i class="fa fa-shopping-bag"></i> <span>${sessionScope.carts.size()}</span></a></li>
                 </ul>
-                <div class="header__cart__price">item: <span>$150.00</span></div>
+                <div class="header__cart__price">item: <span>$${sessionScope.totalMoney}</span></div>
             </div>
             <div class="humberger__menu__widget">
                 <div class="header__top__right__auth">
@@ -52,23 +51,21 @@
             <nav class="humberger__menu__nav mobile-menu">
                 <ul>
                     <li><a href="Home">Home</a></li>
-                    <li class="active"><a href="Bakeware">Bakeware</a>
+                    <li><a href="Bakeware">Bakeware</a>
                         <ul class="header__menu__dropdown">
-                            <li><a href="SiliconBakeware">Silicone Bakeware</a></li>
-                            <li><a href="NonstickBakeware">Nonstick & Stin Bakeware</a></li>
-                            <li><a href="PaperBakeware">Paper Bakeware</a></li>
-                            <li><a href="BakingTool">Baking Tools</a></li>
+                            <c:forEach items="${sessionScope.sublistBakeware}" var="b"> 
+                                <li><a href="filter-bakeware?subB_id=${b.id}">${b.name}</a></li>
+                                </c:forEach>
                         </ul>
                     </li>
                     <li><a href="Ingredient">Ingredients</a>
                         <ul class="header__menu__dropdown">
-                            <li><a href="ColorDust">Color Dusts & Flavours</a></li>
-                            <li><a href="BakingIngredient">Baking Ingredients</a></li>
-                            <li><a href="ChocolateIngredient">Chocolate Ingredients</a></li>
-                            <li><a href="Fondant">Fondants & Gumpaste</a></li>
+                            <c:forEach items="${sessionScope.sublistIngredient}" var="i"> 
+                                <li><a href="filter-ingredient?subI_id=${i.id}">${i.name}</a></li>
+                                </c:forEach>
                         </ul>
                     </li>
-                    <li><a href="recipe.jsp">Recipes</a></li>
+                    <li class="active"><a href="recipe.jsp">Recipes</a></li>
                     <li><a href="contact.jsp">Contact</a></li>
                 </ul>
             </nav>
@@ -129,18 +126,16 @@
                                 <li><a href="Home">Home</a></li>
                                 <li><a href="Bakeware">Bakeware</a>
                                     <ul class="header__menu__dropdown">
-                                        <li><a href="SiliconBakeware">Silicone Bakeware</a></li>
-                                        <li><a href="NonstickBakeware">Nonstick & Stin Bakeware</a></li>
-                                        <li><a href="PaperBakeware">Paper Bakeware</a></li>
-                                        <li><a href="BakingTool">Baking Tools</a></li>
+                                        <c:forEach items="${sessionScope.sublistBakeware}" var="b"> 
+                                            <li><a href="filter-bakeware?subB_id=${b.id}">${b.name}</a></li>
+                                        </c:forEach>
                                     </ul>
                                 </li>
                                 <li><a href="Ingredient">Ingredients</a>
                                     <ul class="header__menu__dropdown">
-                                        <li><a href="ColorDust">Color Dusts & Flavours</a></li>
-                                        <li><a href="BakingIngredient">Baking Ingredients</a></li>
-                                        <li><a href="ChocolateIngredient">Chocolate Ingredients</a></li>
-                                        <li><a href="Fondant">Fondants & Gumpaste</a></li>
+                                        <c:forEach items="${sessionScope.sublistIngredient}" var="i"> 
+                                            <li><a href="filter-ingredient?subI_id=${i.id}">${i.name}</a></li>
+                                        </c:forEach>
                                     </ul>
                                 </li>
                                 <li class="active"><a href="recipe.jsp">Recipes</a></li>
@@ -151,10 +146,9 @@
                     <div class="col-lg-3">
                         <div class="header__cart">
                             <ul>
-                                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                                <li><a href="shoping-cart.jsp"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                                <li><a href="Cart"><i class="fa fa-shopping-bag"></i> <span>${sessionScope.carts.size()}</span></a></li>
                             </ul>
-                            <div class="header__cart__price">item: <span>$150.00</span></div>
+                            <div class="header__cart__price">item: <span>$${sessionScope.totalMoney}</span></div>
                         </div>
                     </div>
                 </div>
@@ -356,12 +350,12 @@
                             <ul>
                                 <li><a href="Bakeware">Bakewares</li>
                                 <li><a href="Ingredient">Ingredients</a></li>
-                                <li><a href="shoping-cart.jsp">Shopping cart</a></li>
+                                <li><a href="Cart">Shopping cart</a></li>
                             </ul>
                             <ul>
                                 <li><a href="recipe.jsp">Recipes</a></li>
                                 <li><a href="contact.jsp">Contact us</a></li>
-                                <li><a href="checkout.jsp">Checkout</a></li>
+                                <li><a href="Checkout">Checkout</a></li>
                             </ul>
                         </div>
                     </div>
