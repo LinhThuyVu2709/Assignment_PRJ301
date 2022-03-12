@@ -5,25 +5,24 @@
  */
 package controller;
 
-import dao.CategoryDAO;
-import dao.ProductDAO;
-import dao.SubCategoryDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Category;
-import model.Product;
-import model.SubCategory;
+import javax.servlet.http.HttpSession;
+import model.Cart;
 
 /**
  *
  * @author LinhVT
  */
-public class BakewareController extends HttpServlet {
+@WebServlet(name = "DeleteCartController", urlPatterns = {"/delete-cart"})
+public class DeleteCartController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,26 +35,17 @@ public class BakewareController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        final int PAGE_SIZE = 6;
-        int page = 1;
-
-        String pageStr = request.getParameter("page");
-        if (pageStr != null) {
-            page = Integer.parseInt(pageStr);
+        int productId = Integer.parseInt(request.getParameter("productId"));
+        HttpSession session = request.getSession();
+        Map<Integer, Cart> carts = (Map<Integer, Cart>) session.getAttribute("carts");
+        if (carts == null) {
+            carts = new LinkedHashMap<>();
         }
-        
-        ProductDAO bakewareDAO = new ProductDAO();
-        List<Product> listBakewareProduct = bakewareDAO.getProductInPagingByCategory_ID(1, page, PAGE_SIZE);
-        int totalBakeware = bakewareDAO.getTotalProductByCategory_ID(1);
-        int totalPage = totalBakeware / PAGE_SIZE;
-        if (totalPage % PAGE_SIZE != 0) {
-            totalPage += 1;
+        if (carts.containsKey(productId)) {
+            carts.remove(productId);
         }
-        request.getSession().setAttribute("URLHistory", "Bakeware");
-        request.setAttribute("page", page);
-        request.setAttribute("totalPage", totalPage);
-        request.setAttribute("listBakewareProduct", listBakewareProduct);
-        request.getRequestDispatcher("bakewares.jsp").forward(request, response);
+        session.setAttribute("carts", carts);
+        response.sendRedirect("Cart");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

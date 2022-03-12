@@ -4,6 +4,7 @@
     Author     : LinhVT
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -39,8 +40,7 @@
             </div>
             <div class="humberger__menu__cart">
                 <ul>
-                    <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                    <li><a href="shoping-cart.jsp"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                    <li><a href="Cart"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                 </ul>
                 <div class="header__cart__price">item: <span>$150.00</span></div>
             </div>
@@ -51,25 +51,23 @@
             </div>
             <nav class="humberger__menu__nav mobile-menu">
                 <ul>
-                    <li class="active"><a href="Home">Home</a></li>
+                    <li><a href="Home">Home</a></li>
                     <li><a href="Bakeware">Bakeware</a>
                         <ul class="header__menu__dropdown">
-                            <li><a href="SiliconBakeware">Silicone Bakeware</a></li>
-                            <li><a href="NonstickBakeware">Nonstick & Stin Bakeware</a></li>
-                            <li><a href="PaperBakeware">Paper Bakeware</a></li>
-                            <li><a href="BakingTool">Baking Tools</a></li>
+                            <c:forEach items="${sessionScope.sublistBakeware}" var="b"> 
+                                <li><a href="filter-bakeware?subB_id=${b.id}">${b.name}</a></li>
+                            </c:forEach>
                         </ul>
                     </li>
                     <li><a href="Ingredient">Ingredients</a>
                         <ul class="header__menu__dropdown">
-                            <li><a href="ColorDust">Color Dusts & Flavours</a></li>
-                            <li><a href="BakingIngredient">Baking Ingredients</a></li>
-                            <li><a href="ChocolateIngredient">Chocolate Ingredients</a></li>
-                            <li><a href="Fondant">Fondants & Gumpaste</a></li>
+                            <c:forEach items="${sessionScope.sublistIngredient}" var="i"> 
+                                <li><a href="filter-ingredient?subI_id=${i.id}">${i.name}</a></li>
+                            </c:forEach>
                         </ul>
                     </li>
-                    <li><a href="./recipe.jsp">Recipes</a></li>
-                    <li><a href="./contact.jsp">Contact</a></li>
+                    <li><a href="recipe.jsp">Recipes</a></li>
+                    <li><a href="contact.jsp">Contact</a></li>
                 </ul>
             </nav>
             <div id="mobile-menu-wrap"></div>
@@ -127,23 +125,18 @@
                         <nav class="header__menu">
                             <ul>
                                 <li><a href="Home">Home</a></li>
-
                                 <li><a href="Bakeware">Bakeware</a>
                                     <ul class="header__menu__dropdown">
-                                        <li><a href="SiliconBakeware">Silicone Bakeware</a></li>
-                                        <li><a href="NonstickBakeware">Nonstick & Stin Bakeware</a></li>
-                                        <li><a href="PaperBakeware">Paper Bakeware</a></li>
-                                        <li><a href="BakingTool">Baking Tools</a></li>
+                                        <c:forEach items="${sessionScope.sublistBakeware}" var="b"> 
+                                            <li><a href="filter-bakeware?subB_id=${b.id}">${b.name}</a></li>
+                                        </c:forEach>
                                     </ul>
-
                                 </li>
                                 <li><a href="Ingredient">Ingredients</a>
                                     <ul class="header__menu__dropdown">
-                                        <li><a href="ColorDust">Color Dusts & Flavours</a></li>
-                                        <li><a href="BakingIngredient">Baking Ingredients</a></li>
-                                        <li><a href="ChocolateIngredient">Chocolate Ingredients</a></li>
-                                        <li><a href="Fondant">Fondants & Gumpaste</a></li>
-
+                                        <c:forEach items="${sessionScope.sublistIngredient}" var="i"> 
+                                            <li><a href="filter-ingredient?subI_id=${i.id}">${i.name}</a></li>
+                                        </c:forEach>
                                     </ul>
                                 </li>
                                 <li><a href="recipe.jsp">Recipes</a></li>
@@ -154,8 +147,7 @@
                     <div class="col-lg-3">
                         <div class="header__cart">
                             <ul>
-                                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                                <li><a href="shoping-cart.jsp"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                                <li><a href="Cart"><i class="fa fa-shopping-bag"></i> <span>${sessionScope.carts.size()}</span></a></li>
                             </ul>
                             <div class="header__cart__price">item: <span>$150.00</span></div>
                         </div>
@@ -179,29 +171,17 @@
                                 <span>All departments</span>
                             </div>
                             <ul>
-                                <li><a href="SiliconBakeware">Silicone Bakeware</a></li>
-                                <li><a href="NonstickBakeware">Nonstick & Stin Bakeware</a></li>
-                                <li><a href="PaperBakeware">Paper Bakewares</a></li>
-                                <li><a href="BakingTool">Baking Tools</a></li>
-                                <li><a href="ColorDust">Color Dusts & Flavours</a></li>
-                                <li><a href="BakingIngredient">Baking Ingredients</a></li>
-                                <li><a href="ChocolateIngredient">Chocolate Ingredients</a></li>
-                                <li><a href="Fondant">Fondants & Gumpaste</a></li>
+                                <c:forEach items="${sessionScope.sublistBakeware}" var="b"> 
+                                    <li><a href="filter-bakeware?subB_id=${b.id}">${b.name}</a></li>
+                                    </c:forEach>
+                                    <c:forEach items="${sessionScope.sublistIngredient}" var="i"> 
+                                    <li><a href="filter-ingredient?subI_id=${i.id}">${i.name}</a></li>
+                                    </c:forEach>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-9">
                         <div class="hero__search">
-                            <div class="hero__search__form">
-                                <form action="#">
-                                    <div class="hero__search__categories">
-                                        All Categories
-                                        <span class="arrow_carrot-down"></span>
-                                    </div>
-                                    <input type="text" placeholder="What do yo u need?">
-                                    <button type="submit" class="site-btn">SEARCH</button>
-                                </form>
-                            </div>
                             <div class="hero__search__phone">
                                 <div class="hero__search__phone__icon">
                                     <i class="fa fa-phone"></i>
@@ -243,7 +223,12 @@
                     <div class="col-lg-12">
                         <div class="shoping__cart__table">
                             <table>
-                                <thead>
+                                <c:choose>
+                                        <c:when test="${sessionScope.carts.size()==0}">
+                                        <h3>Shopping Cart Is Empty</h3>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <thead>
                                     <tr>
                                         <th class="shoping__product">Products</th>
                                         <th>Price</th>
@@ -253,73 +238,39 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <c:forEach items="${carts}" var="c">
+                                    <form action="update-quantity">
+                                        <tr>
+                                        <input type="hidden" name="productId" value="${c.value.product.id}">
                                         <td class="shoping__cart__item">
-                                            <img src="img/cart/cart-1.jpg" alt="">
-                                            <h5>Vegetable’s Package</h5>
+                                            <img src="${c.value.product.imageURL}" width="120" height="120" alt="">
+                                            <h5>${c.value.product.name}</h5>
                                         </td>
                                         <td class="shoping__cart__price">
-                                            $55.00
+                                            $${c.value.product.price}
                                         </td>
                                         <td class="shoping__cart__quantity">
                                             <div class="quantity">
                                                 <div class="pro-qty">
-                                                    <input type="text" value="1">
+                                                    <input onchange="this.form.submit()" type="number" name="quantity" value="${c.value.quantity}">
                                                 </div>
                                             </div>
                                         </td>
                                         <td class="shoping__cart__total">
-                                            $110.00
+                                            $${c.value.product.price*c.value.quantity}
                                         </td>
                                         <td class="shoping__cart__item__close">
-                                            <span class="icon_close"></span>
+                                            <a href="delete-cart?productId=${c.value.product.id}"><span class="icon_close"></span></a>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td class="shoping__cart__item">
-                                            <img src="img/cart/cart-2.jpg" alt="">
-                                            <h5>Fresh Garden Vegetable</h5>
-                                        </td>
-                                        <td class="shoping__cart__price">
-                                            $39.00
-                                        </td>
-                                        <td class="shoping__cart__quantity">
-                                            <div class="quantity">
-                                                <div class="pro-qty">
-                                                    <input type="text" value="1">
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="shoping__cart__total">
-                                            $39.99
-                                        </td>
-                                        <td class="shoping__cart__item__close">
-                                            <span class="icon_close"></span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="shoping__cart__item">
-                                            <img src="img/cart/cart-3.jpg" alt="">
-                                            <h5>Organic Bananas</h5>
-                                        </td>
-                                        <td class="shoping__cart__price">
-                                            $69.00
-                                        </td>
-                                        <td class="shoping__cart__quantity">
-                                            <div class="quantity">
-                                                <div class="pro-qty">
-                                                    <input type="text" value="1">
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="shoping__cart__total">
-                                            $69.99
-                                        </td>
-                                        <td class="shoping__cart__item__close">
-                                            <span class="icon_close"></span>
-                                        </td>
-                                    </tr>
+                                    </form>
+                                        
+                                    </c:forEach>
+                                    
                                 </tbody>
+                                        </c:otherwise>
+                                    </c:choose>
+                                
                             </table>
                         </div>
                     </div>
@@ -329,7 +280,7 @@
                         <div class="shoping__cart__btns">
                             <a href="#" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
                             <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
-                                Upadate Cart</a>
+                                Update Cart</a>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -347,8 +298,7 @@
                         <div class="shoping__checkout">
                             <h5>Cart Total</h5>
                             <ul>
-                                <li>Subtotal <span>$454.98</span></li>
-                                <li>Total <span>$454.98</span></li>
+                                <li>Total <span>$${totalMoney}</span></li>
                             </ul>
                             <a href="#" class="primary-btn">PROCEED TO CHECKOUT</a>
                         </div>
@@ -380,7 +330,7 @@
                             <ul>
                                 <li><a href="Bakeware">Bakewares</li>
                                 <li><a href="Ingredient">Ingredients</a></li>
-                                <li><a href="shoping-cart.jsp">Shopping cart</a></li>
+                                <li><a href="Cart">Shopping cart</a></li>
                             </ul>
                             <ul>
                                 <li><a href="recipe.jsp">Recipes</a></li>

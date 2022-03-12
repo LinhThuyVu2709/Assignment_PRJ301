@@ -15,7 +15,7 @@
         <meta name="keywords" content="Ogani, unica, creative, html">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Product Detail</title>
+        <title>${product.name}</title>
 
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
@@ -42,9 +42,9 @@
             <div class="humberger__menu__cart">
                 <ul>
                     <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                    <li><a href="shoping-cart.jsp"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                    <li><a href="shoping-cart.jsp"><i class="fa fa-shopping-bag"></i> <span>${sessionScope.carts.size()}</span></a></li>
                 </ul>
-                <div class="header__cart__price">item: <span>$150.00</span></div>
+                <div class="header__cart__price">item: <span>$160.00</span></div>
             </div>
             <div class="humberger__menu__widget">
                 <div class="header__top__right__auth">
@@ -53,21 +53,19 @@
             </div>
             <nav class="humberger__menu__nav mobile-menu">
                 <ul>
-                    <li class="active"><a href="Home">Home</a></li>
-                    <li><a href="Bakeware">Bakeware</a>
+                    <li><a href="Home">Home</a></li>
+                    <li class="${product.id<25? "active" : ""}"><a href="Bakeware">Bakeware</a>
                         <ul class="header__menu__dropdown">
-                            <li><a href="SiliconBakeware">Silicone Bakeware</a></li>
-                            <li><a href="NonstickBakeware">Nonstick & Stin Bakeware</a></li>
-                            <li><a href="PaperBakeware">Paper Bakeware</a></li>
-                            <li><a href="BakingTool">Baking Tools</a></li>
+                            <c:forEach items="${sessionScope.sublistBakeware}" var="b"> 
+                                <li><a href="filter-bakeware?subB_id=${b.id}">${b.name}</a></li>
+                                </c:forEach>
                         </ul>
                     </li>
-                    <li><a href="Ingredient">Ingredients</a>
+                    <li class="${product.id<25? "active" : ""}"><a href="Ingredient">Ingredients</a>
                         <ul class="header__menu__dropdown">
-                            <li><a href="ColorDust">Color Dusts & Flavours</a></li>
-                            <li><a href="BakingIngredient">Baking Ingredients</a></li>
-                            <li><a href="ChocolateIngredient">Chocolate Ingredients</a></li>
-                            <li><a href="Fondant">Fondants & Gumpaste</a></li>
+                            <c:forEach items="${sessionScope.sublistIngredient}" var="i"> 
+                                <li><a href="filter-ingredient?subI_id=${i.id}">${i.name}</a></li>
+                                </c:forEach>
                         </ul>
                     </li>
                     <li><a href="recipe.jsp">Recipes</a></li>
@@ -129,21 +127,18 @@
                         <nav class="header__menu">
                             <ul>
                                 <li><a href="Home">Home</a></li>
-                                <li class="active"><a href="#">Bakeware</a>
+                                <li class="${product.id<25? "active" : ""}"><a href="Bakeware">Bakeware</a>
                                     <ul class="header__menu__dropdown">
-                                        <li><a href="SiliconBakeware">Silicone Bakeware</a></li>
-                                        <li><a href="NonstickBakeware">Nonstick & Stin Bakeware</a></li>
-                                        <li><a href="PaperBakeware">Paper Bakeware</a></li>
-                                        <li><a href="BakingTool">Baking Tools</a></li>
-
+                                        <c:forEach items="${sessionScope.sublistBakeware}" var="b"> 
+                                            <li><a href="filter-bakeware?subB_id=${b.id}">${b.name}</a></li>
+                                            </c:forEach>
                                     </ul>
                                 </li>
-                                <li><a href="Ingredient">Ingredients</a>
+                                <li class="${product.id>24? "active" : ""}"><a href="Ingredient">Ingredients</a>
                                     <ul class="header__menu__dropdown">
-                                        <li><a href="ColorDust">Color Dusts & Flavours</a></li>
-                                        <li><a href="BakingIngredient">Baking Ingredients</a></li>
-                                        <li><a href="ChocolateIngredient">Chocolate Ingredients</a></li>
-                                        <li><a href="Fondant">Fondants & Gumpaste</a></li>
+                                        <c:forEach items="${sessionScope.sublistIngredient}" var="i"> 
+                                            <li><a href="filter-ingredient?subI_id=${i.id}">${i.name}</a></li>
+                                            </c:forEach>
                                     </ul>
                                 </li>
                                 <li><a href="recipe.jsp">Recipes</a></li>
@@ -155,7 +150,7 @@
                         <div class="header__cart">
                             <ul>
                                 <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                                <li><a href="shoping-cart.jsp"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                                <li><a href="shoping-cart.jsp"><i class="fa fa-shopping-bag"></i> <span>${sessionScope.carts.size()}</span></a></li>
                             </ul>
                             <div class="header__cart__price">item: <span>$150.00</span></div>
                         </div>
@@ -254,14 +249,14 @@
                                         </div>
                                         <p class="lead">${product.description}</p>
                                         <div class="d-flex">
-                                            <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                                            <a href="add-to-cart?productId=${product.id}" class="btn btn-outline-dark flex-shrink-0" type="button">
                                                 <i class="bi-cart-fill me-1"></i>
                                                 Add to cart
-                                            </button>
-                                            <button class="btn btn-outline-success flex-shrink-0 ms-2" type="button">
+                                            </a>
+                                            <a class="btn btn-outline-success flex-shrink-0 ms-2" type="button">
                                                 <i class="bi-cart-fill me-1"></i>
                                                 Buy now
-                                            </button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -388,7 +383,7 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- Product Section End -->
 
         <!-- Footer Section Begin -->

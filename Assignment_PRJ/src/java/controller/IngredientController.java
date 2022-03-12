@@ -42,16 +42,13 @@ public class IngredientController extends HttpServlet {
             page = Integer.parseInt(pageStr);
         }
         ProductDAO ingredientDAO = new ProductDAO();
-        List<SubCategory> sublistBakeware = new SubCategoryDAO().getSubCategoryByCatID(1);
-        List<SubCategory> sublistIngredient = new SubCategoryDAO().getSubCategoryByCatID(2);
         List<Product> listIngredientProduct = ingredientDAO.getProductInPagingByCategory_ID(2,page, PAGE_SIZE);
         int totalIngredient = ingredientDAO.getTotalProductByCategory_ID(2);
         int totalPage = totalIngredient/PAGE_SIZE;
         if (totalPage % PAGE_SIZE != 0) {
             totalPage += 1;
         }
-        request.setAttribute("sublistIngredient", sublistIngredient);
-        request.setAttribute("sublistBakeware", sublistBakeware);
+        request.getSession().setAttribute("URLHistory", "Ingredient");
         request.setAttribute("page", page);
         request.setAttribute("totalPage", totalPage);
         request.setAttribute("listIngredientProduct", listIngredientProduct);

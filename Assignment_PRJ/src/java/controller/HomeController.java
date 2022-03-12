@@ -14,6 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.Product;
 import model.SubCategory;
 
@@ -37,12 +38,14 @@ public class HomeController extends HttpServlet {
         
         List<SubCategory> sublistBakeware = new SubCategoryDAO().getSubCategoryByCatID(1);
         List<SubCategory> sublistIngredient = new SubCategoryDAO().getSubCategoryByCatID(2);
+        HttpSession session = request.getSession();
+        session.setAttribute("sublistBakeware", sublistBakeware);
+        session.setAttribute("sublistIngredient", sublistIngredient);
         List<Product> listProduct = new ProductDAO().getAllProduct();
         List<Product> listBakewareProduct = new ProductDAO().getProductByCategoryID(1);
         List<Product> listIngredientProduct = new ProductDAO().getProductByCategoryID(2);
         
-        request.setAttribute("sublistIngredient", sublistIngredient);
-        request.setAttribute("sublistBakeware", sublistBakeware);
+        session.setAttribute("URLHistory", "Home");
         request.setAttribute("listProduct", listProduct);
         request.setAttribute("listBakewareProduct", listBakewareProduct);
         request.setAttribute("listIngredientProduct", listIngredientProduct);

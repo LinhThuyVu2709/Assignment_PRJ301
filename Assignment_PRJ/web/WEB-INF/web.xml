@@ -36,6 +36,18 @@
         <servlet-name>SearchIngredientController</servlet-name>
         <servlet-class>controller.SearchIngredientController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddToCartController</servlet-name>
+        <servlet-class>controller.AddToCartController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CartController</servlet-name>
+        <servlet-class>controller.CartController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateCartQuantityController</servlet-name>
+        <servlet-class>controller.UpdateCartQuantityController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/Home</url-pattern>
@@ -71,6 +83,18 @@
     <servlet-mapping>
         <servlet-name>SearchIngredientController</servlet-name>
         <url-pattern>/search-ingredient</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddToCartController</servlet-name>
+        <url-pattern>/add-to-cart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CartController</servlet-name>
+        <url-pattern>/Cart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateCartQuantityController</servlet-name>
+        <url-pattern>/update-quantity</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

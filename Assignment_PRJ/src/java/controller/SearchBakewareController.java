@@ -35,13 +35,9 @@ public class SearchBakewareController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String keyword = request.getParameter("keyword"); 
-        
+
         List<Product> listBakewareProduct = new ProductDAO().search(1,keyword);
-        List<SubCategory> sublistBakeware = new SubCategoryDAO().getSubCategoryByCatID(1);
-        List<SubCategory> sublistIngredient = new SubCategoryDAO().getSubCategoryByCatID(2);
         request.setAttribute("listBakewareProduct", listBakewareProduct);
-        request.setAttribute("sublistBakeware", sublistBakeware);
-        request.setAttribute("sublistIngredient", sublistIngredient);
         request.getRequestDispatcher("bakewares.jsp").forward(request, response);
     }
 

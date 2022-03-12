@@ -42,8 +42,7 @@
             </div>
             <div class="humberger__menu__cart">
                 <ul>
-                    <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                    <li><a href="shoping-cart.jsp"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                    <li><a href="Cart"><i class="fa fa-shopping-bag"></i> <span>${sessionScope.carts.size()}</span></a></li>
                 </ul>
                 <div class="header__cart__price">item: <span>$150.00</span></div>
             </div>
@@ -57,14 +56,14 @@
                     <li class="active"><a href="Home">Home</a></li>
                     <li><a href="Bakeware">Bakeware</a>
                         <ul class="header__menu__dropdown">
-                            <c:forEach items="${sublistBakeware}" var="b"> 
+                            <c:forEach items="${sessionScope.sublistBakeware}" var="b"> 
                                 <li><a href="filter-bakeware?subB_id=${b.id}">${b.name}</a></li>
                                 </c:forEach>
                         </ul>
                     </li>
                     <li><a href="Ingredient">Ingredients</a>
                         <ul class="header__menu__dropdown">
-                            <c:forEach items="${sublistIngredient}" var="i"> 
+                            <c:forEach items="${sessionScope.sublistIngredient}" var="i"> 
                                 <li><a href="filter-ingredient?subI_id=${i.id}">${i.name}</a></li>
                                 </c:forEach>
                         </ul>
@@ -130,14 +129,14 @@
                                 <li class="active"><a href="Home">Home</a></li>
                                 <li><a href="Bakeware">Bakeware</a>
                                     <ul class="header__menu__dropdown">
-                                        <c:forEach items="${sublistBakeware}" var="b"> 
+                                        <c:forEach items="${sessionScope.sublistBakeware}" var="b"> 
                                             <li><a href="filter-bakeware?subB_id=${b.id}">${b.name}</a></li>
                                             </c:forEach>
                                     </ul>
                                 </li>
                                 <li><a href="Ingredient">Ingredients</a>
                                     <ul class="header__menu__dropdown">
-                                        <c:forEach items="${sublistIngredient}" var="i"> 
+                                        <c:forEach items="${sessionScope.sublistIngredient}" var="i"> 
                                             <li><a href="filter-ingredient?subI_id=${i.id}">${i.name}</a></li>
                                             </c:forEach>
                                     </ul>
@@ -150,8 +149,7 @@
                     <div class="col-lg-3">
                         <div class="header__cart">
                             <ul>
-                                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                                <li><a href="shoping-cart.jsp"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                                <li><a href="Cart"><i class="fa fa-shopping-bag"></i> <span>${sessionScope.carts.size()}</span></a></li>
                             </ul>
                             <div class="header__cart__price">item: <span>$150.00</span></div>
                         </div>
@@ -175,10 +173,10 @@
                                 <span>All departments</span>
                             </div>
                             <ul>
-                                <c:forEach items="${sublistBakeware}" var="b"> 
+                                <c:forEach items="${sessionScope.sublistBakeware}" var="b"> 
                                     <li><a href="filter-bakeware?subB_id=${b.id}">${b.name}</a></li>
                                     </c:forEach>
-                                    <c:forEach items="${sublistIngredient}" var="i"> 
+                                    <c:forEach items="${sessionScope.sublistIngredient}" var="i"> 
                                     <li><a href="filter-ingredient?subI_id=${i.id}">${i.name}</a></li>
                                     </c:forEach>
                             </ul>
@@ -261,7 +259,7 @@
                             <div class="featured__item">
                                 <div class="featured__item__pic set-bg" data-setbg="${bakeware.imageURL}">
                                     <ul class="featured__item__pic__hover">
-                                        <li><a href="shoping-cart.jsp"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <li><a href="add-to-cart?productId=${bakeware.id}"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="featured__item__text">
@@ -277,7 +275,7 @@
                             <div class="featured__item">
                                 <div class="featured__item__pic set-bg" data-setbg="${ingredient.imageURL}">
                                     <ul class="featured__item__pic__hover">
-                                        <li><a href="shoping-cart.jsp"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <li><a href="add-to-cart?productId=${ingredient.id}"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="featured__item__text">
@@ -316,7 +314,7 @@
                             <ul>
                                 <li><a href="Bakeware">Bakewares</li>
                                 <li><a href="Ingredient">Ingredients</a></li>
-                                <li><a href="shoping-cart.jsp">Shopping cart</a></li>
+                                <li><a href="Cart">Shopping cart</a></li>
                             </ul>
                             <ul>
                                 <li><a href="recipe.jsp">Recipes</a></li>

@@ -6,13 +6,16 @@
 package controller;
 
 import dao.ProductDAO;
+import dao.SubCategoryDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Product;
+import model.SubCategory;
 
 /**
  *
@@ -35,6 +38,7 @@ public class DetailController extends HttpServlet {
         
         Product product = new ProductDAO().getProductByID(productID);
         request.setAttribute("product", product);
+        request.getSession().setAttribute("URLHistory", "detail?productId=" + productID);
         request.getRequestDispatcher("product_detail.jsp").forward(request, response);
     }
 
