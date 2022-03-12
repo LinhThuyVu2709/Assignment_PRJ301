@@ -4,6 +4,7 @@
     Author     : LinhVT
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -39,8 +40,7 @@
             </div>
             <div class="humberger__menu__cart">
                 <ul>
-                    <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                    <li><a href="shoping-cart.jsp"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                    <li><a href="Cart"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                 </ul>
                 <div class="header__cart__price">item: <span>$150.00</span></div>
             </div>
@@ -51,21 +51,19 @@
             </div>
             <nav class="humberger__menu__nav mobile-menu">
                 <ul>
-                    <li class="active"><a href="Home">Home</a></li>
+                    <li><a href="Home">Home</a></li>
                     <li><a href="Bakeware">Bakeware</a>
                         <ul class="header__menu__dropdown">
-                            <li><a href="SiliconBakeware">Silicone Bakeware</a></li>
-                            <li><a href="NonstickBakeware">Nonstick & Stin Bakeware</a></li>
-                            <li><a href="PaperBakeware">Paper Bakeware</a></li>
-                            <li><a href="BakingTool">Baking Tools</a></li>
+                            <c:forEach items="${sessionScope.sublistBakeware}" var="b"> 
+                                <li><a href="filter-bakeware?subB_id=${b.id}">${b.name}</a></li>
+                                </c:forEach>
                         </ul>
                     </li>
                     <li><a href="Ingredient">Ingredients</a>
                         <ul class="header__menu__dropdown">
-                            <li><a href="ColorDust">Color Dusts & Flavours</a></li>
-                            <li><a href="BakingIngredient">Baking Ingredients</a></li>
-                            <li><a href="ChocolateIngredient">Chocolate Ingredients</a></li>
-                            <li><a href="Fondant">Fondants & Gumpaste</a></li>
+                            <c:forEach items="${sessionScope.sublistIngredient}" var="i"> 
+                                <li><a href="filter-ingredient?subI_id=${i.id}">${i.name}</a></li>
+                                </c:forEach>
                         </ul>
                     </li>
                     <li><a href="recipe.jsp">Recipes</a></li>
@@ -127,23 +125,18 @@
                         <nav class="header__menu">
                             <ul>
                                 <li><a href="Home">Home</a></li>
-
                                 <li><a href="Bakeware">Bakeware</a>
                                     <ul class="header__menu__dropdown">
-                                        <li><a href="SiliconBakeware">Silicone Bakeware</a></li>
-                                        <li><a href="NonstickBakeware">Nonstick & Stin Bakeware</a></li>
-                                        <li><a href="PaperBakeware">Paper Bakeware</a></li>
-                                        <li><a href="BakingTool">Baking Tools</a></li>
+                                        <c:forEach items="${sessionScope.sublistBakeware}" var="b"> 
+                                            <li><a href="filter-bakeware?subB_id=${b.id}">${b.name}</a></li>
+                                            </c:forEach>
                                     </ul>
-
                                 </li>
                                 <li><a href="Ingredient">Ingredients</a>
                                     <ul class="header__menu__dropdown">
-                                        <li><a href="ColorDust">Color Dusts & Flavours</a></li>
-                                        <li><a href="BakingIngredient">Baking Ingredients</a></li>
-                                        <li><a href="ChocolateIngredient">Chocolate Ingredients</a></li>
-                                        <li><a href="Fondant">Fondants & Gumpaste</a></li>
-
+                                        <c:forEach items="${sessionScope.sublistIngredient}" var="i"> 
+                                            <li><a href="filter-ingredient?subI_id=${i.id}">${i.name}</a></li>
+                                            </c:forEach>
                                     </ul>
                                 </li>
                                 <li><a href="recipe.jsp">Recipes</a></li>
@@ -154,10 +147,9 @@
                     <div class="col-lg-3">
                         <div class="header__cart">
                             <ul>
-                                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                                <li><a href="shoping-cart.jsp"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                                <li><a href="Cart"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                             </ul>
-                            <div class="header__cart__price">item: <span>$150.00</span></div>
+                            <div class="header__cart__price">item: <span>$${sessionScope.totalMoney}</span></div>
                         </div>
                     </div>
                 </div>
@@ -179,29 +171,17 @@
                                 <span>All departments</span>
                             </div>
                             <ul>
-                                <li><a href="SiliconBakeware">Silicone Bakeware</a></li>
-                                <li><a href="NonstickBakeware">Nonstick & Stin Bakeware</a></li>
-                                <li><a href="PaperBakeware">Paper Bakewares</a></li>
-                                <li><a href="BakingTool">Baking Tools</a></li>
-                                <li><a href="ColorDust">Color Dusts & Flavours</a></li>
-                                <li><a href="BakingIngredient">Baking Ingredients</a></li>
-                                <li><a href="ChocolateIngredient">Chocolate Ingredients</a></li>
-                                <li><a href="Fondant">Fondants & Gumpaste</a></li>
+                                <c:forEach items="${sessionScope.sublistBakeware}" var="b"> 
+                                    <li><a href="filter-bakeware?subB_id=${b.id}">${b.name}</a></li>
+                                    </c:forEach>
+                                    <c:forEach items="${sessionScope.sublistIngredient}" var="i"> 
+                                    <li><a href="filter-ingredient?subI_id=${i.id}">${i.name}</a></li>
+                                    </c:forEach>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-9">
                         <div class="hero__search">
-                            <div class="hero__search__form">
-                                <form action="#">
-                                    <div class="hero__search__categories">
-                                        All Categories
-                                        <span class="arrow_carrot-down"></span>
-                                    </div>
-                                    <input type="text" placeholder="What do you need?">
-                                    <button type="submit" class="site-btn">SEARCH</button>
-                                </form>
-                            </div>
                             <div class="hero__search__phone">
                                 <div class="hero__search__phone__icon">
                                     <i class="fa fa-phone"></i>
@@ -324,12 +304,11 @@
                                     <h4>Your Order</h4>
                                     <div class="checkout__order__products">Products <span>Total</span></div>
                                     <ul>
-                                        <li>Vegetable’s Package <span>$75.99</span></li>
-                                        <li>Fresh Vegetable <span>$151.99</span></li>
-                                        <li>Organic Bananas <span>$53.99</span></li>
+                                        <c:forEach items="${sessionScope.carts}" var="c">
+                                            <li>${c.value.product.name}<span>$${c.value.product.price}</span></li>
+                                        </c:forEach>
                                     </ul>
-                                    <div class="checkout__order__subtotal">Subtotal <span>$750.99</span></div>
-                                    <div class="checkout__order__total">Total <span>$750.99</span></div>
+                                    <div class="checkout__order__total">Total <span>$${sessionScope.totalMoney}</span></div>
                                     <div class="checkout__input__checkbox">
                                         <label for="acc-or">
                                             Create an account?

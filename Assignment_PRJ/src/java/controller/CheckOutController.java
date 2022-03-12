@@ -7,20 +7,16 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.LinkedHashMap;
-import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import model.Cart;
 
 /**
  *
  * @author LinhVT
  */
-public class CartController extends HttpServlet {
+public class CheckOutController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,21 +29,7 @@ public class CartController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        Map<Integer, Cart> carts = (Map<Integer, Cart>) session.getAttribute("carts");
-        if (carts == null) {
-            carts = new LinkedHashMap<>();
-        }
-        float totalMoney = 0;
-        for (Map.Entry<Integer, Cart> entry : carts.entrySet()) {
-            Integer productId = entry.getKey();
-            Cart cart = entry.getValue();
-            
-            totalMoney += cart.getQuantity() * cart.getProduct().getPrice();
-        }
-        session.setAttribute("totalMoney", totalMoney);
-        request.setAttribute("carts", carts);
-        request.getRequestDispatcher("shoping-cart.jsp").forward(request, response);
+        request.getRequestDispatcher("checkout.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -48,6 +48,10 @@
         <servlet-name>UpdateCartQuantityController</servlet-name>
         <servlet-class>controller.UpdateCartQuantityController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CheckOutController</servlet-name>
+        <servlet-class>controller.CheckOutController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/Home</url-pattern>
@@ -95,6 +99,10 @@
     <servlet-mapping>
         <servlet-name>UpdateCartQuantityController</servlet-name>
         <url-pattern>/update-quantity</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckOutController</servlet-name>
+        <url-pattern>/Checkout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

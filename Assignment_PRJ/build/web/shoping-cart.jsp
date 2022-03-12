@@ -149,7 +149,7 @@
                             <ul>
                                 <li><a href="Cart"><i class="fa fa-shopping-bag"></i> <span>${sessionScope.carts.size()}</span></a></li>
                             </ul>
-                            <div class="header__cart__price">item: <span>$150.00</span></div>
+                            <div class="header__cart__price">item: <span>$${sessionScope.totalMoney}</span></div>
                         </div>
                     </div>
                 </div>
@@ -279,8 +279,6 @@
                     <div class="col-lg-12">
                         <div class="shoping__cart__btns">
                             <a href="#" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
-                            <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
-                                Update Cart</a>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -298,9 +296,9 @@
                         <div class="shoping__checkout">
                             <h5>Cart Total</h5>
                             <ul>
-                                <li>Total <span>$${totalMoney}</span></li>
+                                <li>Total <span>$${sessionScope.totalMoney}</span></li>
                             </ul>
-                            <a href="#" class="primary-btn">PROCEED TO CHECKOUT</a>
+                            <a href="Checkout" class="primary-btn">PROCEED TO CHECKOUT</a>
                         </div>
                     </div>
                 </div>
