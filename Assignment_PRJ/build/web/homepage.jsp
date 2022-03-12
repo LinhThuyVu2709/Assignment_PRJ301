@@ -265,7 +265,7 @@
                                     </ul>
                                 </div>
                                 <div class="featured__item__text">
-                                    <h6><a href="#">${bakeware.name}</a></h6>
+                                    <h6><a href="detail?productId=${bakeware.id}">${bakeware.name}</a></h6>
                                     <h5>$${bakeware.price}</h5>
                                 </div>
                             </div>
@@ -281,7 +281,7 @@
                                     </ul>
                                 </div>
                                 <div class="featured__item__text">
-                                    <h6><a href="#">${ingredient.name}</a></h6>
+                                    <h6><a href="detail?productId=${ingredient.id}">${ingredient.name}</a></h6>
                                     <h5>$${ingredient.price}</h5>
                                 </div>
                             </div>

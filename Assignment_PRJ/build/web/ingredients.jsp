@@ -268,7 +268,7 @@
                                             </ul>
                                         </div>
                                         <div class="product__item__text">
-                                            <h6><a href="#">${ingredient.name}</a></h6>
+                                            <h6><a href="detail?productId=${ingredient.id}">${ingredient.name}</a></h6>
                                             <h5>$${ingredient.price}</h5>
                                         </div>
                                     </div>

@@ -207,7 +207,7 @@ public class ProductDAO {
 
     public static void main(String[] args) {
         ProductDAO dao = new ProductDAO();
-        System.out.println(dao.search(1, "heart"));
+        System.out.println(dao.getProductByID(5));
     }
 
     public List<Product> search(int categoryID, String keyword) {
@@ -236,5 +236,30 @@ public class ProductDAO {
             Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list_bakeware;
+    }
+
+    public Product getProductByID(int productID) {
+        List<Product> list_bakeware = new ArrayList<>();
+        try {
+            String sql = "select*from Products where id = ?";
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, productID);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Product product = new Product(rs.getInt(1), //id
+                        rs.getString(2), //name
+                        rs.getInt(3), //quantity
+                        rs.getFloat(4), //price
+                        rs.getString(5), //description
+                        rs.getString(6), //imageURL
+                        rs.getString(7), //created_time
+                        rs.getInt(8)); //sub_id
+                return product;
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 }
