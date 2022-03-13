@@ -45,7 +45,16 @@
             </div>
             <div class="humberger__menu__widget">
                 <div class="header__top__right__auth">
-                    <a href="#"><i class="fa fa-user"></i> Login</a>
+                    <c:choose>
+                        <c:when test="${sessionScope.account != null}">
+                            <a href="#"><i class="fa fa-user"></i>${sessionScope.account.displayName}</a>
+                            <a href="Logout"><i class="fa fa-sign-out"></i> Log out</a>
+                        </c:when>
+                        <c:otherwise>
+                            <a href="Login"><i class="fa fa-user"></i> Login</a>
+                        </c:otherwise>    
+                    </c:choose>
+
                 </div>
             </div>
             <nav class="humberger__menu__nav mobile-menu">
@@ -55,14 +64,14 @@
                         <ul class="header__menu__dropdown">
                             <c:forEach items="${sessionScope.sublistBakeware}" var="b"> 
                                 <li><a href="filter-bakeware?subB_id=${b.id}">${b.name}</a></li>
-                                </c:forEach>
+                            </c:forEach>
                         </ul>
                     </li>
                     <li><a href="Ingredient">Ingredients</a>
                         <ul class="header__menu__dropdown">
                             <c:forEach items="${sessionScope.sublistIngredient}" var="i"> 
                                 <li><a href="filter-ingredient?subI_id=${i.id}">${i.name}</a></li>
-                                </c:forEach>
+                            </c:forEach>
                         </ul>
                     </li>
                     <li class="active"><a href="recipe.jsp">Recipes</a></li>
@@ -106,7 +115,16 @@
                                             class="fa fa-linkedin"></i></a>
                                 </div>
                                 <div class="header__top__right__auth">
-                                    <a href="#"><i class="fa fa-user"></i> Login</a>
+                                    <c:choose>
+                                        <c:when test="${sessionScope.account != null}">
+                                            <a href="#"><i class="fa fa-user"></i>${sessionScope.account.displayName}</a>
+                                            <a href="Logout"><i class="fa fa-sign-out"></i> Log out</a>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <a href="Login"><i class="fa fa-user"></i> Login</a>
+                                        </c:otherwise>    
+                                    </c:choose>
+
                                 </div>
                             </div>
                         </div>

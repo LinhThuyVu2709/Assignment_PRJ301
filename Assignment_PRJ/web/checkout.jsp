@@ -46,7 +46,16 @@
             </div>
             <div class="humberger__menu__widget">
                 <div class="header__top__right__auth">
-                    <a href="#"><i class="fa fa-user"></i> Login</a>
+                    <c:choose>
+                        <c:when test="${sessionScope.account != null}">
+                            <a href="#"><i class="fa fa-user"></i>${sessionScope.account.displayName}</a>
+                            <a href="Logout"><i class="fa fa-sign-out"></i> Log out</a>
+                        </c:when>
+                        <c:otherwise>
+                            <a href="Login"><i class="fa fa-user"></i> Login</a>
+                        </c:otherwise>    
+                    </c:choose>
+
                 </div>
             </div>
             <nav class="humberger__menu__nav mobile-menu">
@@ -107,7 +116,16 @@
                                             class="fa fa-linkedin"></i></a>
                                 </div>
                                 <div class="header__top__right__auth">
-                                    <a href="#"><i class="fa fa-user"></i> Login</a>
+                                    <c:choose>
+                                        <c:when test="${sessionScope.account != null}">
+                                            <a href="#"><i class="fa fa-user"></i>${sessionScope.account.displayName}</a>
+                                            <a href="Logout"><i class="fa fa-sign-out"></i> Log out</a>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <a href="Login"><i class="fa fa-user"></i> Login</a>
+                                        </c:otherwise>    
+                                    </c:choose>
+
                                 </div>
                             </div>
                         </div>
@@ -225,11 +243,11 @@
                         <div class="row">
                             <div class="col-lg-8 col-md-6">
                                 <div class="checkout__input">
-                                        <div class="">
-                                            <p>Your Name<span>*</span></p>
-                                            <input type="text" id="name" name="name">
-                                        </div>
-                                    
+                                    <div class="">
+                                        <p>Your Name<span>*</span></p>
+                                        <input type="text" id="name" name="name">
+                                    </div>
+
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-6">
@@ -249,15 +267,15 @@
                                     <p>Address<span>*</span></p>
                                     <input type="text" id="address" name="address" class="checkout__input__add">
                                 </div>
-                                
+
                                 <div class="checkout__input">
                                     <p>Order notes</p>
                                     <input type="text" id="note" name="note"
                                            placeholder="Notes about your order, e.g. special notes for delivery.">
                                 </div>
-                                
-                  
-                                
+
+
+
                             </div>
                             <div class="col-lg-4 col-md-6">
                                 <div class="checkout__order">
@@ -266,10 +284,10 @@
                                     <ul>
                                         <c:forEach items="${sessionScope.carts}" var="c">
                                             <li>${c.value.product.name}<span>$${c.value.product.price}</span></li>
-                                        </c:forEach>
+                                            </c:forEach>
                                     </ul>
                                     <div class="checkout__order__total">Total <span>$${sessionScope.totalMoney}</span></div>
-                                    
+
                                     <button type="submit" class="site-btn">PLACE ORDER</button>
                                 </div>
                             </div>

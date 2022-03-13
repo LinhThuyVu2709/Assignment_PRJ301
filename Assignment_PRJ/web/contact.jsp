@@ -45,7 +45,16 @@
             </div>
             <div class="humberger__menu__widget">
                 <div class="header__top__right__auth">
-                    <a href="#"><i class="fa fa-user"></i> Login</a>
+                    <c:choose>
+                        <c:when test="${sessionScope.account != null}">
+                            <a href="#"><i class="fa fa-user"></i>${sessionScope.account.displayName}</a>
+                            <a href="Logout"><i class="fa fa-sign-out"></i> Log out</a>
+                        </c:when>
+                        <c:otherwise>
+                            <a href="Login"><i class="fa fa-user"></i> Login</a>
+                        </c:otherwise>    
+                    </c:choose>
+
                 </div>
             </div>
             <nav class="humberger__menu__nav mobile-menu">
@@ -106,7 +115,16 @@
                                             class="fa fa-linkedin"></i></a>
                                 </div>
                                 <div class="header__top__right__auth">
-                                    <a href="#"><i class="fa fa-user"></i> Login</a>
+                                    <c:choose>
+                                        <c:when test="${sessionScope.account != null}">
+                                            <a href="#"><i class="fa fa-user"></i>${sessionScope.account.displayName}</a>
+                                            <a href="Logout"><i class="fa fa-sign-out"></i> Log out</a>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <a href="Login"><i class="fa fa-user"></i> Login</a>
+                                        </c:otherwise>    
+                                    </c:choose>
+
                                 </div>
                             </div>
                         </div>

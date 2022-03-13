@@ -46,7 +46,16 @@
             </div>
             <div class="humberger__menu__widget">
                 <div class="header__top__right__auth">
-                    <a href="#"><i class="fa fa-user"></i> Login</a>
+                    <c:choose>
+                        <c:when test="${sessionScope.account != null}">
+                            <a href="#"><i class="fa fa-user"></i>${sessionScope.account.displayName}</a>
+                            <a href="Logout"><i class="fa fa-sign-out"></i> Log out</a>
+                        </c:when>
+                        <c:otherwise>
+                            <a href="Login"><i class="fa fa-user"></i> Login</a>
+                        </c:otherwise>    
+                    </c:choose>
+
                 </div>
             </div>
             <nav class="humberger__menu__nav mobile-menu">
@@ -56,14 +65,14 @@
                         <ul class="header__menu__dropdown">
                             <c:forEach items="${sessionScope.sublistBakeware}" var="b"> 
                                 <li><a href="filter-bakeware?subB_id=${b.id}">${b.name}</a></li>
-                            </c:forEach>
+                                </c:forEach>
                         </ul>
                     </li>
                     <li><a href="Ingredient">Ingredients</a>
                         <ul class="header__menu__dropdown">
                             <c:forEach items="${sessionScope.sublistIngredient}" var="i"> 
                                 <li><a href="filter-ingredient?subI_id=${i.id}">${i.name}</a></li>
-                            </c:forEach>
+                                </c:forEach>
                         </ul>
                     </li>
                     <li><a href="recipe.jsp">Recipes</a></li>
@@ -107,7 +116,16 @@
                                             class="fa fa-linkedin"></i></a>
                                 </div>
                                 <div class="header__top__right__auth">
-                                    <a href="#"><i class="fa fa-user"></i> Login</a>
+                                    <c:choose>
+                                        <c:when test="${sessionScope.account != null}">
+                                            <a href="#"><i class="fa fa-user"></i>${sessionScope.account.displayName}</a>
+                                            <a href="Logout"><i class="fa fa-sign-out"></i> Log out</a>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <a href="Login"><i class="fa fa-user"></i> Login</a>
+                                        </c:otherwise>    
+                                    </c:choose>
+
                                 </div>
                             </div>
                         </div>
@@ -129,14 +147,14 @@
                                     <ul class="header__menu__dropdown">
                                         <c:forEach items="${sessionScope.sublistBakeware}" var="b"> 
                                             <li><a href="filter-bakeware?subB_id=${b.id}">${b.name}</a></li>
-                                        </c:forEach>
+                                            </c:forEach>
                                     </ul>
                                 </li>
                                 <li><a href="Ingredient">Ingredients</a>
                                     <ul class="header__menu__dropdown">
                                         <c:forEach items="${sessionScope.sublistIngredient}" var="i"> 
                                             <li><a href="filter-ingredient?subI_id=${i.id}">${i.name}</a></li>
-                                        </c:forEach>
+                                            </c:forEach>
                                     </ul>
                                 </li>
                                 <li><a href="recipe.jsp">Recipes</a></li>
@@ -224,53 +242,53 @@
                         <div class="shoping__cart__table">
                             <table>
                                 <c:choose>
-                                        <c:when test="${sessionScope.carts.size()==0}">
+                                    <c:when test="${sessionScope.carts.size()==0}">
                                         <h3>Shopping Cart Is Empty</h3>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <thead>
-                                    <tr>
-                                        <th class="shoping__product">Products</th>
-                                        <th>Price</th>
-                                        <th>Quantity</th>
-                                        <th>Total</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <c:forEach items="${carts}" var="c">
-                                    <form action="update-quantity">
-                                        <tr>
-                                        <input type="hidden" name="productId" value="${c.value.product.id}">
-                                        <td class="shoping__cart__item">
-                                            <img src="${c.value.product.imageURL}" width="120" height="120" alt="">
-                                            <h5>${c.value.product.name}</h5>
-                                        </td>
-                                        <td class="shoping__cart__price">
-                                            $${c.value.product.price}
-                                        </td>
-                                        <td class="shoping__cart__quantity">
-                                            <div class="quantity">
-                                                <div class="pro-qty">
-                                                    <input onchange="this.form.submit()" type="number" name="quantity" value="${c.value.quantity}">
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="shoping__cart__total">
-                                            $${c.value.product.price*c.value.quantity}
-                                        </td>
-                                        <td class="shoping__cart__item__close">
-                                            <a href="delete-cart?productId=${c.value.product.id}"><span class="icon_close"></span></a>
-                                        </td>
-                                    </tr>
-                                    </form>
-                                        
-                                    </c:forEach>
-                                    
-                                </tbody>
-                                        </c:otherwise>
-                                    </c:choose>
-                                
+                                    </c:when>
+                                    <c:otherwise>
+                                        <thead>
+                                            <tr>
+                                                <th class="shoping__product">Products</th>
+                                                <th>Price</th>
+                                                <th>Quantity</th>
+                                                <th>Total</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <c:forEach items="${carts}" var="c">
+                                            <form action="update-quantity">
+                                                <tr>
+                                                <input type="hidden" name="productId" value="${c.value.product.id}">
+                                                <td class="shoping__cart__item">
+                                                    <img src="${c.value.product.imageURL}" width="120" height="120" alt="">
+                                                    <h5>${c.value.product.name}</h5>
+                                                </td>
+                                                <td class="shoping__cart__price">
+                                                    $${c.value.product.price}
+                                                </td>
+                                                <td class="shoping__cart__quantity">
+                                                    <div class="quantity">
+                                                        <div class="pro-qty">
+                                                            <input onchange="this.form.submit()" type="number" name="quantity" value="${c.value.quantity}">
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="shoping__cart__total">
+                                                    $${c.value.product.price*c.value.quantity}
+                                                </td>
+                                                <td class="shoping__cart__item__close">
+                                                    <a href="delete-cart?productId=${c.value.product.id}"><span class="icon_close"></span></a>
+                                                </td>
+                                                </tr>
+                                            </form>
+
+                                        </c:forEach>
+
+                                        </tbody>
+                                    </c:otherwise>
+                                </c:choose>
+
                             </table>
                         </div>
                     </div>
