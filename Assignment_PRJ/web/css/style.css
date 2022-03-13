@@ -2142,6 +2142,12 @@ ol {
     width: 100%;
     margin-top: 10px;
 }
+.checkout__order a {
+    font-size: 18px;
+    letter-spacing: 2px;
+    width: 100%;
+    margin-top: 10px;
+}
 
 /*---------------------
   Blog

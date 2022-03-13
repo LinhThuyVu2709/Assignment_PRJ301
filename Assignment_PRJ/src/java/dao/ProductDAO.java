@@ -9,6 +9,7 @@ import context.DBContext;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -44,6 +45,39 @@ public class ProductDAO {
             Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
+    }
+    public static void main(String[] args) {
+        ProductDAO dao = new ProductDAO();
+        dao.updateProduct("Pinata Cake Silicon Mould – 3D Diamond Heart", 100, 295, "Pinata Cakes, the new favourite and buzzing trend in the cake world. Try it for yourself and surprise your loved ones. The flexible silicone material of the chocolate mould allows for quick and easy removal, retaining the original shape.", "img/product/bakeware/1.jpeg", "2/13/2022", 1, 1);
+        System.out.println(dao.getProductByID(1));
+    }
+    
+    public void updateProduct(String name, int quantity, float price, String description, String imageURL, String created_time, int sub_id, int id) {
+        try {
+            String sql = "UPDATE [BakeOfArt].[dbo].[Products]\n"
+                    + "   SET [name] = ?\n"
+                    + "      ,[quantity] = ?\n"
+                    + "      ,[price] = ?\n"
+                    + "      ,[description] = ?\n"
+                    + "      ,[imageURL] = ?\n"
+                    + "      ,[created_time] = ?\n"
+                    + "      ,[sub_id] = ?\n"
+                    + " WHERE [id] = ?";
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, name);
+            ps.setInt(2, quantity);
+            ps.setFloat(3, price);
+            ps.setString(4, description);
+            ps.setString(5, imageURL);
+            ps.setString(6, created_time);
+            ps.setInt(7, sub_id);
+            ps.setInt(8, id);
+            
+            ps.executeUpdate();
+        } catch (Exception ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public List<Product> getProductByCategoryID(int categoryID) {
@@ -205,10 +239,7 @@ public class ProductDAO {
         return 0;
     }
 
-    public static void main(String[] args) {
-        ProductDAO dao = new ProductDAO();
-        System.out.println(dao.getProductByID(5));
-    }
+    
 
     public List<Product> search(int categoryID, String keyword) {
         List<Product> list_bakeware = new ArrayList<>();

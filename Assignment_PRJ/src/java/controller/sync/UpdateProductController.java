@@ -8,9 +8,13 @@ package controller.sync;
 import dao.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
+import java.text.Format;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,8 +24,7 @@ import model.Product;
  *
  * @author LinhVT
  */
-@WebServlet(name = "AdminController", urlPatterns = {"/admin/dashboard"})
-public class AdminController extends HttpServlet {
+public class UpdateProductController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,10 +37,6 @@ public class AdminController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ProductDAO productDAO = new ProductDAO();
-        List<Product> listAllProduct = productDAO.getAllProduct();
-        request.setAttribute("listAllProduct", listAllProduct);
-        request.getRequestDispatcher("../dashboard.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -52,7 +51,11 @@ public class AdminController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        int productId = Integer.parseInt(request.getParameter("productId"));
+        ProductDAO db = new ProductDAO();
+        Product product = db.getProductByID(productId);
+        request.setAttribute("product", product);
+        request.getRequestDispatcher("update-product.jsp").forward(request, response);
     }
 
     /**
@@ -66,7 +69,25 @@ public class AdminController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        int productId = Integer.parseInt(request.getParameter("productId"));
+        String name = request.getParameter("name");
+        int quantity = Integer.parseInt(request.getParameter("quantity"));
+        float price = Float.parseFloat(request.getParameter("price"));
+        String imageURL = request.getParameter("imageURL");
+        String description = request.getParameter("description");
+        int sub_id = Integer.parseInt(request.getParameter("sub_id"));
+
+        Date format = null;
+        try {
+            format = new SimpleDateFormat("dd/MM/yyyy").parse(request.getParameter("created_time"));
+        } catch (ParseException ex) {
+            Logger.getLogger(UpdateProductController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Format dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        String created_date = dateFormat.format(format);
+        ProductDAO db = new ProductDAO();
+        db.updateProduct(name, quantity, price, description, imageURL, created_date, sub_id, productId);
+        request.getRequestDispatcher("/admin/dashboard").forward(request, response);
     }
 
     /**

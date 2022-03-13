@@ -64,6 +64,10 @@
         <servlet-name>LogoutController</servlet-name>
         <servlet-class>controller.sync.LogoutController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateProductController</servlet-name>
+        <servlet-class>controller.sync.UpdateProductController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/Home</url-pattern>
@@ -133,6 +137,10 @@
         <filter-name>AuthorizationFilter</filter-name>
         <url-pattern/>
     </fiter-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateProductController</servlet-name>
+        <url-pattern>/UpdateProduct</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
