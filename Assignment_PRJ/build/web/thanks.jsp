@@ -42,7 +42,7 @@
                 <ul>
                     <li><a href="Cart"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                 </ul>
-                <div class="header__cart__price">item: <span>$${sessionScope.totalMoney}</span></div>
+                <div class="header__cart__price">item: <span></span></div>
             </div>
             <div class="humberger__menu__widget">
                 <div class="header__top__right__auth">
@@ -149,7 +149,7 @@
                             <ul>
                                 <li><a href="Cart"><i class="fa fa-shopping-bag"></i> <span>${sessionScope.carts.size()}</span></a></li>
                             </ul>
-                            <div class="header__cart__price">item: <span>$${sessionScope.totalMoney}</span></div>
+                            <div class="header__cart__price">item: <span></span></div>
                         </div>
                     </div>
                 </div>
@@ -207,78 +207,20 @@
                             <h2>Checkout</h2>
                             <div class="breadcrumb__option">
                                 <a href="Home">Home</a>
-                                <span>Checkout</span>
+                                <span>Thanks for your time</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Breadcrumb Section End -->
+        <div class="alert alert-success" role="alert">
+            Order successfully! Thank you for shopping with us!
+        </div>
 
-        <!-- Checkout Section Begin -->
-        <section class="checkout spad">
-            <div class="container">
-                <div class="checkout__form">
-                    <h4>Billing Details</h4>
-                    <form action="Checkout" method="post">
-                        <div class="row">
-                            <div class="col-lg-8 col-md-6">
-                                <div class="checkout__input">
-                                        <div class="">
-                                            <p>Your Name<span>*</span></p>
-                                            <input type="text" id="name" name="name">
-                                        </div>
-                                    
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="checkout__input">
-                                            <p>Phone<span>*</span></p>
-                                            <input type="text" id="phone" name="phone">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="checkout__input">
-                                            <p>Email<span>*</span></p>
-                                            <input type="text" id="email" name="email">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="checkout__input">
-                                    <p>Address<span>*</span></p>
-                                    <input type="text" id="address" name="address" class="checkout__input__add">
-                                </div>
-                                
-                                <div class="checkout__input">
-                                    <p>Order notes</p>
-                                    <input type="text" id="note" name="note"
-                                           placeholder="Notes about your order, e.g. special notes for delivery.">
-                                </div>
-                                
-                  
-                                
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <div class="checkout__order">
-                                    <h4>Your Order</h4>
-                                    <div class="checkout__order__products">Products <span>Total</span></div>
-                                    <ul>
-                                        <c:forEach items="${sessionScope.carts}" var="c">
-                                            <li>${c.value.product.name}<span>$${c.value.product.price}</span></li>
-                                        </c:forEach>
-                                    </ul>
-                                    <div class="checkout__order__total">Total <span>$${sessionScope.totalMoney}</span></div>
-                                    
-                                    <button type="submit" class="site-btn">PLACE ORDER</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
-        <!-- Checkout Section End -->
+        <div class="shoping__cart__btns spad">
+            <a href="Home" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
+        </div>
 
         <footer class="footer spad">
             <div class="container">
