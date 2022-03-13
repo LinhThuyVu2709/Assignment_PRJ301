@@ -56,6 +56,10 @@
         <servlet-name>ThanksController</servlet-name>
         <servlet-class>controller.ThanksController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginController</servlet-name>
+        <servlet-class>controller.LoginController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/Home</url-pattern>
@@ -111,6 +115,10 @@
     <servlet-mapping>
         <servlet-name>ThanksController</servlet-name>
         <url-pattern>/thanks</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginController</servlet-name>
+        <url-pattern>/Login</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
