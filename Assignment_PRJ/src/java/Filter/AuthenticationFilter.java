@@ -24,7 +24,7 @@ import model.Account;
  *
  * @author LinhVT
  */
-@WebFilter(filterName = "AuthenticationFilter", urlPatterns = {"/add-to-cart","/Cart","/Checkout","/update-quantity","/delete-cart"})
+@WebFilter(filterName = "AuthenticationFilter", urlPatterns = {"/add-to-cart","/Cart","/Checkout","/update-quantity","/delete-cart","/admin/*"})
 public class AuthenticationFilter implements Filter {
 
     /**
@@ -73,7 +73,7 @@ public class AuthenticationFilter implements Filter {
                     return;
                 }
             }
-            res.sendRedirect("Login");
+            res.sendRedirect("http://localhost:8084/Assignment_PRJ/Login");
         }
 
     }

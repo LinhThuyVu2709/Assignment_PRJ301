@@ -37,7 +37,8 @@ public class AccountDAO {
                         rs.getString(4), //displayName
                         rs.getString(5), //address
                         rs.getString(6), //email
-                        rs.getString(7)); //phone
+                        rs.getString(7), //phone
+                        rs.getString(8)); //role
                 return account;
             }
         } catch (Exception ex) {

@@ -34,8 +34,19 @@ public class AuthorizationFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response,
             FilterChain chain)
             throws IOException, ServletException {
-        
+        HttpServletRequest req = (HttpServletRequest) request;
+        HttpServletResponse res = (HttpServletResponse) response;
 
+        HttpSession session = req.getSession();
+        //check login status
+        Account account = (Account) session.getAttribute("account");
+        if (account != null && account.getRole().equals(Account.ADMIN)) {
+            //permitted
+            chain.doFilter(request, response);
+            return;
+        }
+        request.setAttribute("error", "You have to be ADMIN to access this part");
+        req.getRequestDispatcher("http://localhost:8084/Assignment_PRJ/Login").forward(request, response);
     }
     /**
      * Destroy method for this filter
