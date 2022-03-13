@@ -237,6 +237,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="shoping__cart__table">
+                            <a class="btn btn-outline-success" href="CreateProduct" role="button">CREATE NEW PRODUCT</a>
                             <table>
                                 <thead>
                                     <tr>
@@ -267,8 +268,8 @@
                                                 <h6>${i.description}</h6>
                                             </td>
                                             <td class="shoping__cart__item__close">
-                                                <a href="../DeleteProduct?productId=${i.id}"><span class="icon_trash"></span></a>
-                                                <a href="../UpdateProduct?productId=${i.id}"><span class="icon_tools"></span></a>
+                                                <a href="/Assignment_PRJ/DeleteProduct?productId=${i.id}"><span class="icon_trash"></span></a>
+                                                <a href="/Assignment_PRJ/UpdateProduct?productId=${i.id}"><span class="icon_tools"></span></a>
                                             </td>
                                         </tr>
                                     </c:forEach>

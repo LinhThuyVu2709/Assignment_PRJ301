@@ -8,23 +8,16 @@ package controller.sync;
 import dao.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.Format;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Product;
 
 /**
  *
  * @author LinhVT
  */
-public class UpdateProductController extends HttpServlet {
+public class DeleteProductController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,6 +30,7 @@ public class UpdateProductController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -51,11 +45,10 @@ public class UpdateProductController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int productId = Integer.parseInt(request.getParameter("productId"));
         ProductDAO db = new ProductDAO();
-        Product product = db.getProductByID(productId);
-        request.setAttribute("product", product);
-        request.getRequestDispatcher("update-product.jsp").forward(request, response);
+        int productId = Integer.parseInt(request.getParameter("productId"));     
+        db.deleteProduct(productId);
+        response.sendRedirect("/Assignment_PRJ/admin/dashboard");
     }
 
     /**
@@ -69,18 +62,7 @@ public class UpdateProductController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int productId = Integer.parseInt(request.getParameter("productId"));
-        String name = request.getParameter("name");
-        int quantity = Integer.parseInt(request.getParameter("quantity"));
-        float price = Float.parseFloat(request.getParameter("price"));
-        String imageURL = request.getParameter("imageURL");
-        String description = request.getParameter("description");
-        int sub_id = Integer.parseInt(request.getParameter("sub_id"));
-
-        String created_date = request.getParameter("created_time");
-        ProductDAO db = new ProductDAO();
-        db.updateProduct(name, quantity, price, description, imageURL, created_date, sub_id, productId);
-        request.getRequestDispatcher("/admin/dashboard").forward(request, response);
+        processRequest(request, response);
     }
 
     /**

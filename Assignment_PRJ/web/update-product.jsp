@@ -300,11 +300,11 @@
                                 </div>
                                 <div class="checkout__input">
                                     <p>Description</p>
-                                    <input type="text" id="description" name="description" value="${product.description}>
+                                    <input type="text" id="description" name="description" value="${product.description}">
                                 </div>
 
 
-
+                                <button type="submit" class="site-btn">UPDATE</button> 
                             </div>
 
                         </div>
@@ -312,7 +312,6 @@
                 </div>
             </div>
         </section>
-        <!-- Checkout Section End -->
 
         <footer class="footer spad">
             <div class="container">
