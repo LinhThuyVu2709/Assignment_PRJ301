@@ -49,8 +49,8 @@ public class ProductDAO {
 
     public static void main(String[] args) {
         ProductDAO dao = new ProductDAO();
-        dao.deleteProduct(29);
-        System.out.println(dao.getAllProduct());
+        dao.createProduct(29, "ABC", 120, 1000, "Very Good", "img/product/bakeware/29.jpg", "09/09/2021", 3);
+        System.out.println(dao.getProductByID(29));
     }
 
     public void deleteProduct(int productId) {
@@ -64,8 +64,35 @@ public class ProductDAO {
             Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
+
+    public void createProduct(int id, String name, int quantity, float price, String description, String imageURL, String created_time, int sub_id) {
+        try {
+            String sql = "INSERT INTO [BakeOfArt].[dbo].[Products]\n"
+                    + "           ([id]\n"
+                    + "           ,[name]\n"
+                    + "           ,[quantity]\n"
+                    + "           ,[price]\n"
+                    + "           ,[description]\n"
+                    + "           ,[imageURL]\n"
+                    + "           ,[created_time]\n"
+                    + "           ,[sub_id])\n"
+                    + "     VALUES\n"
+                    + "           (?,?,?,?,?,?,?,?)";
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            ps.setString(2, name);
+            ps.setInt(3, quantity);
+            ps.setFloat(4, price);
+            ps.setString(5, description);
+            ps.setString(6, imageURL);
+            ps.setString(7, created_time);
+            ps.setInt(8, sub_id);
+            ps.executeUpdate();
+        } catch (Exception ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     public void updateProduct(String name, int quantity, float price, String description, String imageURL, String created_time, int sub_id, int id) {
         try {

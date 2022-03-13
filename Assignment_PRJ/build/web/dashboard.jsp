@@ -237,7 +237,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="shoping__cart__table">
-                            <a class="btn btn-outline-success" href="CreateProduct" role="button">CREATE NEW PRODUCT</a>
+                            <a class="btn btn-outline-success" href="../CreateProduct" role="button">CREATE NEW PRODUCT</a>
                             <table>
                                 <thead>
                                     <tr>
