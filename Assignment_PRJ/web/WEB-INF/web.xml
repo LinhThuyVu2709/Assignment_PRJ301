@@ -2,15 +2,15 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
         <servlet-name>HomeController</servlet-name>
-        <servlet-class>controller.HomeController</servlet-class>
+        <servlet-class>controller.sync.HomeController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>BakewareController</servlet-name>
-        <servlet-class>controller.BakewareController</servlet-class>
+        <servlet-class>controller.sync.BakewareController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>IngredientController</servlet-name>
-        <servlet-class>controller.IngredientController</servlet-class>
+        <servlet-class>controller.sync.IngredientController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>FilterSubCategoryController</servlet-name>
@@ -18,51 +18,51 @@
     </servlet>
     <servlet>
         <servlet-name>SearchBakewareController</servlet-name>
-        <servlet-class>controller.SearchBakewareController</servlet-class>
+        <servlet-class>controller.sync.SearchBakewareController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>DetailController</servlet-name>
-        <servlet-class>controller.DetailController</servlet-class>
+        <servlet-class>controller.sync.DetailController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>FilterBakewareController</servlet-name>
-        <servlet-class>controller.FilterBakewareController</servlet-class>
+        <servlet-class>controller.sync.FilterBakewareController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>FilterIngredientController</servlet-name>
-        <servlet-class>controller.FilterIngredientController</servlet-class>
+        <servlet-class>controller.sync.FilterIngredientController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SearchIngredientController</servlet-name>
-        <servlet-class>controller.SearchIngredientController</servlet-class>
+        <servlet-class>controller.sync.SearchIngredientController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AddToCartController</servlet-name>
-        <servlet-class>controller.AddToCartController</servlet-class>
+        <servlet-class>controller.sync.AddToCartController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CartController</servlet-name>
-        <servlet-class>controller.CartController</servlet-class>
+        <servlet-class>controller.sync.CartController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>UpdateCartQuantityController</servlet-name>
-        <servlet-class>controller.UpdateCartQuantityController</servlet-class>
+        <servlet-class>controller.sync.UpdateCartQuantityController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CheckOutController</servlet-name>
-        <servlet-class>controller.CheckOutController</servlet-class>
+        <servlet-class>controller.sync.CheckOutController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ThanksController</servlet-name>
-        <servlet-class>controller.ThanksController</servlet-class>
+        <servlet-class>controller.sync.ThanksController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LoginController</servlet-name>
-        <servlet-class>controller.LoginController</servlet-class>
+        <servlet-class>controller.sync.LoginController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LogoutController</servlet-name>
-        <servlet-class>controller.LogoutController</servlet-class>
+        <servlet-class>controller.sync.LogoutController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
@@ -128,13 +128,10 @@
         <servlet-name>LogoutController</servlet-name>
         <url-pattern>/Logout</url-pattern>
     </servlet-mapping>
-    <fiter-mapping>
-        <filter-name>AuthenticationFilter</filter-name>
-        <url-pattern />
-    </fiter-mapping>
+    <fiter-mapping/>
     <fiter-mapping>
         <filter-name>AuthorizationFilter</filter-name>
-        <url-pattern />
+        <url-pattern/>
     </fiter-mapping>
     <session-config>
         <session-timeout>

@@ -46,7 +46,7 @@ public class AuthorizationFilter implements Filter {
             return;
         }
         request.setAttribute("error", "You have to be ADMIN to access this part");
-        req.getRequestDispatcher("http://localhost:8084/Assignment_PRJ/Login").forward(request, response);
+        res.sendRedirect("http://localhost:8084/Assignment_PRJ/Login");
     }
     /**
      * Destroy method for this filter

@@ -294,20 +294,9 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-12">
-                        <div class="shoping__cart__btns">
-                            <a href="#" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
-                        </div>
-                    </div>
                     <div class="col-lg-6">
-                        <div class="shoping__continue">
-                            <div class="shoping__discount">
-                                <h5>Discount Codes</h5>
-                                <form action="#">
-                                    <input type="text" placeholder="Enter your coupon code">
-                                    <button type="submit" class="site-btn">APPLY COUPON</button>
-                                </form>
-                            </div>
+                        <div class="shoping__cart__btns">
+                            <a href="Home" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -316,7 +305,7 @@
                             <ul>
                                 <li>Total <span>$${sessionScope.totalMoney}</span></li>
                             </ul>
-                            <a href="Checkout" class="primary-btn">PROCEED TO CHECKOUT</a>
+                            <a href="${sessionScope.carts.size() == 0 ? "Checkout" : "" }" class="primary-btn">PROCEED TO CHECKOUT</a>
                         </div>
                     </div>
                 </div>

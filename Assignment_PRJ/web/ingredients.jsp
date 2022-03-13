@@ -41,7 +41,7 @@
             </div>
             <div class="humberger__menu__cart">
                 <ul>
-                    <li><a href="Cart"><i class="fa fa-shopping-bag"></i> <span>${sessionScope.carts.size()}</span></a></li>
+                    <li><a href="Cart"><i class="fa fa-shopping-bag"></i> <span id="cart_number">${sessionScope.carts.size()}</span></a></li>
                 </ul>
                 <div class="header__cart__price">item: <span>$${sessionScope.totalMoney}</span></div>
             </div>
@@ -165,7 +165,7 @@
                     <div class="col-lg-3">
                         <div class="header__cart">
                             <ul>
-                                <li><a href="Cart"><i class="fa fa-shopping-bag"></i> <span>${sessionScope.carts.size()}</span></a></li>
+                                <li><a href="Cart"><i class="fa fa-shopping-bag"></i> <span id="cart_number">${sessionScope.carts.size()}</span></a></li>
                             </ul>
                             <div class="header__cart__price">item: <span>$${sessionScope.totalMoney}</span></div>
                         </div>
@@ -280,7 +280,7 @@
                                     <div class="product__item">
                                         <div class="product__item__pic set-bg" data-setbg="${ingredient.imageURL}">
                                             <ul class="product__item__pic__hover">
-                                                <li><a href="add-to-cart?productId=${ingredient.id}"><i class="fa fa-shopping-cart"></i></a></li>
+                                                <li><a onclick="addToCartAsync(${ingredient.id})"><i class="fa fa-shopping-cart"></i></a></li>
                                             </ul>
                                         </div>
                                         <div class="product__item__text">
@@ -345,114 +345,7 @@
                                         </c:choose>
                                     </c:otherwise>
                                 </c:choose>
-
-                        </div>
-                        <div class="product__discount">
-                            <div class="section-title product__discount__title">
-                                <h2>Sale Off</h2>
-                            </div>
-                            <div class="row">
-                                <div class="product__discount__slider owl-carousel">
-                                    <div class="col-lg-4">
-                                        <div class="product__discount__item">
-                                            <div class="product__discount__item__pic set-bg"
-                                                 data-setbg="img/product/discount/pd-1.jpg">
-                                                <div class="product__discount__percent">-20%</div>
-                                                <ul class="product__item__pic__hover">
-                                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="product__discount__item__text">
-                                                <span>Dried Fruit</span>
-                                                <h5><a href="#">Raisin’n’nuts</a></h5>
-                                                <div class="product__item__price">$30.00 <span>$36.00</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="product__discount__item">
-                                            <div class="product__discount__item__pic set-bg"
-                                                 data-setbg="img/product/discount/pd-2.jpg">
-                                                <div class="product__discount__percent">-20%</div>
-                                                <ul class="product__item__pic__hover">
-                                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="product__discount__item__text">
-                                                <span>Vegetables</span>
-                                                <h5><a href="#">Vegetables’package</a></h5>
-                                                <div class="product__item__price">$30.00 <span>$36.00</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="product__discount__item">
-                                            <div class="product__discount__item__pic set-bg"
-                                                 data-setbg="img/product/discount/pd-3.jpg">
-                                                <div class="product__discount__percent">-20%</div>
-                                                <ul class="product__item__pic__hover">
-                                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="product__discount__item__text">
-                                                <span>Dried Fruit</span>
-                                                <h5><a href="#">Mixed Fruitss</a></h5>
-                                                <div class="product__item__price">$30.00 <span>$36.00</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="product__discount__item">
-                                            <div class="product__discount__item__pic set-bg"
-                                                 data-setbg="img/product/discount/pd-4.jpg">
-                                                <div class="product__discount__percent">-20%</div>
-                                                <ul class="product__item__pic__hover">
-                                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="product__discount__item__text">
-                                                <span>Dried Fruit</span>
-                                                <h5><a href="#">Raisin’n’nuts</a></h5>
-                                                <div class="product__item__price">$30.00 <span>$36.00</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="product__discount__item">
-                                            <div class="product__discount__item__pic set-bg"
-                                                 data-setbg="img/product/discount/pd-5.jpg">
-                                                <div class="product__discount__percent">-20%</div>
-                                                <ul class="product__item__pic__hover">
-                                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="product__discount__item__text">
-                                                <span>Dried Fruit</span>
-                                                <h5><a href="#">Raisin’n’nuts</a></h5>
-                                                <div class="product__item__price">$30.00 <span>$36.00</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="product__discount__item">
-                                            <div class="product__discount__item__pic set-bg"
-                                                 data-setbg="img/product/discount/pd-6.jpg">
-                                                <div class="product__discount__percent">-20%</div>
-                                                <ul class="product__item__pic__hover">
-                                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="product__discount__item__text">
-                                                <span>Dried Fruit</span>
-                                                <h5><a href="#">Raisin’n’nuts</a></h5>
-                                                <div class="product__item__price">$30.00 <span>$36.00</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                        </div>                     
                     </div>
                 </div>
             </div>
@@ -510,6 +403,7 @@
         <!-- Footer Section End -->
 
         <!-- Js Plugins -->
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="js/jquery-3.3.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/jquery.nice-select.min.js"></script>
@@ -518,6 +412,20 @@
         <script src="js/mixitup.min.js"></script>
         <script src="js/owl.carousel.min.js"></script>
         <script src="js/main.js"></script>
+        
+        <script>
+            function addToCartAsync(productId) {
+                axios.get('add-to-cart-async',{
+                    params:{
+                        productId: productId
+                    }
+                }).then((response)=>{
+                    //get data successfully
+                    document.getElementById("cart_number").innerHTML = response.data;
+                    //update view
+                })
+            }
+        </script>
 
 
 

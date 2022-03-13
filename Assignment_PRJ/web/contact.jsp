@@ -4,6 +4,7 @@
     Author     : LinhVT
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -164,8 +165,7 @@
                     <div class="col-lg-3">
                         <div class="header__cart">
                             <ul>
-                                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                                <li><a href="Cart"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                                <li><a href="Cart"><i class="fa fa-shopping-bag"></i> <span id="cart_number">${sessionScope.carts.size()}</span></a></li>
                             </ul>
                             <div class="header__cart__price">item: <span>$150.00</span></div>
                         </div>
