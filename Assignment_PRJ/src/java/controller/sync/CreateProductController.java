@@ -70,7 +70,7 @@ public class CreateProductController extends HttpServlet {
         String created_date = request.getParameter("created_time");
         ProductDAO db = new ProductDAO();
         db.createProduct(productId, name, quantity, price, description, imageURL, created_date, sub_id);
-        request.getRequestDispatcher("/admin/dashboard").forward(request, response);
+        request.getRequestDispatcher("dashboard").forward(request, response);
     }
 
     /**

@@ -41,7 +41,7 @@
             </div>
             <div class="humberger__menu__cart">
                 <ul>
-                    <li><a href="Cart"><i class="fa fa-shopping-bag"></i> <span id="cart_number">${sessionScope.carts.size()}</span></a></li>
+                    <li><a href="Cart"><i class="fa fa-shopping-bag"></i> <span>${sessionScope.carts.size()}</span></a></li>
                 </ul>
                 <div class="header__cart__price">item: <span>$${sessionScope.totalMoney}</span></div>
             </div>
@@ -280,7 +280,7 @@
                                     <div class="product__item">
                                         <div class="product__item__pic set-bg" data-setbg="${ingredient.imageURL}">
                                             <ul class="product__item__pic__hover">
-                                                <li><a onclick="addToCartAsync(${ingredient.id})"><i class="fa fa-shopping-cart"></i></a></li>
+                                                <li><a href="add-to-cart?productId=${ingredient.id}"><i class="fa fa-shopping-cart"></i></a></li>
                                             </ul>
                                         </div>
                                         <div class="product__item__text">
@@ -403,7 +403,6 @@
         <!-- Footer Section End -->
 
         <!-- Js Plugins -->
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="js/jquery-3.3.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/jquery.nice-select.min.js"></script>
@@ -413,19 +412,7 @@
         <script src="js/owl.carousel.min.js"></script>
         <script src="js/main.js"></script>
         
-        <script>
-            function addToCartAsync(productId) {
-                axios.get('add-to-cart-async',{
-                    params:{
-                        productId: productId
-                    }
-                }).then((response)=>{
-                    //get data successfully
-                    document.getElementById("cart_number").innerHTML = response.data;
-                    //update view
-                })
-            }
-        </script>
+        
 
 
 

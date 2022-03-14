@@ -42,7 +42,7 @@
             </div>
             <div class="humberger__menu__cart">
                 <ul>
-                    <li><a href="Cart"><i class="fa fa-shopping-bag"></i> <span id="cart_number">${sessionScope.carts.size()}</span></a></li>
+                    <li><a href="Cart"><i class="fa fa-shopping-bag"></i> <span>${sessionScope.carts.size()}</span></a></li>
                 </ul>
                 <div class="header__cart__price">item: <span>$${sessionScope.totalMoney}</span></div>
             </div>
@@ -281,7 +281,7 @@
                                     </ul>
                                 </div>
                                 <div class="featured__item__text">
-                                    <h6><a onclick="addToCartAsync(${bakeware.id})">${bakeware.name}</a></h6>
+                                    <h6><a href="add-to-cart?productId=${bakeware.id}">${bakeware.name}</a></h6>
                                     <h5>$${bakeware.price}</h5>
                                 </div>
                             </div>
@@ -293,7 +293,7 @@
                             <div class="featured__item">
                                 <div class="featured__item__pic set-bg" data-setbg="${ingredient.imageURL}">
                                     <ul class="featured__item__pic__hover">
-                                        <li><a onclick="addToCartAsync(${ingredient.id})"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <li><a href="add-to-cart?productId=${ingredient.id}"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="featured__item__text">
@@ -338,7 +338,7 @@
                                 <li><a href="recipe.jsp">Recipes</a></li>
                                 <li><a href="contact.jsp">Contact us</a></li>
                                 <li><a href="Checkout">Checkout</a></li>
-                                <li><a href="admin/dashboard">Dashboard</a></li>
+                                <li><a href="dashboard">Dashboard</a></li>
                             </ul>
                         </div>
                     </div>
@@ -362,7 +362,6 @@
         <!-- Footer Section End -->
 
         <!-- Js Plugins -->
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="js/jquery-3.3.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/jquery.nice-select.min.js"></script>
@@ -371,19 +370,7 @@
         <script src="js/mixitup.min.js"></script>
         <script src="js/owl.carousel.min.js"></script>
         <script src="js/main.js"></script>
-        <script>
-            function addToCartAsync(productId) {
-                axios.get('add-to-cart-async',{
-                    params:{
-                        productId: productId
-                    }
-                }).then((response)=>{
-                    //get data successfully
-                    document.getElementById("cart_number").innerHTML = response.data;
-                    //update view
-                })
-            }
-        </script>
+        
 
 
     </body>

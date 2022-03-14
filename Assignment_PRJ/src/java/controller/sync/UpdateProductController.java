@@ -80,7 +80,7 @@ public class UpdateProductController extends HttpServlet {
         String created_date = request.getParameter("created_time");
         ProductDAO db = new ProductDAO();
         db.updateProduct(name, quantity, price, description, imageURL, created_date, sub_id, productId);
-        request.getRequestDispatcher("/admin/dashboard").forward(request, response);
+        request.getRequestDispatcher("dashboard").forward(request, response);
     }
 
     /**

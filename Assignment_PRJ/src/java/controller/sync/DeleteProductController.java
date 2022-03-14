@@ -48,7 +48,7 @@ public class DeleteProductController extends HttpServlet {
         ProductDAO db = new ProductDAO();
         int productId = Integer.parseInt(request.getParameter("productId"));     
         db.deleteProduct(productId);
-        response.sendRedirect("/Assignment_PRJ/admin/dashboard");
+        response.sendRedirect("dashboard");
     }
 
     /**

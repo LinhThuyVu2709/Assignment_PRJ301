@@ -20,7 +20,7 @@ import model.Product;
  *
  * @author LinhVT
  */
-@WebServlet(name = "AdminController", urlPatterns = {"/admin/dashboard"})
+@WebServlet(name = "AdminController", urlPatterns = {"/dashboard"})
 public class AdminController extends HttpServlet {
 
     /**
@@ -37,7 +37,7 @@ public class AdminController extends HttpServlet {
         ProductDAO productDAO = new ProductDAO();
         List<Product> listAllProduct = productDAO.getAllProduct();
         request.setAttribute("listAllProduct", listAllProduct);
-        request.getRequestDispatcher("../dashboard.jsp").forward(request, response);
+        request.getRequestDispatcher("dashboard.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

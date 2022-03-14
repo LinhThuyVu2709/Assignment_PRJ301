@@ -61,8 +61,8 @@
             </div>
             <nav class="humberger__menu__nav mobile-menu">
                 <ul>
-                    <li><a href="../Home">Home</a></li>
-                    <li><a href="../Bakeware">Bakeware</a>
+                    <li><a href="Home">Home</a></li>
+                    <li><a href="Bakeware">Bakeware</a>
                         <ul class="header__menu__dropdown">
                             <c:forEach items="${sessionScope.sublistBakeware}" var="b"> 
                                 <li><a href="filter-bakeware?subB_id=${b.id}">${b.name}</a></li>
@@ -143,30 +143,30 @@
                     <div class="col-lg-6">
                         <nav class="header__menu">
                             <ul>
-                                <li><a href="../Home">Home</a></li>
-                                <li><a href="../Bakeware">Bakeware</a>
+                                <li><a href="Home">Home</a></li>
+                                <li><a href="Bakeware">Bakeware</a>
                                     <ul class="header__menu__dropdown">
                                         <c:forEach items="${sessionScope.sublistBakeware}" var="b"> 
                                             <li><a href="filter-bakeware?subB_id=${b.id}">${b.name}</a></li>
                                             </c:forEach>
                                     </ul>
                                 </li>
-                                <li><a href="../Ingredient">Ingredients</a>
+                                <li><a href="Ingredient">Ingredients</a>
                                     <ul class="header__menu__dropdown">
                                         <c:forEach items="${sessionScope.sublistIngredient}" var="i"> 
                                             <li><a href="filter-ingredient?subI_id=${i.id}">${i.name}</a></li>
                                             </c:forEach>
                                     </ul>
                                 </li>
-                                <li><a href="../recipe.jsp">Recipes</a></li>
-                                <li><a href="../contact.jsp">Contact</a></li>
+                                <li><a href="recipe.jsp">Recipes</a></li>
+                                <li><a href="contact.jsp">Contact</a></li>
                             </ul>
                         </nav>
                     </div>
                     <div class="col-lg-3">
                         <div class="header__cart">
                             <ul>
-                                <li><a href="../Cart"><i class="fa fa-shopping-bag"></i> <span>${sessionScope.carts.size()}</span></a></li>
+                                <li><a href="Cart"><i class="fa fa-shopping-bag"></i> <span>${sessionScope.carts.size()}</span></a></li>
                             </ul>
                             <div class="header__cart__price">item: <span>$${sessionScope.totalMoney}</span></div>
                         </div>
@@ -191,10 +191,10 @@
                             </div>
                             <ul>
                                 <c:forEach items="${sessionScope.sublistBakeware}" var="b"> 
-                                    <li><a href="../filter-bakeware?subB_id=${b.id}">${b.name}</a></li>
+                                    <li><a href="filter-bakeware?subB_id=${b.id}">${b.name}</a></li>
                                     </c:forEach>
                                     <c:forEach items="${sessionScope.sublistIngredient}" var="i"> 
-                                    <li><a href="../filter-ingredient?subI_id=${i.id}">${i.name}</a></li>
+                                    <li><a href="filter-ingredient?subI_id=${i.id}">${i.name}</a></li>
                                     </c:forEach>
                             </ul>
                         </div>
@@ -237,7 +237,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="shoping__cart__table">
-                            <a class="btn btn-outline-success" href="../CreateProduct" role="button">CREATE NEW PRODUCT</a>
+                            <a class="btn btn-outline-success" href="CreateProduct" role="button">CREATE NEW PRODUCT</a>
                             <table>
                                 <thead>
                                     <tr>
@@ -268,8 +268,8 @@
                                                 <h6>${i.description}</h6>
                                             </td>
                                             <td class="shoping__cart__item__close">
-                                                <a href="/Assignment_PRJ/DeleteProduct?productId=${i.id}"><span class="icon_trash"></span></a>
-                                                <a href="/Assignment_PRJ/UpdateProduct?productId=${i.id}"><span class="icon_tools"></span></a>
+                                                <a href="DeleteProduct?productId=${i.id}" onclick="if(!(confirm('Do you really want to delete this?'))) return false"><span class="icon_trash"></span></a>
+                                                <a href="UpdateProduct?productId=${i.id}"><span class="icon_tools"></span></a>
                                             </td>
                                         </tr>
                                     </c:forEach>
@@ -289,7 +289,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="footer__about">
                                 <div class="footer__about__logo">
-                                    <a href="../Home"><img src="/Assignment_PRJ/img/logo.png" alt=""></a>
+                                    <a href="Home"><img src="/Assignment_PRJ/img/logo.png" alt=""></a>
                                 </div>
                                 <ul>
                                     <li>Address: 123 Thach That, Ha Noi</li>
@@ -302,14 +302,14 @@
                             <div class="footer__widget">
                                 <h6>About us</h6>
                                 <ul>
-                                    <li><a href="../Bakeware">Bakewares</li>
-                                    <li><a href="../Ingredient">Ingredients</a></li>
-                                    <li><a href="../Cart">Shopping cart</a></li>
+                                    <li><a href="Bakeware">Bakewares</li>
+                                    <li><a href="Ingredient">Ingredients</a></li>
+                                    <li><a href="Cart">Shopping cart</a></li>
                                 </ul>
                                 <ul>
-                                    <li><a href="../recipe.jsp">Recipes</a></li>
-                                    <li><a href="../contact.jsp">Contact us</a></li>
-                                    <li><a href="../Checkout">Checkout</a></li>
+                                    <li><a href="recipe.jsp">Recipes</a></li>
+                                    <li><a href="contact.jsp">Contact us</a></li>
+                                    <li><a href="Checkout">Checkout</a></li>
                                 </ul>
                             </div>
                         </div>

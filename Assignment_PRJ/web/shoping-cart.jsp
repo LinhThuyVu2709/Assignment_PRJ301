@@ -305,7 +305,7 @@
                             <ul>
                                 <li>Total <span>$${sessionScope.totalMoney}</span></li>
                             </ul>
-                            <a href="${sessionScope.carts.size() == 0 ? "Checkout" : "" }" class="primary-btn">PROCEED TO CHECKOUT</a>
+                            <a href="${sessionScope.carts.size() == 0 ? "" : "Checkout" }" class="primary-btn">PROCEED TO CHECKOUT</a>
                         </div>
                     </div>
                 </div>

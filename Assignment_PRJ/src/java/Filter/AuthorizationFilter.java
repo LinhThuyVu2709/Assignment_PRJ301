@@ -27,7 +27,7 @@ import model.Account;
  *
  * @author LinhVT
  */
-@WebFilter(filterName = "AuthorizationFilter", urlPatterns = {"/admin/*"})
+@WebFilter(filterName = "AuthorizationFilter", urlPatterns = {"/dashboard"})
 public class AuthorizationFilter implements Filter {
     
     @Override
@@ -46,7 +46,7 @@ public class AuthorizationFilter implements Filter {
             return;
         }
         request.setAttribute("error", "You have to be ADMIN to access this part");
-        req.getRequestDispatcher("../Logout").forward(request, response);
+        req.getRequestDispatcher("Login").forward(request, response);
     }
     /**
      * Destroy method for this filter
