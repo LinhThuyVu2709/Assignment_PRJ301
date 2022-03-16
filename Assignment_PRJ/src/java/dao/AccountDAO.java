@@ -46,9 +46,37 @@ public class AccountDAO {
         }
         return null;
     }
+
+    public void insertAccount(String username, String password, String displayName, String address, String email, String phone) {
+        try {
+            String sql = "INSERT INTO [BakeOfArt].[dbo].[Account]\n"
+                    + "           ([username]\n"
+                    + "           ,[password]\n"
+                    + "           ,[displayName]\n"
+                    + "           ,[address]\n"
+                    + "           ,[email]\n"
+                    + "           ,[phone]\n"
+                    + "           ,[role])\n"
+                    + "     VALUES\n"
+                    + "           (?,?,?,?,?,?,'USER')";
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, username);
+            ps.setString(2, password);
+            ps.setString(3, displayName);
+            ps.setString(4, address);
+            ps.setString(5, email);
+            ps.setString(6, phone);
+            ps.executeUpdate();
+
+        } catch (Exception ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     public static void main(String[] args) {
         AccountDAO ac = new AccountDAO();
-        System.out.println(ac.login("user", "123456"));
+        ac.insertAccount("linhthuyvu", "27092002", "Linh Thuy", "Quang Ninh", "acb@gmail.com", "123");
     }
-    
+
 }

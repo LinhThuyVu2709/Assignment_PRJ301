@@ -5,29 +5,21 @@
  */
 package controller.sync;
 
-import dao.OrderDAO;
-import dao.OrderDetailDAO;
-import dao.ProductDAO;
-import dao.ShippingDAO;
+import dao.AccountDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.LinkedHashMap;
-import java.util.Map;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import model.Account;
-import model.Cart;
-import model.Order;
-import model.Shipping;
 
 /**
  *
  * @author LinhVT
  */
-public class CheckOutController extends HttpServlet {
+public class SignupController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,9 +32,19 @@ public class CheckOutController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        response.setCharacterEncoding("UTF-8");
-        request.getRequestDispatcher("checkout.jsp").forward(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet SignupController</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet SignupController at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -57,7 +59,7 @@ public class CheckOutController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        request.getRequestDispatcher("signup.jsp").forward(request, response);
     }
 
     /**
@@ -71,35 +73,21 @@ public class CheckOutController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        response.setCharacterEncoding("UTF-8");
-        String name = request.getParameter("name");
-        String phone = request.getParameter("phone");
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String repassword = request.getParameter("repassword");
+        String displayname = request.getParameter("displayname");
         String address = request.getParameter("address");
-        String note = request.getParameter("note");
+        String email = request.getParameter("email");
+        String phone = request.getParameter("phone");
         
-        Shipping shipping = new Shipping(name, phone, address);
-        int shipping_id = new ShippingDAO().createReturnId(shipping);
-        
-        HttpSession session = request.getSession();
-        Map<Integer, Cart> carts = (Map<Integer, Cart>) session.getAttribute("carts");
-        if (carts == null) {
-            carts = new LinkedHashMap<>();
+        if (password.equals(repassword)) {
+            new AccountDAO().insertAccount(username, password, displayname, address, email, phone);
+            request.getRequestDispatcher("Login").forward(request, response);
+        } else {
+            request.setAttribute("error", "Password not match");
+            request.getRequestDispatcher("signup.jsp").forward(request, response);
         }
-        float totalPrice = 0;
-        for (Map.Entry<Integer, Cart> entry : carts.entrySet()) {
-            Integer productId = entry.getKey();
-            Cart cart = entry.getValue();
-            totalPrice += cart.getQuantity() * cart.getProduct().getPrice();
-        }
-        Account account = (Account) session.getAttribute("account");
-        Order order = new Order(account.getId(), totalPrice, note, shipping_id);
-        int order_id = new OrderDAO().createReturnId(order);
-        
-        new OrderDetailDAO().saveCart(order_id, carts);
-        
-        session.removeAttribute("carts");
-        response.sendRedirect("thanks");
     }
 
     /**

@@ -102,7 +102,7 @@
             <div class="container">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Login</h2>
+                        <h2>Sign Up</h2>
                     </div>
                 </div>
 
@@ -113,34 +113,47 @@
         <!-- Login Section Begin -->
         <div class="container spad">
             <div class="checkout__form">
-                <form action="Login" method="post">
+                <form action="Signup" method="post">
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
-                            <h4>Login Detail</h4>
+                            <h4>Sign up Detail</h4>
                             <p class="text-danger">${error}</p>
                             <div class="checkout__input">
                                 <div class="">
                                     <p>Username:</p>
-                                    <input type="text" id="username" name="username">
+                                    <input type="text" name="username">
                                 </div>
                             </div>
                             <div class="checkout__input">
                                 <p>Password:</p>
-                                <input type="password" id="password" name="password">
+                                <input type="password" name="password">
                             </div>
-                            <div>
-                                <input type="checkbox" class="form-check-input" id="check" name="remember">
-                                <label class="form-check-label" for="check">Remember me</label>
+                            <div class="checkout__input">
+                                <p>Retype your password:</p>
+                                <input type="password" name="repassword">
                             </div>
-                            <button type="submit" class="site-btn">Login</button>
-
-
+                            <div class="checkout__input">
+                                <p>Display Name:</p>
+                                <input type="text" name="displayname">
+                            </div>
+                            <div class="checkout__input">
+                                <p>Address:</p>
+                                <input type="text" name="address">
+                            </div>
+                            <div class="checkout__input">
+                                <p>Email:</p>
+                                <input type="text" name="email">
+                            </div>
+                            <div class="checkout__input">
+                                <p>Phone:</p>
+                                <input type="text" name="phone">
+                            </div>
+                            
+                            <button type="submit" class="site-btn">Sign Up</button>
                         </div>
                     </div>
-                </form>
-                           
+                </form>                 
             </div>
-                             <p style="margin-top: 30px">Do not have an account? <a href="Signup">SIGN UP HERE</a></p>
         </div>
 
         <!-- Footer Section Begin -->

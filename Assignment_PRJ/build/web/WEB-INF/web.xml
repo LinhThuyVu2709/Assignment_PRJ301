@@ -76,6 +76,10 @@
         <servlet-name>CreateProductController</servlet-name>
         <servlet-class>controller.sync.CreateProductController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SignupController</servlet-name>
+        <servlet-class>controller.sync.SignupController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/Home</url-pattern>
@@ -156,6 +160,10 @@
     <servlet-mapping>
         <servlet-name>CreateProductController</servlet-name>
         <url-pattern>/CreateProduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SignupController</servlet-name>
+        <url-pattern>/Signup</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

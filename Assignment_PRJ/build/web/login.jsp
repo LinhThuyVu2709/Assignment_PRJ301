@@ -138,7 +138,9 @@
                         </div>
                     </div>
                 </form>
+                           
             </div>
+                             <p style="margin-top: 30px">Do not have an account? <a href="Signup">SIGN UP HERE</a></p>
         </div>
 
         <!-- Footer Section Begin -->

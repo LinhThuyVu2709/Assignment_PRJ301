@@ -241,6 +241,7 @@
                             <table>
                                 <thead>
                                     <tr>
+                                        <th>ID</th>
                                         <th class="shoping__product">Products</th>
                                         <th>Price</th>
                                         <th>Quantity</th>
@@ -252,6 +253,7 @@
                                 <tbody>
                                     <c:forEach items="${listAllProduct}" var="i">
                                         <tr>
+                                            <td class="shoping__cart__price">${i.id}</td>
                                             <td class="shoping__cart__item">
                                                 <img src="/Assignment_PRJ/${i.imageURL}" width="120" height="120" alt="">
                                                 <h5>${i.name}</h5>

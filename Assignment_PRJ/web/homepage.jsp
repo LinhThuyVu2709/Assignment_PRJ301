@@ -277,11 +277,11 @@
                             <div class="featured__item">
                                 <div class="featured__item__pic set-bg" data-setbg="${bakeware.imageURL}">
                                     <ul class="featured__item__pic__hover">
-                                        <li><a href=""><i class="fa fa-shopping-cart"></i></a></li>
+                                        <li><a href="add-to-cart?productId=${bakeware.id}"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="featured__item__text">
-                                    <h6><a href="add-to-cart?productId=${bakeware.id}">${bakeware.name}</a></h6>
+                                    <h6><a href="detail?productId=${bakeware.id}">${bakeware.name}</a></h6>
                                     <h5>$${bakeware.price}</h5>
                                 </div>
                             </div>
