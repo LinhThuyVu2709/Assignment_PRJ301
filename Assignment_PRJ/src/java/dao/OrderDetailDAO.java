@@ -24,30 +24,23 @@ public class OrderDetailDAO {
     public void saveCart(int order_id, Map<Integer, Cart> carts) {
         try {
             String sql = "INSERT INTO [BakeOfArt].[dbo].[OrderDetail]\n"
-                    + "           ([order_id]\n"
-                    + "           ,[productName]\n"
-                    + "           ,[productImage]\n"
-                    + "           ,[productPrice]\n"
+                    + "           ([product_id]\n"
+                    + "           ,[order_id]\n"
                     + "           ,[quantity])\n"
                     + "     VALUES\n"
-                    + "           (?,?,?,?,?)";
+                    + "           (?,?,?)";
             Connection conn = new DBContext().getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setInt(1, order_id);
             for (Map.Entry<Integer, Cart> entry : carts.entrySet()) {
                 Integer productId = entry.getKey();
                 Cart cart = entry.getValue();
-                statement.setString(2, cart.getProduct().getName());
-                statement.setString(3, cart.getProduct().getImageURL());
-                statement.setDouble(4, cart.getProduct().getPrice());
-                statement.setInt(5, cart.getQuantity());
+                statement.setInt(1, cart.getProduct().getId());
+                statement.setInt(2, order_id);
+                statement.setInt(3, cart.getQuantity());
                 statement.executeUpdate();
             }
-
-            statement.executeUpdate();
         } catch (Exception ex) {
             Logger.getLogger(ShippingDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
 }

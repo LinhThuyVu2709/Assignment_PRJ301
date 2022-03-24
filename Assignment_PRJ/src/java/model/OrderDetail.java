@@ -12,20 +12,14 @@ package model;
 public class OrderDetail {
     private int id;
     private int order_id;
-    private String productName;
-    private String productImage;
-    private float productPrice;
     private int quantity;
 
     public OrderDetail() {
     }
 
-    public OrderDetail(int id, int order_id, String productName, String productImage, float productPrice, int quantity) {
+    public OrderDetail(int id, int order_id, int quantity) {
         this.id = id;
         this.order_id = order_id;
-        this.productName = productName;
-        this.productImage = productImage;
-        this.productPrice = productPrice;
         this.quantity = quantity;
     }
 
@@ -44,31 +38,6 @@ public class OrderDetail {
     public void setOrder_id(int order_id) {
         this.order_id = order_id;
     }
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public String getProductImage() {
-        return productImage;
-    }
-
-    public void setProductImage(String productImage) {
-        this.productImage = productImage;
-    }
-
-    public float getProductPrice() {
-        return productPrice;
-    }
-
-    public void setProductPrice(float productPrice) {
-        this.productPrice = productPrice;
-    }
-
     public int getQuantity() {
         return quantity;
     }
@@ -79,7 +48,8 @@ public class OrderDetail {
 
     @Override
     public String toString() {
-        return "OrderDetail{" + "id=" + id + ", order_id=" + order_id + ", productName=" + productName + ", productImage=" + productImage + ", productPrice=" + productPrice + ", quantity=" + quantity + '}';
+        return "OrderDetail{" + "id=" + id + ", order_id=" + order_id + ", quantity=" + quantity + '}';
     }
-    
+
+
 }

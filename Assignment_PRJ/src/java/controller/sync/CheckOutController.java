@@ -92,11 +92,30 @@ public class CheckOutController extends HttpServlet {
             Cart cart = entry.getValue();
             totalPrice += cart.getQuantity() * cart.getProduct().getPrice();
         }
+        
+        
         Account account = (Account) session.getAttribute("account");
         Order order = new Order(account.getId(), totalPrice, note, shipping_id);
         int order_id = new OrderDAO().createReturnId(order);
         
+        for (Map.Entry<Integer, Cart> entry : carts.entrySet()) {
+            Integer productId = entry.getKey();
+            Cart cart = entry.getValue();
+            int productID = cart.getProduct().getId();
+            ProductDAO db = new ProductDAO();
+            db.updateProduct(cart.getProduct().getName(),
+                    db.getProductByID(productID).getQuantity() -  cart.getQuantity(), //quantity product - quantity cart
+                    (float)cart.getProduct().getPrice(),
+                    cart.getProduct().getDescription(),
+                    cart.getProduct().getImageURL(),
+                    cart.getProduct().getCreatedDate(), 
+                    cart.getProduct().getSub_id(), 
+                    productID);
+        }
+        
         new OrderDetailDAO().saveCart(order_id, carts);
+        
+        
         
         session.removeAttribute("carts");
         response.sendRedirect("thanks");

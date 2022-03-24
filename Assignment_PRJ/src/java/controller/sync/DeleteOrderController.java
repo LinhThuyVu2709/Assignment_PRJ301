@@ -5,26 +5,19 @@
  */
 package controller.sync;
 
-import dao.AccountDAO;
-import dao.ProductDAO;
-import dao.SubCategoryDAO;
+import dao.OrderDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import model.Account;
-import model.Product;
-import model.SubCategory;
 
 /**
  *
  * @author LinhVT
  */
-public class HomeController extends HttpServlet {
+public class DeleteOrderController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,21 +30,19 @@ public class HomeController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        List<SubCategory> sublistBakeware = new SubCategoryDAO().getSubCategoryByCatID(1);
-        List<SubCategory> sublistIngredient = new SubCategoryDAO().getSubCategoryByCatID(2);
-        HttpSession session = request.getSession();
-        session.setAttribute("sublistBakeware", sublistBakeware);
-        session.setAttribute("sublistIngredient", sublistIngredient);
-        List<Product> listProduct = new ProductDAO().getAllProduct();
-        List<Product> listBakewareProduct = new ProductDAO().getProductByCategoryID(1);
-        List<Product> listIngredientProduct = new ProductDAO().getProductByCategoryID(2);
-        
-        session.setAttribute("URLHistory", "Home");
-        request.setAttribute("listProduct", listProduct);
-        request.setAttribute("listBakewareProduct", listBakewareProduct);
-        request.setAttribute("listIngredientProduct", listIngredientProduct);
-        request.getRequestDispatcher("homepage.jsp").forward(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet DeleteOrderController</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet DeleteOrderController at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -66,7 +57,10 @@ public class HomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        OrderDAO db = new OrderDAO();
+        int orderId = Integer.parseInt(request.getParameter("orderId"));     
+        db.deleteOrder(orderId);
+        response.sendRedirect("order");
     }
 
     /**

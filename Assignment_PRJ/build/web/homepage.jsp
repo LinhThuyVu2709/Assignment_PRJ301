@@ -145,22 +145,34 @@
                         <nav class="header__menu">
                             <ul>
                                 <li class="active"><a href="Home">Home</a></li>
-                                <li><a href="Bakeware">Bakeware</a>
-                                    <ul class="header__menu__dropdown">
-                                        <c:forEach items="${sessionScope.sublistBakeware}" var="b"> 
-                                            <li><a href="filter-bakeware?subB_id=${b.id}">${b.name}</a></li>
-                                            </c:forEach>
-                                    </ul>
-                                </li>
-                                <li><a href="Ingredient">Ingredients</a>
-                                    <ul class="header__menu__dropdown">
-                                        <c:forEach items="${sessionScope.sublistIngredient}" var="i"> 
-                                            <li><a href="filter-ingredient?subI_id=${i.id}">${i.name}</a></li>
-                                            </c:forEach>
-                                    </ul>
-                                </li>
-                                <li><a href="recipe.jsp">Recipes</a></li>
-                                <li><a href="contact.jsp">Contact</a></li>
+
+                                <c:choose>
+                                    <c:when test="${sessionScope.account.role eq 'ADMIN'}">
+                                        <li><a href="order">Order Control</a>
+                                        </li>
+                                        <li><a href="dashboard">Product Control</a>
+                                        </li>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <li><a href="Bakeware">Bakeware</a>
+                                            <ul class="header__menu__dropdown">
+                                                <c:forEach items="${sessionScope.sublistBakeware}" var="b"> 
+                                                    <li><a href="filter-bakeware?subB_id=${b.id}">${b.name}</a></li>
+                                                    </c:forEach>
+                                            </ul>
+                                        </li>
+                                        <li><a href="Ingredient">Ingredients</a>
+                                            <ul class="header__menu__dropdown">
+                                                <c:forEach items="${sessionScope.sublistIngredient}" var="i"> 
+                                                    <li><a href="filter-ingredient?subI_id=${i.id}">${i.name}</a></li>
+                                                    </c:forEach>
+                                            </ul>
+                                        </li>
+                                        <li><a href="recipe.jsp">Recipes</a></li>
+                                        <li><a href="contact.jsp">Contact</a></li>
+                                        </c:otherwise>
+                                    </c:choose>
+
                             </ul>
                         </nav>
                     </div>
@@ -333,6 +345,7 @@
                                 <li><a href="Bakeware">Bakewares</li>
                                 <li><a href="Ingredient">Ingredients</a></li>
                                 <li><a href="Cart">Shopping cart</a></li>
+                                <li><a href="order">Order Control</a></li>
                             </ul>
                             <ul>
                                 <li><a href="recipe.jsp">Recipes</a></li>
@@ -370,7 +383,7 @@
         <script src="js/mixitup.min.js"></script>
         <script src="js/owl.carousel.min.js"></script>
         <script src="js/main.js"></script>
-        
+
 
 
     </body>

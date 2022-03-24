@@ -16,7 +16,7 @@
         <meta name="keywords" content="Ogani, unica, creative, html">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Dashboard</title>
+        <title>Order</title>
 
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
@@ -167,7 +167,8 @@
         </header>
         <!-- Header Section End -->
 
-
+        
+        <!-- Hero Section End -->
 
         <!-- Breadcrumb Section Begin -->
         <section class="breadcrumb-section set-bg" data-setbg="/Assignment_PRJ/img/breadcrumb1.jpg">
@@ -175,7 +176,7 @@
                 <div class="row">
                     <div class="col-lg-12 text-center">
                         <div class="breadcrumb__text">
-                            <h2>Dashboard</h2>
+                            <h2>Orders</h2>
                         </div>
                     </div>
                 </div>
@@ -189,46 +190,40 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="shoping__cart__table">
-                            <a class="btn btn-outline-success" href="CreateProduct" role="button">CREATE NEW PRODUCT</a>
+                            <a class="btn btn-outline-success" href="CreateOrder" role="button">CREATE NEW ORDER</a>
                             <table>
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th class="shoping__product">Products</th>
-                                        <th>Price</th>
-                                        <th>Quantity</th>
+                                        <th>Notes</th>
+                                        <th>Total Price</th>
                                         <th>Created Time</th>
-                                        <th>Description</th>
+                                        <th>By User</th>
                                         <th>Activity</th>
-                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <c:forEach items="${listAllProduct}" var="i">
+                                    <c:forEach items="${listAllOrder}" var="i">
                                         <tr>
                                             <td class="shoping__cart__price">${i.id}</td>
-                                            <td class="shoping__cart__item">
-                                                <img src="/Assignment_PRJ/${i.imageURL}" width="120" height="120" alt="">
-                                                <h5>${i.name}</h5>
+                                            <td class="shoping__cart__price">
+                                                ${i.note}
                                             </td>
                                             <td class="shoping__cart__price">
                                                 <p>
-                                                    <fmt:formatNumber type="number" maxFractionDigits="3" value="${i.price}" />
+                                                    $<fmt:formatNumber type="number" maxFractionDigits="3" value="${i.totalPrice}" />
                                                 </p>
                                             </td>
                                             <td class="shoping__cart__quantity">
-                                                ${i.quantity}
+                                                ${i.created_date}
                                             </td>
                                             <td class="shoping__cart__quantity">
-                                                ${i.createdDate}
-                                            </td>
-                                            <td class="shoping__cart__item">
-                                                <h6>${i.description}</h6>
+                                                ${i.account.displayName}
                                             </td>
                                             <td class="shoping__cart__item__close">
-                                                <a href="DeleteProduct?productId=${i.id}" onclick="if (!(confirm('Do you really want to delete this?')))
+                                                <a href="DeleteOrder?orderId=${i.id}" onclick="if (!(confirm('Do you really want to delete this?')))
                                                             return false"><span class="icon_trash"></span></a>
-                                                <a href="UpdateProduct?productId=${i.id}"><span class="icon_tools"></span></a>
+                                                <a href="UpdateOrder?orderId=${i.id}"><span class="icon_tools"></span></a>
                                             </td>
                                         </tr>
                                     </c:forEach>
@@ -240,66 +235,67 @@
                     </div>
                 </div>
             </div>
-            <!-- Checkout Section End -->
+        </section>
+        <!-- Checkout Section End -->
 
-            <footer class="footer spad">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-6 col-sm-6">
-                            <div class="footer__about">
-                                <div class="footer__about__logo">
-                                    <a href="Home"><img src="/Assignment_PRJ/img/logo.png" alt=""></a>
-                                </div>
-                                <ul>
-                                    <li>Address: 123 Thach That, Ha Noi</li>
-                                    <li>Phone: +84 829899494</li>
-                                    <li>Email: thuylinhmaruko@gmail.com</li>
-                                </ul>
+        <footer class="footer spad">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="footer__about">
+                            <div class="footer__about__logo">
+                                <a href="Home"><img src="/Assignment_PRJ/img/logo.png" alt=""></a>
                             </div>
+                            <ul>
+                                <li>Address: 123 Thach That, Ha Noi</li>
+                                <li>Phone: +84 829899494</li>
+                                <li>Email: thuylinhmaruko@gmail.com</li>
+                            </ul>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
-                            <div class="footer__widget">
-                                <h6>About us</h6>
-                                <ul>
-                                    <li><a href="Bakeware">Bakewares</li>
-                                    <li><a href="Ingredient">Ingredients</a></li>
-                                    <li><a href="Cart">Shopping cart</a></li>
-                                </ul>
-                                <ul>
-                                    <li><a href="recipe.jsp">Recipes</a></li>
-                                    <li><a href="contact.jsp">Contact us</a></li>
-                                    <li><a href="Checkout">Checkout</a></li>
-                                </ul>
-                            </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+                        <div class="footer__widget">
+                            <h6>About us</h6>
+                            <ul>
+                                <li><a href="Bakeware">Bakewares</li>
+                                <li><a href="Ingredient">Ingredients</a></li>
+                                <li><a href="Cart">Shopping cart</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="recipe.jsp">Recipes</a></li>
+                                <li><a href="contact.jsp">Contact us</a></li>
+                                <li><a href="Checkout">Checkout</a></li>
+                            </ul>
                         </div>
-                        <div class="col-lg-4 col-md-12">
-                            <div class="footer__widget">
-                                <h6>Join Our Newsletter Now</h6>
-                                <p>Get E-mail updates about our latest shop and special offers.</p>
-                                <form action="#">
-                                    <input type="text" placeholder="Enter your mail">
-                                    <button type="submit" class="site-btn">Subscribe</button>
-                                </form>
-                                <div class="footer__widget__social">
-                                    <a href="https://www.facebook.com/thuylinh0902.27/"><i class="fa fa-facebook"></i></a>
-                                    <a href="https://www.facebook.com/thuylinh0902.27/"><i class="fa fa-twitter"></i></a>
-                                </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="footer__widget">
+                            <h6>Join Our Newsletter Now</h6>
+                            <p>Get E-mail updates about our latest shop and special offers.</p>
+                            <form action="#">
+                                <input type="text" placeholder="Enter your mail">
+                                <button type="submit" class="site-btn">Subscribe</button>
+                            </form>
+                            <div class="footer__widget__social">
+                                <a href="https://www.facebook.com/thuylinh0902.27/"><i class="fa fa-facebook"></i></a>
+                                <a href="https://www.facebook.com/thuylinh0902.27/"><i class="fa fa-twitter"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </footer>
-            <!-- Footer Section End -->
+            </div>
+        </footer>
+        <!-- Footer Section End -->
 
-            <!-- Js Plugins -->
-            <script src="js/jquery-3.3.1.min.js"></script>
-            <script src="js/bootstrap.min.js"></script>
-            <script src="js/jquery.nice-select.min.js"></script>
-            <script src="js/jquery-ui.min.js"></script>
-            <script src="js/jquery.slicknav.js"></script>
-            <script src="js/mixitup.min.js"></script>
-            <script src="js/owl.carousel.min.js"></script>
-            <script src="js/main.js"></script>
+        <!-- Js Plugins -->
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.nice-select.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script src="js/jquery.slicknav.js"></script>
+        <script src="js/mixitup.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/main.js"></script>
 
 
 

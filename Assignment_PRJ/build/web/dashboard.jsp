@@ -144,22 +144,10 @@
                         <nav class="header__menu">
                             <ul>
                                 <li><a href="Home">Home</a></li>
-                                <li><a href="Bakeware">Bakeware</a>
-                                    <ul class="header__menu__dropdown">
-                                        <c:forEach items="${sessionScope.sublistBakeware}" var="b"> 
-                                            <li><a href="filter-bakeware?subB_id=${b.id}">${b.name}</a></li>
-                                            </c:forEach>
-                                    </ul>
+                                <li><a href="order">Order Control</a>
                                 </li>
-                                <li><a href="Ingredient">Ingredients</a>
-                                    <ul class="header__menu__dropdown">
-                                        <c:forEach items="${sessionScope.sublistIngredient}" var="i"> 
-                                            <li><a href="filter-ingredient?subI_id=${i.id}">${i.name}</a></li>
-                                            </c:forEach>
-                                    </ul>
+                                <li><a href="dashboard">Product Control</a>
                                 </li>
-                                <li><a href="recipe.jsp">Recipes</a></li>
-                                <li><a href="contact.jsp">Contact</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -179,43 +167,7 @@
         </header>
         <!-- Header Section End -->
 
-        <!-- Hero Section Begin -->
-        <section class="hero hero-normal">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3">
-                        <div class="hero__categories">
-                            <div class="hero__categories__all">
-                                <i class="fa fa-bars"></i>
-                                <span>All departments</span>
-                            </div>
-                            <ul>
-                                <c:forEach items="${sessionScope.sublistBakeware}" var="b"> 
-                                    <li><a href="filter-bakeware?subB_id=${b.id}">${b.name}</a></li>
-                                    </c:forEach>
-                                    <c:forEach items="${sessionScope.sublistIngredient}" var="i"> 
-                                    <li><a href="filter-ingredient?subI_id=${i.id}">${i.name}</a></li>
-                                    </c:forEach>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="hero__search">
-                            <div class="hero__search__phone">
-                                <div class="hero__search__phone__icon">
-                                    <i class="fa fa-phone"></i>
-                                </div>
-                                <div class="hero__search__phone__text">
-                                    <h5>+84 829899484</h5>
-                                    <span>support 24/7 time</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Hero Section End -->
+
 
         <!-- Breadcrumb Section Begin -->
         <section class="breadcrumb-section set-bg" data-setbg="/Assignment_PRJ/img/breadcrumb1.jpg">
@@ -245,7 +197,8 @@
                                         <th class="shoping__product">Products</th>
                                         <th>Price</th>
                                         <th>Quantity</th>
-                                        <th>Total</th>
+                                        <th>Created Time</th>
+                                        <th>Description</th>
                                         <th>Activity</th>
                                         <th></th>
                                     </tr>
@@ -266,11 +219,15 @@
                                             <td class="shoping__cart__quantity">
                                                 ${i.quantity}
                                             </td>
+                                            <td class="shoping__cart__quantity">
+                                                ${i.createdDate}
+                                            </td>
                                             <td class="shoping__cart__item">
                                                 <h6>${i.description}</h6>
                                             </td>
                                             <td class="shoping__cart__item__close">
-                                                <a href="DeleteProduct?productId=${i.id}" onclick="if(!(confirm('Do you really want to delete this?'))) return false"><span class="icon_trash"></span></a>
+                                                <a href="DeleteProduct?productId=${i.id}" onclick="if (!(confirm('Do you really want to delete this?')))
+                                                            return false"><span class="icon_trash"></span></a>
                                                 <a href="UpdateProduct?productId=${i.id}"><span class="icon_tools"></span></a>
                                             </td>
                                         </tr>

@@ -16,16 +16,38 @@ public class Order {
     private String note;
     private String created_date;
     private int shipping_id;
+    Account account;
 
     public Order() {
     }
 
+    public Order(int id, int account_id, float totalPrice, String note, String created_date, int shipping_id) {
+        this.id = id;
+        this.account_id = account_id;
+        this.totalPrice = totalPrice;
+        this.note = note;
+        this.created_date = created_date;
+        this.shipping_id = shipping_id;
+    }
+    
+    
     public Order(int account_id, float totalPrice, String note, int shipping_id) {
         this.account_id = account_id;
         this.totalPrice = totalPrice;
         this.note = note;
         this.shipping_id = shipping_id;
     }
+
+    public Order(int id, int account_id, float totalPrice, String note, String created_date, int shipping_id, Account account) {
+        this.id = id;
+        this.account_id = account_id;
+        this.totalPrice = totalPrice;
+        this.note = note;
+        this.created_date = created_date;
+        this.shipping_id = shipping_id;
+        this.account = account;
+    }
+    
 
     public int getId() {
         return id;
@@ -75,10 +97,20 @@ public class Order {
         this.shipping_id = shipping_id;
     }
 
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
     @Override
     public String toString() {
-        return "Order{" + "id=" + id + ", account_id=" + account_id + ", totalPrice=" + totalPrice + ", note=" + note + ", created_date=" + created_date + ", shipping_id=" + shipping_id + '}';
+        return "Order{" + "id=" + id + ", account_id=" + account_id + ", totalPrice=" + totalPrice + ", note=" + note + ", created_date=" + created_date + ", shipping_id=" + shipping_id + ", account=" + account + '}';
     }
+
+    
     
     
 }

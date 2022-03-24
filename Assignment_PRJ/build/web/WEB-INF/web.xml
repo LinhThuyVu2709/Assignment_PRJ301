@@ -80,6 +80,22 @@
         <servlet-name>SignupController</servlet-name>
         <servlet-class>controller.sync.SignupController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>OrderController</servlet-name>
+        <servlet-class>controller.sync.OrderController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreateOrderController</servlet-name>
+        <servlet-class>controller.sync.CreateOrderController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteOrderController</servlet-name>
+        <servlet-class>controller.sync.DeleteOrderController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateOrderController</servlet-name>
+        <servlet-class>controller.sync.UpdateOrderController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/Home</url-pattern>
@@ -164,6 +180,22 @@
     <servlet-mapping>
         <servlet-name>SignupController</servlet-name>
         <url-pattern>/Signup</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderController</servlet-name>
+        <url-pattern>/order</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateOrderController</servlet-name>
+        <url-pattern>/CreateOrder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteOrderController</servlet-name>
+        <url-pattern>/DeleteOrder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateOrderController</servlet-name>
+        <url-pattern>/UpdateOrder</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

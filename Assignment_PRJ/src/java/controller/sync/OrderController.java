@@ -3,28 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller.async;
+package controller.sync;
 
+import dao.OrderDAO;
 import dao.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.List;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import model.Cart;
-import model.Product;
+import model.Order;
 
 /**
  *
  * @author LinhVT
  */
-@WebServlet(name = "AddToCartAsyncController", urlPatterns = {"/add-to-cart-async"})
-public class AddToCartAsyncController extends HttpServlet {
+public class OrderController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,21 +33,10 @@ public class AddToCartAsyncController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int productId = Integer.parseInt(request.getParameter("productId"));
-        HttpSession session = request.getSession();
-        Map<Integer,Cart> carts = (Map<Integer,Cart>) session.getAttribute("carts");
-        if (carts == null) {
-            carts = new LinkedHashMap<>();
-        }
-        if (carts.containsKey(productId)) { //product already in cart
-            int prevQuantity = carts.get(productId).getQuantity();
-            carts.get(productId).setQuantity(prevQuantity+1);
-        } else { //product not yet in cart
-            Product product = new ProductDAO().getProductByID(productId);
-            carts.put(productId, new Cart(product,1));
-        }
-        session.setAttribute("carts", carts);
-        response.getWriter().println(carts.size());
+        OrderDAO orderDAO = new OrderDAO();
+        List<Order> listAllOrder = orderDAO.getAllOrder();
+        request.setAttribute("listAllOrder", listAllOrder);
+        request.getRequestDispatcher("order.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
